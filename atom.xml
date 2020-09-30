@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.g00gle.top</id>
-    <title>Gridea</title>
-    <updated>2020-09-30T00:28:03.616Z</updated>
+    <title>绝地图书馆</title>
+    <updated>2020-09-30T00:43:13.019Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.g00gle.top"/>
     <link rel="self" href="https://blog.g00gle.top/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
     <logo>https://blog.g00gle.top/images/avatar.png</logo>
     <icon>https://blog.g00gle.top/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <rights>All rights reserved 2020, 绝地图书馆</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://blog.g00gle.top/post/hello-gridea/</id>
