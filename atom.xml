@@ -2,11 +2,264 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.g00gle.top</id>
     <title>绝地图书馆</title>
-    <updated>2020-10-04T07:48:14.659Z</updated>
+    <updated>2020-10-04T17:11:38.427Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.g00gle.top"/>
     <link rel="self" href="https://blog.g00gle.top/atom.xml"/>
     <logo>https://blog.g00gle.top/images/avatar.png</logo>
     <icon>https://blog.g00gle.top/favicon.ico</icon>
     <rights>All rights reserved 2020, 绝地图书馆</rights>
+    <entry>
+        <title type="html"><![CDATA[搭建 WordPress 博客教程]]></title>
+        <id>https://blog.g00gle.top/post/da-jian-wordpress-bo-ke-jiao-cheng/</id>
+        <link href="https://blog.g00gle.top/post/da-jian-wordpress-bo-ke-jiao-cheng/">
+        </link>
+        <updated>2018-08-09T17:00:36.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>感谢大佬<a href="https://www.jianshu.com/p/56750622cac9" target="_blank" rel="noopener">静候那一米阳光</a>的大力滋磁。原文链接：<a href="https://www.jianshu.com/p/56750622cac9" target="_blank" rel="noopener">https://www.jianshu.com/p/56750622cac9</a></blockquote>
+&nbsp;
+<p> </p>
+<p>一句话评价WordPress：美观，简单，主题插件丰富，是小白建站的不二选择。</p>
+<h2>需要</h2>
+<ul>
+ 	<li>一台服务器</li>
+ 	<li>一个域名，直接通过ip访问好傻好傻的样子，哈哈。</li>
+ 	<li>linux知识</li>
+ 	<li>肯折腾</li>
+</ul>
+<h2>具体步骤</h2>
+<h3>购买服务器选择Cent OS7 x64系统(本文基于Cent OS7 x64)并用ssh连接工具进行连接</h3>
+<h3>安装nginx，mysql，php</h3>
+建议使用lnmp一键安装包安装，方便快捷。如果不用一键安装包，我估计得研究这一块的东西大概一周吧。下面以一键安装包为例。
+<h4>获取lnmp一键安装包链接</h4>
+<a href="https://lnmp.org/download.html" target="_blank" rel="noopener">lnmp官网下载</a>
+<p>找到下载页面选择最新的复制其链接。</p>
+<p>写此文时最新版本信息如下：</p>
+<pre class="pure-highlightjs"><code class="null">最新稳定版本:
+
+LNMP 1.5
+
+下载版：(不含源码安装包文件，仅有安装脚本及配置文件)
+http://soft.vpser.net/lnmp/lnmp1.5.tar.gz
+文件大小：147KB
+ MD5：78ef49a36150da64f2fac2aea41f9444
+</code></pre>
+<p>其中的<code>http://soft.vpser.net/lnmp/lnmp1.5.tar.gz</code>就是我们需要的链接，复制到剪贴板。如有更新，自行替换版本。</p>
+<h4>安装(以下也需要注意版本)</h4>
+<pre class="pure-highlightjs"><code class="null"># 下载，后边的路径直接粘贴就好。XShell上面复制快捷键是ctrl+insert，粘贴快捷键是Shift+insert，mac上面是我们熟悉的 command+c，command+v
+wget http://soft.vpser.net/lnmp/lnmp1.5.tar.gz
+# 解压
+tar -zxvf lnmp1.5.tar.gz
+# 进入lnmp目录
+cd lnmp1.5
+# 执行install.sh进行安装
+./install.sh
+</code></pre>
+出现如下页面：
+<img class="alignnone size-medium wp-image-58" src="https://tvax3.sinaimg.cn/large/006nES8lgy1gjdsqcnwbej308c05w759.jpg" alt="" width="300" height="212" />
+<p>依次输入你要安装的选项前的数字并回车即可下一步。</p>
+<h5>MySql 选项</h5>
+<pre class="pure-highlightjs"><code class="null">You have 5 options for your DataBase install.
+1: Install MySQL 5.1.73
+2: Install MySQL 5.5.53 (Default)
+3: Install MySQL 5.6.34
+4: Install MySQL 5.7.16
+5: Install MariaDB 5.5.53
+6: Install MariaDB 10.0.28
+7: Install MariaDB 10.1.19
+0: DO NOT Install MySQL/MariaDB
+Enter your choice (1, 2, 3, 4, 5, 6, 7 or 0):
+</code></pre>
+<div>
+<p>此处根据所需选择，如果使用的上述服务器，请选择2或者直接回车。我选择默认。</p>
+<p>注意：安装MySql时，如果选择太高的版本安装会被拒绝，提示信息如下 <code>Memory less than 1GB, can't install MySQL 5.6, 5.7 or MairaDB 10!</code>。根据大佬手动安装MySql5.7的经验来看，此768MB内存的服务器在运行一个nginx，mysql，php时还好，倘若再运行一个tomcat，mysql将会不定期down掉。所以此处选择一个低版本的5.5MySql即可。</p>
+<h1 id="pre-classpure-highlightjscode-classnullyou-will-install-mysql-5553"><pre class="pure-highlightjs"><code class="null">You will install MySQL 5.5.53</h1>
+<p>Please setup root password of MySQL.(Default password: root)<br>
+Please enter:<br>
+</code></pre><br>
+输入密码回车或直接回车，直接回车默认密码为root。此处做实验我选择默认，个人实际使用请修改。</p>
+<h1 id="pre-classpure-highlightjscode-classnullmysql-root-password-root"><pre class="pure-highlightjs"><code class="null">MySQL root password: root</h1>
+<p>Do you want to enable or disable the InnoDB Storage Engine?<br>
+Default enable,Enter your choice [Y/n]:<br>
+</code></pre><br>
+输入Y或者n然后回车或直接回车，直接回车默认启用InnoDB存储引擎。我选择默认。</p>
+<h1 id="pre-classpure-highlightjscode-classnullno-inputthe-innodb-storage-engine-will-enable"><pre class="pure-highlightjs"><code class="null">No input,The InnoDB Storage Engine will enable.</h1>
+<p>You have 6 options for your PHP install.<br>
+1: Install PHP 5.2.17<br>
+2: Install PHP 5.3.29<br>
+3: Install PHP 5.4.45<br>
+4: Install PHP 5.5.38 (Default)<br>
+5: Install PHP 5.6.30<br>
+6: Install PHP 7.0.15<br>
+7: Install PHP 7.1.1<br>
+Enter your choice (1, 2, 3, 4, 5, 6 or 7):<br>
+</code></pre><br>
+输入选项然后回车或者直接回车，直接回车默认安装PHP5.5.38版本。我选择默认。</p>
+<h1 id="pre-classpure-highlightjscode-classnullyou-will-install-php-711"><pre class="pure-highlightjs"><code class="null">You will install PHP 7.1.1</h1>
+<p>You have 3 options for your Memory Allocator install.<br>
+1: Don't install Memory Allocator. (Default)<br>
+2: Install Jemalloc<br>
+3: Install TCMalloc<br>
+</code></pre><br>
+输入选项然后回车或者直接回车，直接回车默认不安装内存分配器。我选择默认。</p>
+<p>此时出现</p>
+<pre class="pure-highlightjs"><code class="null">Press any key to install...or Press Ctrl+c to cancel
+</code></pre>
+<p>当然是摁任意键啦，一般都是回车咯。</p>
+<p>然后出现一大堆信息。前几行如下：</p>
+<pre class="pure-highlightjs"><code class="null">You will install lnmp stack.
+nginx-1.10.3
+mysql-5.5.53
+php-5.5.38
+Enable InnoDB: y
+Print lnmp.conf infomation...
+Download Mirror: http://soft.vpser.net
+Nginx Additional Modules: 
+PHP Additional Modules: 
+Database Directory: /usr/local/mysql/var
+Default Website Directory: /home/wwwroot/default
+CentOS release 6.8 (Final)
+</code></pre>
+<p>这一堆东西你就不用管啦。过程挺久的，期间你去洗个澡看个电视剧都不是问题。然后我们看到屏幕上最后输出的信息如下。</p>
+<pre class="pure-highlightjs"><code class="null">The service command supports only basic LSB actions (start, stop, restart, try-restart, reload, force-reload, status). For other actions, please try to use systemctl.
+Removed symlink /etc/systemd/system/basic.target.wants/firewalld.service.
+Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
+Add Startup and Starting LNMP...
+Add nginx service at system startup...
+Starting nginx...  done
+Add mysql service at system startup...
+Starting MySQL... SUCCESS! 
+Add php-fpm service at system startup...
+Starting php-fpm  done
+============================== Check install ==============================
+Checking ...
+Nginx: OK
+MySQL: OK
+PHP: OK
+PHP-FPM: OK
+Clean src directory...
++------------------------------------------------------------------------+
+|          LNMP V1.4 for CentOS Linux Server, Written by Licess          |
++------------------------------------------------------------------------+
+|           For more information please visit https://lnmp.org           |
++------------------------------------------------------------------------+
+|    lnmp status manage: lnmp {start|stop|reload|restart|kill|status}    |
++------------------------------------------------------------------------+
+|  phpMyAdmin: http://IP/phpmyadmin/                                     |
+|  phpinfo: http://IP/phpinfo.php                                        |
+|  Prober:  http://IP/p.php                                              |
++------------------------------------------------------------------------+
+|  Add VirtualHost: lnmp vhost add                                       |
++------------------------------------------------------------------------+
+|  Default directory: /home/wwwroot/default                              |
++------------------------------------------------------------------------+
+|  MySQL/MariaDB root password: root                          |
++------------------------------------------------------------------------+
++-------------------------------------------+
+|    Manager for LNMP, Written by Licess    |
++-------------------------------------------+
+|              https://lnmp.org             |
++-------------------------------------------+
+nginx (pid 715 713) is running...
+php-fpm is runing!
+ SUCCESS! MySQL running (1247)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     
+tcp6       0      0 :::22                   :::*                    LISTEN     
+Install lnmp V1.4 completed! enjoy it.
+</code></pre>
+<p>简单说明一下，此安装过程安装完成便也启动了nginx，mysql，php-fpm并加入了开机启动项。如果重启服务器，不需要再单独手动开启相关的服务了。总的来说相当方便的。</p>
+<p>这时候你在浏览器输入<code>http://IP</code> 便可以访问了。看到的内容如下：</p>
+<img class="alignnone size-medium wp-image-59" src="https://tva4.sinaimg.cn/large/006nES8lgy1gjdsrj5yvcj308c030gm1.jpg" alt="" width="300" height="108" />
+<div>
+<p>网站根目录路径<code>/home/wwwroot/default</code>,如果只用来放一些静态页面，那么，现在就足够了，直接将你的html，js，css等文件丢进去即可。这不是本文重点，在此不赘述了。</p>
+<p>退出使用<code>ctrl+c</code></p>
+<h3>安装WordPress</h3>
+<h4>下载WordPress包</h4>
+<a href="https://cn.wordpress.org" target="_blank" rel="nofollow noopener">中文官方站点</a> <a href="https://wordpress.org" target="_blank" rel="nofollow noopener">英文官方站点</a>具体的根据自己的需求选择。下面以中文版为例。当前最新版本是4.9.4(如果更新注意替换版本)
+<p>为了方便，我们还是在用站点默认的路径，但是我们投机取巧一下。</p>
+<pre class="pure-highlightjs"><code class="null"># 进入根目录上一级目录
+cd /home/wwwroot/
+# 将default重命名为old
+mv default old
+# 下载WordPress包中文版
+wget https://cn.wordpress.org/wordpress-4.9.4-zh_CN.tar.gz
+# 解压WordPress包
+tar -zxvf wordpress-4.9.4-zh_CN.tar.gz 
+# 查看解压后的文件夹名，此处是wordpress，估计应该都是吧，看看保险啊
+[root@vultr wwwroot]# ls
+old  wordpress  wordpress-4.9.4-zh_CN.tar.gz
+# 将wordpress重命名为default
+mv wordpress default
+# 再次查看检验
+[root@vultr wwwroot]# ls
+default  old  wordpress-4.9.4-zh_CN.tar.gz
+</code></pre>
+<h4>给相应目录授权</h4>
+<pre class="pure-highlightjs"><code class="null"># 目录以及目录下的文件授权
+[root@vultr wwwroot]# chown -R 755 /home/wwwroot
+chown: changing ownership of ‘/home/wwwroot/old/.user.ini’: Operation not permitted
+# 将目录的所有者分给www组下的www用户。
+[root@vultr wwwroot]# chown -R www:www /home/wwwroot/
+chown: changing ownership of ‘/home/wwwroot/old/.user.ini’: Operation not permitted
+</code></pre>
+出现的提示大概是说有一个文件无法更改用户分组和权限。不会影响你的wordpress，忽略就好。
+<h4>创建一个数据库wordpress</h4>
+<pre class="pure-highlightjs"><code class="null"># 登录数据库
+mysql -u root -p
+# 输入密码
+默认的话就是root，否则就是你自己之前设置的那个
+# 登录进来之后，看到这样一些东西
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.5.53-log Source distribution
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+mysql&gt; 
+# 不用理会上面的，创建我们的数据库，比如名字为wordpress。记得加分号。
+mysql&gt; create database wordpress;
+# 看一下，有没有我们创建的数据库
+mysql&gt; show databases;
+# 大概看到如下内容。意味着这一步也没问题。
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| wordpress          |
++--------------------+
+4 rows in set (0.01 sec)
+# 退出mysql
+exit
+</code></pre>
+<div>
+<h4>配置WordPress</h4>
+这时候在此通过浏览器访问 <code>http://IP</code> ，浏览器将自动跳转到<code>http://IP/wp-admin/setup-config.php</code>，这就是wordpress的配置页面了，看到的内容如下：
+<img class="alignnone size-medium wp-image-60" src="https://tvax2.sinaimg.cn/large/006nES8lgy1gjdss5d5e1j308c064q3l.jpg" alt="" width="300" height="220" />
+<p>点击现在就开始。这时候我们看到如下页面:<img class="alignnone size-medium wp-image-61" src="https://tva4.sinaimg.cn/large/006nES8lgy1gjdssjzk3vj308c05wt94.jpg" alt="" width="300" height="212" /></p>
+<p>按照之前设置的，输入如下信息。</p>
+<pre class="pure-highlightjs"><code class="null">数据库名：wordpress
+用户名：root
+密码：root
+数据库主机：localhost
+表前缀：wp_
+</code></pre>
+<p>点击提交。</p>
+<img class="alignnone size-medium wp-image-62" src="https://tva1.sinaimg.cn/large/006nES8lgy1gjdsveu4afj308c02wwei.jpg" alt="" width="300" height="104" />
+<p>到这一步，基本上就意味着大功告成了，因为后边基本不会出错啦。</p>
+<p>点击进行安装按钮。出现下图：</p>
+<img class="alignnone size-medium wp-image-63" src="https://tvax3.sinaimg.cn/large/006nES8lgy1gjdsurbupaj307o08c75b.jpg" alt="" width="276" height="300" />
+<p>按照自己的需求填写。</p>
+<p>点击安装WordPress按钮，然后登录设置啥的纯页面操作就不在这里过多介绍咯。</p>
+<p><strong>安装完成，本文结束</strong></p>
+</div>
+</div>
+</div>]]></content>
+    </entry>
 </feed>
