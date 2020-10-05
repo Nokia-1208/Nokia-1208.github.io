@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
 <title>绝地图书馆</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1601891472001">
+<link rel="shortcut icon" href="/favicon.ico?v=1601892232545">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -171,19 +171,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">2</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">2</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -221,8 +221,8 @@
         <div class="section-box box-shadow-wrapper">
           <section class="section tags-section bg-color posts-expand">
             <div class="tags-box">
-  <div class="tag-cloud-title language" data-lan="cloud-tags" data-count="2">
-    目前共计 2 个标签
+  <div class="tag-cloud-title language" data-lan="cloud-tags" data-count="5">
+    目前共计 5 个标签
   </div>
   <div class="tag-cloud-list" id="tags">
     
@@ -235,12 +235,108 @@
         
           
         
+          
+        
+          
+        
+      
+        
+          
+            
+      
+        
+          
+        
       
         
       
-      <a class="cloud-tag" href="https://blog.g00gle.top/tag/Pozq8uxG9/" rel="1">图形界面</a>
+      <a class="cloud-tag" href="https://blog.g00gle.top/tag/Pozq8uxG9/" rel="2">图形界面</a>
     
       
+      
+        
+          
+        
+      
+        
+          
+            
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+      <a class="cloud-tag" href="https://blog.g00gle.top/tag/qEaNNiKC4/" rel="1">下载</a>
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+          
+            
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+      <a class="cloud-tag" href="https://blog.g00gle.top/tag/71c3VXrH4y/" rel="1">PT</a>
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+            
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+      <a class="cloud-tag" href="https://blog.g00gle.top/tag/ry-lCUXFdO/" rel="1">BT</a>
+    
+      
+      
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
       
         
           
@@ -519,6 +615,152 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://blog.g00gle.top/post/ubuntu-1604-xia-an-zhuang-vnc-he-unity-zhuo-mian-xi-tong/"" data-c="
+          &lt;blockquote&gt;感谢&lt;a href=&#34;https://www.vmvps.com/installing-vnc-and-unity-desktop-system-under-ubuntu-16-04-on-vps.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;微魔&lt;/a&gt;大佬的大力滋磁，原文链接：&lt;a href=&#34;https://www.vmvps.com/installing-vnc-and-unity-desktop-system-under-ubuntu-16-04-on-vps.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.vmvps.com/installing-vnc-and-unity-desktop-system-under-ubuntu-16-04-on-vps.html&lt;/a&gt;&lt;/blockquote&gt;
+&lt;h3&gt;Ubuntu 16.04下安装VNC和Unity桌面系统&lt;/h3&gt;
+0.更新系统
+&lt;pre&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade&lt;/pre&gt;
+1.安装桌面套件
+&lt;pre&gt;sudo apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal firefox&lt;/pre&gt;
+&lt;pre&gt;sudo apt-get install vnc4server&lt;/pre&gt;
+2.开启vncserver，会提示输入密码（最长8位）
+&lt;pre&gt;vncserver :1&lt;/pre&gt;
+&lt;p class=&#34;notice_box&#34;&gt;这时候如果你连接会发现是一片灰色，需要修改一下视窗系统的启动文件&lt;/p&gt;
+3.关闭vncserver
+&lt;pre&gt;vncserver -kill :1&lt;/pre&gt;
+4.修改~/.vnc/xstartup文件，主要是追加下面的红字部分
+&lt;pre&gt;#!/bin/sh
+&lt;p&gt;# Uncomment the following two lines for normal desktop:&lt;br&gt;
+# unset SESSION_MANAGER&lt;br&gt;
+# exec /etc/X11/xinit/xinitrc&lt;/p&gt;
+&lt;p&gt;[ -x /etc/vnc/xstartup ] &amp;amp;&amp;amp; exec /etc/vnc/xstartup&lt;br&gt;
+[ -r $HOME/.Xresources ] &amp;amp;&amp;amp; xrdb &lt;span class=&#39;katex-error&#39; title=&#39;ParseError: KaTeX parse error: Expected &amp;#039;EOF&amp;#039;, got &amp;#039;&amp;amp;&amp;#039; at position 57: …config -iconic &amp;amp;̲amp;
+x-terminal…&#39;&gt;HOME/.Xresources
+xsetroot -solid grey
+vncconfig -iconic &amp;amp;amp;
+x-terminal-emulator -geometry 80x24+10+10 -ls -title &amp;quot;&lt;/span&gt;VNCDESKTOP Desktop&amp;quot; &amp;amp;&lt;br&gt;
+x-window-manager &amp;amp;&lt;/p&gt;
+&lt;p&gt;gnome-panel &amp;amp;&lt;br&gt;
+gnome-settings-daemon &amp;amp;&lt;br&gt;
+metacity &amp;amp;&lt;br&gt;
+nautilus &amp;amp;&lt;/pre&gt;&lt;br&gt;
+5.开启vncserver&lt;/p&gt;
+&lt;pre&gt;vncserver :1&lt;/pre&gt;
+&lt;p&gt;连接vnc的方法：&lt;/p&gt;
+&lt;p&gt;6.使用VNC Viewer（强烈建议去官方下载），连接地址为ip：5901&lt;/p&gt;
+&lt;p&gt;7.开启VNCServer的自启动，运行crontab -e，加入如下命令，以后重启就会自动运行vncserver了&lt;/p&gt;
+&lt;pre&gt;@reboot /usr/bin/vncserver :1&lt;/pre&gt;">Ubuntu 16.04下安装VNC和Unity桌面系统</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://blog.g00gle.top/post/lao-si-ji-zuo-qi-btpt-he-zi-an-zhuang-jian-ming-jiao-cheng/"" data-c="
+          &lt;blockquote&gt;感谢&lt;a href=&#34;https://www.mengclaw.com/2018/05/29/77/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WolfSkylake&lt;/a&gt;大佬的大力滋磁，原文链接：&lt;a href=&#34;https://www.mengclaw.com/2018/05/29/77/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.mengclaw.com/2018/05/29/77/&lt;/a&gt;&lt;/blockquote&gt;
+说到云端下载器，就不得不提大名鼎鼎的Aria2了，他支持磁力，BT，以及直链的下载。但是有利就有弊，Aria2不是标准的PT/BT客户端，在很多PT站无法正常下载和上传，更有甚者，会判定是在作弊，严重者封号处理的下场。为了解决这个尴尬的局面，我们就要请上我们今天的主角——rTorrent。
+&lt;p&gt;rTorrent 是一个非常简洁、优秀、非常轻量的BT客户端. 它使用了 ncurses 库以 C++ 编写, 因此它完全基于文本并在终端中运行. 将 rTorrent 用在安装有 GNU Screen 和 Secure Shell 的低端系统上作为远程的 BT 客户端是非常理想的。&lt;/p&gt;
+&lt;p&gt;本教程为了简化步骤，将采用&lt;a href=&#34;https://github.com/arakasi72/rtinst&#34;&gt;rtinst脚本&lt;/a&gt;① 进行安装。为了防止不必要的意外，请以root账户登陆服务器。&lt;/p&gt;
+&lt;p&gt;前提条件：&lt;br&gt;
+1、服务器系统：全新安装的 Ubuntu14+ / Debian8+（不兼容CentOS）&lt;br&gt;
+2、服务器内存：≥512MB&lt;br&gt;
+3、服务器磁盘：≥20GB（太小将会带来糟糕的体验）&lt;br&gt;
+4、虚拟化架构：KVM、Hyper-V、OpenVZ&lt;/p&gt;
+&lt;p&gt;1、防止系统过于精简，先更新系统软件源 ：&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;apt-get update -y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;2、安装常规依赖组件，防止出现 xxxx: command not found 的错误&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;apt-get install -y wget curl git vim unzip unrar-free
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;3、下载一键安装程序&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;bash -c &#34;$(wget --no-check-certificate -qO - https://raw.githubusercontent.com/arakasi72/rtinst/master/rtsetup)&#34;
+ 
+# 下载安装包并且初始化软件环境
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;4、运行主脚本&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;rtinst -t
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装一开始，会提示：&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;Your Server IP is *.*.*.*
+Is this correct y/n? 
+ 
+# 这个时候，你需要输入“y”，并按回车键继续
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后他会要求你新建一个账户，用于搭建rTorrent，搭建后请&lt;strong&gt;使用新用户&lt;/strong&gt;登陆SSH：&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;Enter user name: mengclaw
+# 请键入新的用户名 比如 mengclaw
+ 
+Confirm that user name is mengclaw y/n? y
+# 确认你的用户名 输入y后，按回车键继续
+ 
+Adding user `mengclaw&#39; ...
+Adding new group `mengclaw&#39; (1000) ...
+Adding new user `mengclaw&#39; (1000) with group `mengclaw&#39; ...
+Creating home directory `/home/mengclaw&#39; ...
+Copying files from `/etc/skel&#39; ...
+ 
+Enter new UNIX password: mengclaw.com
+# 请输入新账户密码 比如 mengclaw.com（建议自定义一个）
+ 
+Retype new UNIX password: mengclaw.com
+# 再次输入新账户密码 比如 mengclaw.com（建议自定义一个）
+ 
+passwd: password updated successfully
+Set Password for RuTorrent web client
+Enter a password (6+ chars)
+or leave blank to generate a random one
+ 
+Please enter the new password: mengclaw.com
+# 请输入新账户密码 （为了防止忘记密码，建议使用和上面一样的密码）
+ 
+Enter the new password again: mengclaw.com
+# 再次输入新账户密码 （为了防止忘记密码，建议使用和上面一样的密码）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;最后出现这样的提示就说明安装并启动成功：&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;Thank You for choosing rtinst
+ 
+# 感谢您选择rtinst
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;5、更新NGINX配置&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;# 以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！
+ 
+echo &#34;server {
+        listen 80;
+        root /var/www;
+        index index.html index.php index.htm;
+        client_max_body_size 40m;
+        location / {
+               try_files $uri $uri/ =404;
+        }
+        location /rutorrent {
+               client_max_body_size 40m;
+               auth_basic &#34;Restricted&#34;;
+               auth_basic_user_file /etc/nginx/.htpasswd;
+               include /etc/nginx/conf.d/php;
+               include /etc/nginx/conf.d/cache;
+        }
+        location ~ /\.ht {
+                deny all;
+        }
+        location /rtdown {
+               auth_basic &#34;Restricted&#34;;      #密码提示字段，可任意设置
+               auth_basic_user_file /etc/nginx/.htpasswd;  #如果不需要访问密码，删掉此行和上一行即可
+               alias /home/mengclaw/rtorrent/download;    #这是rt默认存储位置，当然你也可以换成别的的
+               autoindex on;  #启用文件管理
+               charset utf-8,gbk;  # 避免中文乱码
+        }
+}&#34; &amp;gt; /etc/nginx/sites-enabled/default
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;6、重启NGINX&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;service nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;7、rTorrent 使用说明&lt;br&gt;
+访问WEB-UI进行下载：http://盒子IP/rutorrent&lt;br&gt;
+服务器文件拖回本地：http://盒子IP/rtdown&lt;/p&gt;
+&lt;p&gt;如果提示身份验证，账号为前面设置的用户名和密码&lt;/p&gt;
+&lt;p&gt;①Rtinst脚本，由arakasi72创建并且维护，详见：&lt;a href=&#34;https://github.com/arakasi72/rtinst&#34;&gt;GitHub-Rtinst&lt;/a&gt;&lt;/p&gt;
+">老司机坐骑——BT/PT盒子安装简明教程</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://blog.g00gle.top/post/linux-zhuo-mian-shi-zhan-gui-tu-xing-hua-jie-mian-an-zhuang-jiao-cheng/"" data-c="

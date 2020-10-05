@@ -2,13 +2,165 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.g00gle.top</id>
     <title>绝地图书馆</title>
-    <updated>2020-10-05T09:51:15.675Z</updated>
+    <updated>2020-10-05T10:03:56.066Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.g00gle.top"/>
     <link rel="self" href="https://blog.g00gle.top/atom.xml"/>
     <logo>https://blog.g00gle.top/images/avatar.png</logo>
     <icon>https://blog.g00gle.top/favicon.ico</icon>
     <rights>All rights reserved 2020, 绝地图书馆</rights>
+    <entry>
+        <title type="html"><![CDATA[Ubuntu 16.04下安装VNC和Unity桌面系统]]></title>
+        <id>https://blog.g00gle.top/post/ubuntu-1604-xia-an-zhuang-vnc-he-unity-zhuo-mian-xi-tong/</id>
+        <link href="https://blog.g00gle.top/post/ubuntu-1604-xia-an-zhuang-vnc-he-unity-zhuo-mian-xi-tong/">
+        </link>
+        <updated>2018-08-14T11:54:58.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>感谢<a href="https://www.vmvps.com/installing-vnc-and-unity-desktop-system-under-ubuntu-16-04-on-vps.html" target="_blank" rel="noopener">微魔</a>大佬的大力滋磁，原文链接：<a href="https://www.vmvps.com/installing-vnc-and-unity-desktop-system-under-ubuntu-16-04-on-vps.html" target="_blank" rel="noopener">https://www.vmvps.com/installing-vnc-and-unity-desktop-system-under-ubuntu-16-04-on-vps.html</a></blockquote>
+<h3>Ubuntu 16.04下安装VNC和Unity桌面系统</h3>
+0.更新系统
+<pre>sudo apt-get update &amp;&amp; sudo apt-get upgrade</pre>
+1.安装桌面套件
+<pre>sudo apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal firefox</pre>
+<pre>sudo apt-get install vnc4server</pre>
+2.开启vncserver，会提示输入密码（最长8位）
+<pre>vncserver :1</pre>
+<p class="notice_box">这时候如果你连接会发现是一片灰色，需要修改一下视窗系统的启动文件</p>
+3.关闭vncserver
+<pre>vncserver -kill :1</pre>
+4.修改~/.vnc/xstartup文件，主要是追加下面的红字部分
+<pre>#!/bin/sh
+<p># Uncomment the following two lines for normal desktop:<br>
+# unset SESSION_MANAGER<br>
+# exec /etc/X11/xinit/xinitrc</p>
+<p>[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup<br>
+[ -r $HOME/.Xresources ] &amp;&amp; xrdb <span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;&amp;&#039; at position 57: …config -iconic &amp;̲amp;
+x-terminal…'>HOME/.Xresources
+xsetroot -solid grey
+vncconfig -iconic &amp;amp;
+x-terminal-emulator -geometry 80x24+10+10 -ls -title &quot;</span>VNCDESKTOP Desktop&quot; &amp;<br>
+x-window-manager &amp;</p>
+<p>gnome-panel &amp;<br>
+gnome-settings-daemon &amp;<br>
+metacity &amp;<br>
+nautilus &amp;</pre><br>
+5.开启vncserver</p>
+<pre>vncserver :1</pre>
+<p>连接vnc的方法：</p>
+<p>6.使用VNC Viewer（强烈建议去官方下载），连接地址为ip：5901</p>
+<p>7.开启VNCServer的自启动，运行crontab -e，加入如下命令，以后重启就会自动运行vncserver了</p>
+<pre>@reboot /usr/bin/vncserver :1</pre>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[老司机坐骑——BT/PT盒子安装简明教程]]></title>
+        <id>https://blog.g00gle.top/post/lao-si-ji-zuo-qi-btpt-he-zi-an-zhuang-jian-ming-jiao-cheng/</id>
+        <link href="https://blog.g00gle.top/post/lao-si-ji-zuo-qi-btpt-he-zi-an-zhuang-jian-ming-jiao-cheng/">
+        </link>
+        <updated>2018-08-14T07:05:44.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>感谢<a href="https://www.mengclaw.com/2018/05/29/77/" target="_blank" rel="noopener">WolfSkylake</a>大佬的大力滋磁，原文链接：<a href="https://www.mengclaw.com/2018/05/29/77/" target="_blank" rel="noopener">https://www.mengclaw.com/2018/05/29/77/</a></blockquote>
+说到云端下载器，就不得不提大名鼎鼎的Aria2了，他支持磁力，BT，以及直链的下载。但是有利就有弊，Aria2不是标准的PT/BT客户端，在很多PT站无法正常下载和上传，更有甚者，会判定是在作弊，严重者封号处理的下场。为了解决这个尴尬的局面，我们就要请上我们今天的主角——rTorrent。
+<p>rTorrent 是一个非常简洁、优秀、非常轻量的BT客户端. 它使用了 ncurses 库以 C++ 编写, 因此它完全基于文本并在终端中运行. 将 rTorrent 用在安装有 GNU Screen 和 Secure Shell 的低端系统上作为远程的 BT 客户端是非常理想的。</p>
+<p>本教程为了简化步骤，将采用<a href="https://github.com/arakasi72/rtinst">rtinst脚本</a>① 进行安装。为了防止不必要的意外，请以root账户登陆服务器。</p>
+<p>前提条件：<br>
+1、服务器系统：全新安装的 Ubuntu14+ / Debian8+（不兼容CentOS）<br>
+2、服务器内存：≥512MB<br>
+3、服务器磁盘：≥20GB（太小将会带来糟糕的体验）<br>
+4、虚拟化架构：KVM、Hyper-V、OpenVZ</p>
+<p>1、防止系统过于精简，先更新系统软件源 ：</p>
+<pre class="pure-highlightjs"><code class="null">apt-get update -y
+</code></pre>
+<p>2、安装常规依赖组件，防止出现 xxxx: command not found 的错误</p>
+<pre class="pure-highlightjs"><code class="null">apt-get install -y wget curl git vim unzip unrar-free
+</code></pre>
+<p>3、下载一键安装程序</p>
+<pre class="pure-highlightjs"><code class="null">bash -c "$(wget --no-check-certificate -qO - https://raw.githubusercontent.com/arakasi72/rtinst/master/rtsetup)"
+ 
+# 下载安装包并且初始化软件环境
+</code></pre>
+<p>4、运行主脚本</p>
+<pre class="pure-highlightjs"><code class="null">rtinst -t
+</code></pre>
+<p>安装一开始，会提示：</p>
+<pre class="pure-highlightjs"><code class="null">Your Server IP is *.*.*.*
+Is this correct y/n? 
+ 
+# 这个时候，你需要输入“y”，并按回车键继续
+</code></pre>
+<p>然后他会要求你新建一个账户，用于搭建rTorrent，搭建后请<strong>使用新用户</strong>登陆SSH：</p>
+<pre class="pure-highlightjs"><code class="null">Enter user name: mengclaw
+# 请键入新的用户名 比如 mengclaw
+ 
+Confirm that user name is mengclaw y/n? y
+# 确认你的用户名 输入y后，按回车键继续
+ 
+Adding user `mengclaw' ...
+Adding new group `mengclaw' (1000) ...
+Adding new user `mengclaw' (1000) with group `mengclaw' ...
+Creating home directory `/home/mengclaw' ...
+Copying files from `/etc/skel' ...
+ 
+Enter new UNIX password: mengclaw.com
+# 请输入新账户密码 比如 mengclaw.com（建议自定义一个）
+ 
+Retype new UNIX password: mengclaw.com
+# 再次输入新账户密码 比如 mengclaw.com（建议自定义一个）
+ 
+passwd: password updated successfully
+Set Password for RuTorrent web client
+Enter a password (6+ chars)
+or leave blank to generate a random one
+ 
+Please enter the new password: mengclaw.com
+# 请输入新账户密码 （为了防止忘记密码，建议使用和上面一样的密码）
+ 
+Enter the new password again: mengclaw.com
+# 再次输入新账户密码 （为了防止忘记密码，建议使用和上面一样的密码）
+</code></pre>
+<p>最后出现这样的提示就说明安装并启动成功：</p>
+<pre class="pure-highlightjs"><code class="null">Thank You for choosing rtinst
+ 
+# 感谢您选择rtinst
+</code></pre>
+<p>5、更新NGINX配置</p>
+<pre class="pure-highlightjs"><code class="null"># 以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！
+ 
+echo "server {
+        listen 80;
+        root /var/www;
+        index index.html index.php index.htm;
+        client_max_body_size 40m;
+        location / {
+               try_files $uri $uri/ =404;
+        }
+        location /rutorrent {
+               client_max_body_size 40m;
+               auth_basic "Restricted";
+               auth_basic_user_file /etc/nginx/.htpasswd;
+               include /etc/nginx/conf.d/php;
+               include /etc/nginx/conf.d/cache;
+        }
+        location ~ /\.ht {
+                deny all;
+        }
+        location /rtdown {
+               auth_basic "Restricted";      #密码提示字段，可任意设置
+               auth_basic_user_file /etc/nginx/.htpasswd;  #如果不需要访问密码，删掉此行和上一行即可
+               alias /home/mengclaw/rtorrent/download;    #这是rt默认存储位置，当然你也可以换成别的的
+               autoindex on;  #启用文件管理
+               charset utf-8,gbk;  # 避免中文乱码
+        }
+}" &gt; /etc/nginx/sites-enabled/default
+</code></pre>
+<p> </p>
+<p>6、重启NGINX</p>
+<pre class="pure-highlightjs"><code class="null">service nginx restart
+</code></pre>
+<p>7、rTorrent 使用说明<br>
+访问WEB-UI进行下载：http://盒子IP/rutorrent<br>
+服务器文件拖回本地：http://盒子IP/rtdown</p>
+<p>如果提示身份验证，账号为前面设置的用户名和密码</p>
+<p>①Rtinst脚本，由arakasi72创建并且维护，详见：<a href="https://github.com/arakasi72/rtinst">GitHub-Rtinst</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Linux桌面实战——GUI图形化界面安装教程]]></title>
         <id>https://blog.g00gle.top/post/linux-zhuo-mian-shi-zhan-gui-tu-xing-hua-jie-mian-an-zhuang-jiao-cheng/</id>
