@@ -2,13 +2,169 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.g00gle.top</id>
     <title>绝地图书馆</title>
-    <updated>2020-10-05T10:03:56.066Z</updated>
+    <updated>2020-10-05T10:49:55.903Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.g00gle.top"/>
     <link rel="self" href="https://blog.g00gle.top/atom.xml"/>
     <logo>https://blog.g00gle.top/images/avatar.png</logo>
     <icon>https://blog.g00gle.top/favicon.ico</icon>
     <rights>All rights reserved 2020, 绝地图书馆</rights>
+    <entry>
+        <title type="html"><![CDATA[CentOS搭建xfce桌面+VNC教程]]></title>
+        <id>https://blog.g00gle.top/post/centos-da-jian-xfce-zhuo-mian-vnc-jiao-cheng/</id>
+        <link href="https://blog.g00gle.top/post/centos-da-jian-xfce-zhuo-mian-vnc-jiao-cheng/">
+        </link>
+        <updated>2018-08-15T10:41:42.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>感谢<a href="https://www.vmvps.com/centos-install-xfce-and-vnc-tutorial.html">微魔</a>大佬大力滋磁，原文链接：<a href="https://www.vmvps.com/centos-install-xfce-and-vnc-tutorial.html" target="_blank" rel="noopener">https://www.vmvps.com/centos-install-xfce-and-vnc-tutorial.html</a></blockquote>
+本文将简单带领大家在Linux VPS上安装桌面系统Xfce，并使用VNC对其进行图形界面的使用与管理。<span id="more-1549"></span>
+<p class="info_box"><strong>Xfce</strong>与KDE，Gnome一样，都是可视化的桌面前端，其特点是占用资源更小。根据网上言论，资源占用情况大致为Xfce&lt;KDE&lt;Gnome。（具体情况与版本相关，不具备绝对的对比性）</p>
+<p class="notice_box">本文Linux为CentOS 5，所安装Xfce为4.4，还将涉及VNC server，Firefox以及Flash player的安装（挂机？呵呵）。（已在BuyVM 256M OpenVZ下测试通过）</p>
+<h3>一、安装Xfce 4.4</h3>
+<pre class="pure-highlightjs"><code class="null">yum groupinstall xfce-4.4
+</code></pre>
+&nbsp;
+<p>也可通过<code class="null">yum grouplist<br>
+</code>命令查阅是否存在新的可用版本，替换4.4</p>
+<h3>二、安装VNC</h3>
+<p class="ssh"><code class="null">yum install vnc vnc-server
+</code>
+<p> </p>
+<p class="warning_box">2013-3-18更新：由于CentOS 6采用的是TigerVNC，所以，CentOS 6用户请使用<code class="null">yum install tigervnc tigervnc-server
+</code>替代上面的命令！
+<h3>三、配置VNC</h3>
+<strong>1.修改配置文件</strong>
+<p class="ssh"><code class="null">vi /etc/sysconfig/vncservers
+</code>
+<p> </p>
+<p>加入以下内容：</p>
+<pre>VNCSERVERS="1:root"
+VNCSERVERARGS[1]="-geometry 800x600"</pre>
+<p><strong>2.设置VNC密码</strong></p>
+<pre class="pure-highlightjs"><code class="null">vncpasswd
+</code></pre>
+<p> </p>
+<p><strong>3.启动VNC服务</strong>（很多朋友在使用DirectSpace默认的桌面VNC的时候，遇到无法连接“10061错误”，即可在ssh下输入下面命令解决！）</p>
+<pre class="pure-highlightjs"><code class="null">vncserver
+</code></pre>
+<p> </p>
+<p><strong>4.修改vnc文件</strong></p>
+<pre class="pure-highlightjs"><code class="null">vi /root/.vnc/xstartup
+</code></pre>
+<p>将文件内容替换为以下内容</p>
+<pre class="pure-highlightjs"><code class="null">#!/bin/sh
+/usr/bin/startxfce4
+</code></pre>
+<p> </p>
+<p><strong>5.设置vnc权限</strong></p>
+<pre class="pure-highlightjs"><code class="null">chmod +x ~/.vnc/xstartup
+</code></pre>
+<p><strong>6.重启VNC服务</strong></p>
+<p class="ssh"><code class="null">service vncserver restart
+</code>
+<p><strong>7.设置VNC开机启动</strong></p>
+<pre class="pure-highlightjs"><code class="null">chkconfig vncserver on
+</code></pre>
+<p> </p>
+<h3>四、系统优化</h3>
+<p class="warning_box">2013-3-18更新：在一些minimal系统里，即使英文也会出现方框乱码，请使用本处命令修正：</p>
+<pre class="pure-highlightjs"><code class="null">yum -y install fontforge
+</code></pre>
+<p> </p>
+<p><strong>1.安装中文语言支持</strong>（安装中文字体，解决访问中文网站乱码问题）</p>
+<pre class="pure-highlightjs"><code class="null">yum -y install fonts-chinese
+</code></pre>
+<p><strong>2.安装Firefox火狐浏览器</strong></p>
+<pre class="pure-highlightjs"><code class="null">yum -y install firefox
+</code></pre>
+<p> </p>
+<p><strong>3.安装Firefox的flash player插件</strong></p>
+<p>重新启动VPS，使用VNC连接（VNC Viewer等软件）</p>
+<p>连接方法：你的ip:1</p>
+<ul>
+ 	<li>使用firefox访问www.adobe.com，点击Get Flash Player</li>
+ 	<li>下载rpm包</li>
+ 	<li>在rpm文件所在文件夹右键，进入终端（Open Terminal Here），使用rpm -ivh flash-plugin-*.rpm进行安装。</li>
+ 	<li>在firefox的地址栏输入about:plugins查看是否安装成功~</li>
+</ul>
+<p class="warning_box">由于图形前端占用资源较大（512M以上为宜，突发亦可），不适宜做生产环境，玩过且过~</p>
+本文相当的内容参考了网友<em>幽月·乱花</em>的教程（<a href="http://www.moonflower.me/geekotaku/20111102-387.html" target="_blank" rel="external nofollow noopener">查看原文</a>）。]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ubuntu下的xfce桌面系统安装与VNC远程连接]]></title>
+        <id>https://blog.g00gle.top/post/ubuntu-xia-de-xfce-zhuo-mian-xi-tong-an-zhuang-yu-vnc-yuan-cheng-lian-jie/</id>
+        <link href="https://blog.g00gle.top/post/ubuntu-xia-de-xfce-zhuo-mian-xi-tong-an-zhuang-yu-vnc-yuan-cheng-lian-jie/">
+        </link>
+        <updated>2018-08-15T01:37:29.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>感谢<a href="https://www.vmvps.com/installing-vnc-and-xfce-desktop-to-ubuntu-tutorial.html" target="_blank" rel="noopener">微魔</a>大佬大力滋磁，原文链接：<a href="https://www.vmvps.com/installing-vnc-and-xfce-desktop-to-ubuntu-tutorial.html" target="_blank" rel="noopener">https://www.vmvps.com/installing-vnc-and-xfce-desktop-to-ubuntu-tutorial.html</a></blockquote>
+<h3>1.安装必要的软件</h3>
+<pre>apt-get -y install ubuntu-desktop tightvncserver xfce4 xfce4-goodies</pre>
+<h3>2.增加VNC用户及密码</h3>
+<pre>adduser vnc
+passwd vnc</pre>
+<h3>为VNC设置Root权限（前提是以Root用户登录）</h3>
+<pre>echo "vnc ALL=(ALL)       ALL" &gt;&gt; /etc/sudoers</pre>
+<h3>3.设置vnc的VNC Server密码</h3>
+<pre>su - vnc
+vncpasswd
+exit</pre>
+<h3>4.把VNC作为系统服务</h3>
+编辑/etc/init.d/vncserver加入以下文本
+<pre>#!/bin/bash
+PATH="$PATH:/usr/bin/"
+export USER="vnc"
+DISPLAY="1"
+DEPTH="16"
+GEOMETRY="1024x768"
+OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY}"
+. /lib/lsb/init-functions
+<p>case &quot;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mi mathvariant="normal">&quot;</mi><mi>i</mi><mi>n</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>r</mi><mi>t</mi><mo>)</mo><mi>l</mi><mi>o</mi><msub><mi>g</mi><mi>a</mi></msub><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><msub><mi>n</mi><mi>b</mi></msub><mi>e</mi><mi>g</mi><mi>i</mi><msub><mi>n</mi><mi>m</mi></msub><mi>s</mi><mi>g</mi><mi mathvariant="normal">&quot;</mi><mi>S</mi><mi>t</mi><mi>a</mi><mi>r</mi><mi>t</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>v</mi><mi>n</mi><mi>c</mi><mi>s</mi><mi>e</mi><mi>r</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>u</mi><mi>s</mi><mi>e</mi><msup><mi>r</mi><mo mathvariant="normal">′</mo></msup><mi mathvariant="normal">$</mi><msup><mrow><mi>U</mi><mi>S</mi><mi>E</mi><mi>R</mi></mrow><mo mathvariant="normal">′</mo></msup><mi>o</mi><mi>n</mi><mi>l</mi><mi>o</mi><mi>c</mi><mi>a</mi><mi>l</mi><mi>h</mi><mi>o</mi><mi>s</mi><mi>t</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">1&quot; in
+start)
+log_action_begin_msg &quot;Starting vncserver for user &#x27;\${USER}&#x27; on localhost:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.075122em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">&quot;</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">c</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">i</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord">&quot;</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">n</span><span class="mord mathdefault">c</span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">u</span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">$</span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.825122em;"><span style="top:-3.1362300000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">c</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span>{DISPLAY}&quot;<br>
+su ${USER} -c &quot;/usr/bin/vncserver ${OPTIONS}&quot;<br>
+;;</p>
+<p>stop)<br>
+log_action_begin_msg &quot;Stoping vncserver for user '${USER}' on localhost:${DISPLAY}&quot;<br>
+su ${USER} -c &quot;/usr/bin/vncserver -kill : ${DISPLAY}&quot;<br>
+;;</p>
+<p>restart)<br>
+$0 stop<br>
+$0 start<br>
+;;<br>
+esac<br>
+exit 0</pre><br>
+编辑/home/vnc/.vnc/xstartup并将其替换为如下内容</p>
+<pre>#!/bin/sh
+xrdb $HOME/.Xresources
+xsetroot -solid grey
+startxfce4 &amp;</pre>
+<p>更新文件权限，使得其他用户也能启动VNC服务</p>
+<pre>chown -R vnc. /home/vnc/.vnc &amp;&amp; chmod +x /home/vnc/.vnc/xstartup
+sed -i 's/allowed_users.*/allowed_users=anybody/g' /etc/X11/Xwrapper.config</pre>
+<p>使/etc/init.d/vncserver可运行并启动VNC Server:</p>
+<pre>chmod +x /etc/init.d/vncserver &amp;&amp; service vncserver start</pre>
+<p>修改VNC为自动启动</p>
+<pre>update-rc.d vncserver defaults</pre>
+<h3>5.使用TightVNC进行远程连接</h3>
+链接方法，Remote Host的地方填写【你的ip::5901】，点击Connect后输入你刚才设置的密码。如果没有错误，xfce那只小老鼠就出来了~]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一键安装支持VNC的桌面版Linux]]></title>
+        <id>https://blog.g00gle.top/post/yi-jian-an-zhuang-zhi-chi-vnc-de-zhuo-mian-ban-linux/</id>
+        <link href="https://blog.g00gle.top/post/yi-jian-an-zhuang-zhi-chi-vnc-de-zhuo-mian-ban-linux/">
+        </link>
+        <updated>2018-08-15T00:35:53.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>感谢<a href="https://www.vmvps.com/one-key-install-vnc-and-xfce-desktop-to-remote-vps.html" target="_blank" rel="noopener">微魔</a>大佬大力滋磁，原文链接：<a href="https://www.vmvps.com/one-key-install-vnc-and-xfce-desktop-to-remote-vps.html" target="_blank" rel="noopener">https://www.vmvps.com/one-key-install-vnc-and-xfce-desktop-to-remote-vps.html</a></blockquote>
+Ubuntu 12.04 32&amp;64位
+<pre>apt-get update -y;apt-get upgrade -y;apt-get install nano -y;apt-get install gnome-core firefox flashplugin-installer -y;apt-get install vnc4server -y; vncserver; vncserver -kill :1; cd ~; wget https://ginernet.com/downloads/vnc-ubuntu-12.txt -O .vnc/xstartup; mkdir -p /etc/vncserver; echo 'VNCSERVERS="1:root"' &gt;&gt; /etc/vncserver/vncservers.conf; echo 'VNCSERVERARGS[1]="-geometry 1000x700"' &gt;&gt; /etc/vncserver/vncservers.conf; cd /etc/init.d/; wget https://ginernet.com/downloads/vnc-init-ubuntu-12.txt -O vncserver; chmod 755 vncserver; update-rc.d vncserver defaults 99; reboot;</pre>
+Debian 7 32&amp;64位
+<pre>apt-get update -y;apt-get upgrade -y;apt-get install nano -y;apt-get install gnome-core flashplugin-nonfree -y;apt-get install vnc4server -y; vncserver; vncserver -kill :1; cd ~; wget https://ginernet.com/downloads/vnc-debian-7.txt -O .vnc/xstartup; mkdir -p /etc/vncserver; echo 'VNCSERVERS="1:root"' &gt;&gt; /etc/vncserver/vncservers.conf; echo 'VNCSERVERARGS[1]="-geometry 1000x700"' &gt;&gt; /etc/vncserver/vncservers.conf; cd /etc/init.d/; wget https://ginernet.com/downloads/vnc-init-ubuntu-12.txt -O vncserver; chmod 755 vncserver; update-rc.d vncserver defaults 99; reboot;</pre>
+CentOS 6 64位系统（不支持32位）
+<pre>yum install nano -y; yum update -y; yum upgrade -y; yum install tigervnc-server -y; yum groupinstall "Desktop" -y; yum install firefox -y; rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm; rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux; yum install flash-plugin nspluginwrapper alsa-plugins-pulseaudio libcurl -y; echo 'echo "nameserver 8.8.8.8" &gt;&gt; /etc/resolv.conf; ' &gt;&gt; /etc/rc.local; echo 'VNCSERVERS="1:root"' &gt;&gt; /etc/sysconfig/vncservers; echo 'VNCSERVERARGS[1]="-geometry 1000x700"' &gt;&gt; /etc/sysconfig/vncservers; vncpasswd; chkconfig vncserver on --level 345; reboot;</pre>
+<p class="info_box">安装完成后，请使用VNC链接软件（如VNC Viewer）连接远程，默认用户为root，端口为：1</p>
+&nbsp;
+<p>注：本文代码来源于VPS服务商GinerNet</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Ubuntu 16.04下安装VNC和Unity桌面系统]]></title>
         <id>https://blog.g00gle.top/post/ubuntu-1604-xia-an-zhuang-vnc-he-unity-zhuo-mian-xi-tong/</id>
@@ -49,6 +205,33 @@ nautilus &amp;</pre><br>
 <p>6.使用VNC Viewer（强烈建议去官方下载），连接地址为ip：5901</p>
 <p>7.开启VNCServer的自启动，运行crontab -e，加入如下命令，以后重启就会自动运行vncserver了</p>
 <pre>@reboot /usr/bin/vncserver :1</pre>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ubuntu下安装RealVNC和xfce4桌面套件]]></title>
+        <id>https://blog.g00gle.top/post/ubuntu-xia-an-zhuang-realvnc-he-xfce4-zhuo-mian-tao-jian/</id>
+        <link href="https://blog.g00gle.top/post/ubuntu-xia-an-zhuang-realvnc-he-xfce4-zhuo-mian-tao-jian/">
+        </link>
+        <updated>2018-08-14T11:45:47.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>感谢<a href="https://www.vmvps.com/install-realvnc-and-xfce4-under-ubuntu.html" target="_blank" rel="noopener">微魔</a>大佬的大力滋磁，原文链接：<a href="https://www.vmvps.com/install-realvnc-and-xfce4-under-ubuntu.html" target="_blank" rel="noopener">https://www.vmvps.com/install-realvnc-and-xfce4-under-ubuntu.html</a></blockquote>
+<h3>Ubuntu下安装RealVNC和xfce4桌面套件</h3>
+<p class="info_box">本文是在Ubuntu 14.04下进行测试安装</p>
+1.安装xfce和firefox
+<pre>apt-get -y install xfce4 xfce4-goodies firefox adobe-flashplugin fonts-wqy-*</pre>
+<p class="notice_box">如果是Debian，请把firefox对应换成iceweasel</p>
+2.下载和安装RealVNC
+<p>到官网下载RealVNC server（www.realvnc.com/download/vnc/），里面有debian兼容的安装包，下载下来应该是个tar.gz文件，解压可以得到两个deb文件，把server的那个上传到VPS，使用如下命令安装。</p>
+<pre>dpkg -i 具体名称.deb</pre>
+<p>3.获取许可</p>
+<p class="info_box">尽管RealVNC对于个人使用是免费的，但是你依然需要申请授权许可才能使用，申请的方法很简单，简单填入自己的信息即可，地址（www.realvnc.com/products/vnc/licensing）</p>
+<pre>nclicense -add 刚才获得的授权字符串</pre>
+<p>4.运行RealVNC</p>
+<p class="warning_box">最好是专门开一个用户（adduser命令创建）来运行VNC，而不是直接像本文一样直接用root来运行vnc（登录密码为运行vnc的用户密码）</p>
+<pre>vncserver-x11</pre>
+<p>这样，RealVNC+Xfce4的运行环境就搭建好了，下一步就是自己尝试使用VNC viewer进行连接了</p>
+<p>如何使用VNC？</p>
+<pre>下载VNCViewer（www.realvnc.com/download/binary/1730/），连接时输入ip:5901链接即可</pre>
+<p>如果出现10060/10061/remote host refused等错误，很可能是VNCServer没有启动或者iptables防火墙没有放行5901端口（<a href="https://www.vmvps.com/linux-iptables-simple-tutorial-from-vmvps.html" target="_blank" rel="noopener">iptables教程</a>），启动即可</p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[老司机坐骑——BT/PT盒子安装简明教程]]></title>

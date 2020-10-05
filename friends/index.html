@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
 <title>绝地图书馆</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1601892232545">
+<link rel="shortcut icon" href="/favicon.ico?v=1601894961310">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -171,7 +171,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">5</span>
+        <span class="site-item-stat-count">9</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -485,6 +485,153 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://blog.g00gle.top/post/centos-da-jian-xfce-zhuo-mian-vnc-jiao-cheng/"" data-c="
+          &lt;blockquote&gt;感谢&lt;a href=&#34;https://www.vmvps.com/centos-install-xfce-and-vnc-tutorial.html&#34;&gt;微魔&lt;/a&gt;大佬大力滋磁，原文链接：&lt;a href=&#34;https://www.vmvps.com/centos-install-xfce-and-vnc-tutorial.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.vmvps.com/centos-install-xfce-and-vnc-tutorial.html&lt;/a&gt;&lt;/blockquote&gt;
+本文将简单带领大家在Linux VPS上安装桌面系统Xfce，并使用VNC对其进行图形界面的使用与管理。&lt;span id=&#34;more-1549&#34;&gt;&lt;/span&gt;
+&lt;p class=&#34;info_box&#34;&gt;&lt;strong&gt;Xfce&lt;/strong&gt;与KDE，Gnome一样，都是可视化的桌面前端，其特点是占用资源更小。根据网上言论，资源占用情况大致为Xfce&amp;lt;KDE&amp;lt;Gnome。（具体情况与版本相关，不具备绝对的对比性）&lt;/p&gt;
+&lt;p class=&#34;notice_box&#34;&gt;本文Linux为CentOS 5，所安装Xfce为4.4，还将涉及VNC server，Firefox以及Flash player的安装（挂机？呵呵）。（已在BuyVM 256M OpenVZ下测试通过）&lt;/p&gt;
+&lt;h3&gt;一、安装Xfce 4.4&lt;/h3&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;yum groupinstall xfce-4.4
+&lt;/code&gt;&lt;/pre&gt;
+&amp;nbsp;
+&lt;p&gt;也可通过&lt;code class=&#34;null&#34;&gt;yum grouplist&lt;br&gt;
+&lt;/code&gt;命令查阅是否存在新的可用版本，替换4.4&lt;/p&gt;
+&lt;h3&gt;二、安装VNC&lt;/h3&gt;
+&lt;p class=&#34;ssh&#34;&gt;&lt;code class=&#34;null&#34;&gt;yum install vnc vnc-server
+&lt;/code&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p class=&#34;warning_box&#34;&gt;2013-3-18更新：由于CentOS 6采用的是TigerVNC，所以，CentOS 6用户请使用&lt;code class=&#34;null&#34;&gt;yum install tigervnc tigervnc-server
+&lt;/code&gt;替代上面的命令！
+&lt;h3&gt;三、配置VNC&lt;/h3&gt;
+&lt;strong&gt;1.修改配置文件&lt;/strong&gt;
+&lt;p class=&#34;ssh&#34;&gt;&lt;code class=&#34;null&#34;&gt;vi /etc/sysconfig/vncservers
+&lt;/code&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;加入以下内容：&lt;/p&gt;
+&lt;pre&gt;VNCSERVERS=&#34;1:root&#34;
+VNCSERVERARGS[1]=&#34;-geometry 800x600&#34;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;2.设置VNC密码&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;vncpasswd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.启动VNC服务&lt;/strong&gt;（很多朋友在使用DirectSpace默认的桌面VNC的时候，遇到无法连接“10061错误”，即可在ssh下输入下面命令解决！）&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;vncserver
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.修改vnc文件&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;vi /root/.vnc/xstartup
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;将文件内容替换为以下内容&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;#!/bin/sh
+/usr/bin/startxfce4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5.设置vnc权限&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;chmod +x ~/.vnc/xstartup
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;6.重启VNC服务&lt;/strong&gt;&lt;/p&gt;
+&lt;p class=&#34;ssh&#34;&gt;&lt;code class=&#34;null&#34;&gt;service vncserver restart
+&lt;/code&gt;
+&lt;p&gt;&lt;strong&gt;7.设置VNC开机启动&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;chkconfig vncserver on
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3&gt;四、系统优化&lt;/h3&gt;
+&lt;p class=&#34;warning_box&#34;&gt;2013-3-18更新：在一些minimal系统里，即使英文也会出现方框乱码，请使用本处命令修正：&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;yum -y install fontforge
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.安装中文语言支持&lt;/strong&gt;（安装中文字体，解决访问中文网站乱码问题）&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;yum -y install fonts-chinese
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;2.安装Firefox火狐浏览器&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;pure-highlightjs&#34;&gt;&lt;code class=&#34;null&#34;&gt;yum -y install firefox
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.安装Firefox的flash player插件&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;重新启动VPS，使用VNC连接（VNC Viewer等软件）&lt;/p&gt;
+&lt;p&gt;连接方法：你的ip:1&lt;/p&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;使用firefox访问www.adobe.com，点击Get Flash Player&lt;/li&gt;
+ 	&lt;li&gt;下载rpm包&lt;/li&gt;
+ 	&lt;li&gt;在rpm文件所在文件夹右键，进入终端（Open Terminal Here），使用rpm -ivh flash-plugin-*.rpm进行安装。&lt;/li&gt;
+ 	&lt;li&gt;在firefox的地址栏输入about:plugins查看是否安装成功~&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class=&#34;warning_box&#34;&gt;由于图形前端占用资源较大（512M以上为宜，突发亦可），不适宜做生产环境，玩过且过~&lt;/p&gt;
+本文相当的内容参考了网友&lt;em&gt;幽月·乱花&lt;/em&gt;的教程（&lt;a href=&#34;http://www.moonflower.me/geekotaku/20111102-387.html&#34; target=&#34;_blank&#34; rel=&#34;external nofollow noopener&#34;&gt;查看原文&lt;/a&gt;）。">CentOS搭建xfce桌面+VNC教程</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://blog.g00gle.top/post/ubuntu-xia-de-xfce-zhuo-mian-xi-tong-an-zhuang-yu-vnc-yuan-cheng-lian-jie/"" data-c="
+          &lt;blockquote&gt;感谢&lt;a href=&#34;https://www.vmvps.com/installing-vnc-and-xfce-desktop-to-ubuntu-tutorial.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;微魔&lt;/a&gt;大佬大力滋磁，原文链接：&lt;a href=&#34;https://www.vmvps.com/installing-vnc-and-xfce-desktop-to-ubuntu-tutorial.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.vmvps.com/installing-vnc-and-xfce-desktop-to-ubuntu-tutorial.html&lt;/a&gt;&lt;/blockquote&gt;
+&lt;h3&gt;1.安装必要的软件&lt;/h3&gt;
+&lt;pre&gt;apt-get -y install ubuntu-desktop tightvncserver xfce4 xfce4-goodies&lt;/pre&gt;
+&lt;h3&gt;2.增加VNC用户及密码&lt;/h3&gt;
+&lt;pre&gt;adduser vnc
+passwd vnc&lt;/pre&gt;
+&lt;h3&gt;为VNC设置Root权限（前提是以Root用户登录）&lt;/h3&gt;
+&lt;pre&gt;echo &#34;vnc ALL=(ALL)       ALL&#34; &amp;gt;&amp;gt; /etc/sudoers&lt;/pre&gt;
+&lt;h3&gt;3.设置vnc的VNC Server密码&lt;/h3&gt;
+&lt;pre&gt;su - vnc
+vncpasswd
+exit&lt;/pre&gt;
+&lt;h3&gt;4.把VNC作为系统服务&lt;/h3&gt;
+编辑/etc/init.d/vncserver加入以下文本
+&lt;pre&gt;#!/bin/bash
+PATH=&#34;$PATH:/usr/bin/&#34;
+export USER=&#34;vnc&#34;
+DISPLAY=&#34;1&#34;
+DEPTH=&#34;16&#34;
+GEOMETRY=&#34;1024x768&#34;
+OPTIONS=&#34;-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY}&#34;
+. /lib/lsb/init-functions
+&lt;p&gt;case &amp;quot;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;&amp;quot;&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;msub&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;/msub&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;msub&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;/msub&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;msub&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;/msub&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;&amp;quot;&lt;/mi&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;msup&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo mathvariant=&#34;normal&#34;&gt;′&lt;/mo&gt;&lt;/msup&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;$&lt;/mi&gt;&lt;msup&gt;&lt;mrow&gt;&lt;mi&gt;U&lt;/mi&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;/mrow&gt;&lt;mo mathvariant=&#34;normal&#34;&gt;′&lt;/mo&gt;&lt;/msup&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;1&amp;quot; in
+start)
+log_action_begin_msg &amp;quot;Starting vncserver for user &amp;#x27;\${USER}&amp;#x27; on localhost:&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.075122em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.01968em;&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.03588em;&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.151392em;&#34;&gt;&lt;span style=&#34;top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mathdefault mtight&#34;&gt;a&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.15em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.33610799999999996em;&#34;&gt;&lt;span style=&#34;top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mathdefault mtight&#34;&gt;b&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.15em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.03588em;&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.151392em;&#34;&gt;&lt;span style=&#34;top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mathdefault mtight&#34;&gt;m&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.15em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.03588em;&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.03588em;&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.03588em;&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.03588em;&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.10764em;&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.02778em;&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.751892em;&#34;&gt;&lt;span style=&#34;top:-3.063em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;′&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.10903em;&#34;&gt;U&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.05764em;&#34;&gt;E&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.825122em;&#34;&gt;&lt;span style=&#34;top:-3.1362300000000003em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;′&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.01968em;&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.01968em;&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;{DISPLAY}&amp;quot;&lt;br&gt;
+su ${USER} -c &amp;quot;/usr/bin/vncserver ${OPTIONS}&amp;quot;&lt;br&gt;
+;;&lt;/p&gt;
+&lt;p&gt;stop)&lt;br&gt;
+log_action_begin_msg &amp;quot;Stoping vncserver for user &#39;${USER}&#39; on localhost:${DISPLAY}&amp;quot;&lt;br&gt;
+su ${USER} -c &amp;quot;/usr/bin/vncserver -kill : ${DISPLAY}&amp;quot;&lt;br&gt;
+;;&lt;/p&gt;
+&lt;p&gt;restart)&lt;br&gt;
+$0 stop&lt;br&gt;
+$0 start&lt;br&gt;
+;;&lt;br&gt;
+esac&lt;br&gt;
+exit 0&lt;/pre&gt;&lt;br&gt;
+编辑/home/vnc/.vnc/xstartup并将其替换为如下内容&lt;/p&gt;
+&lt;pre&gt;#!/bin/sh
+xrdb $HOME/.Xresources
+xsetroot -solid grey
+startxfce4 &amp;amp;&lt;/pre&gt;
+&lt;p&gt;更新文件权限，使得其他用户也能启动VNC服务&lt;/p&gt;
+&lt;pre&gt;chown -R vnc. /home/vnc/.vnc &amp;amp;&amp;amp; chmod +x /home/vnc/.vnc/xstartup
+sed -i &#39;s/allowed_users.*/allowed_users=anybody/g&#39; /etc/X11/Xwrapper.config&lt;/pre&gt;
+&lt;p&gt;使/etc/init.d/vncserver可运行并启动VNC Server:&lt;/p&gt;
+&lt;pre&gt;chmod +x /etc/init.d/vncserver &amp;amp;&amp;amp; service vncserver start&lt;/pre&gt;
+&lt;p&gt;修改VNC为自动启动&lt;/p&gt;
+&lt;pre&gt;update-rc.d vncserver defaults&lt;/pre&gt;
+&lt;h3&gt;5.使用TightVNC进行远程连接&lt;/h3&gt;
+链接方法，Remote Host的地方填写【你的ip::5901】，点击Connect后输入你刚才设置的密码。如果没有错误，xfce那只小老鼠就出来了~">Ubuntu下的xfce桌面系统安装与VNC远程连接</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://blog.g00gle.top/post/yi-jian-an-zhuang-zhi-chi-vnc-de-zhuo-mian-ban-linux/"" data-c="
+          &lt;blockquote&gt;感谢&lt;a href=&#34;https://www.vmvps.com/one-key-install-vnc-and-xfce-desktop-to-remote-vps.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;微魔&lt;/a&gt;大佬大力滋磁，原文链接：&lt;a href=&#34;https://www.vmvps.com/one-key-install-vnc-and-xfce-desktop-to-remote-vps.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.vmvps.com/one-key-install-vnc-and-xfce-desktop-to-remote-vps.html&lt;/a&gt;&lt;/blockquote&gt;
+Ubuntu 12.04 32&amp;amp;64位
+&lt;pre&gt;apt-get update -y;apt-get upgrade -y;apt-get install nano -y;apt-get install gnome-core firefox flashplugin-installer -y;apt-get install vnc4server -y; vncserver; vncserver -kill :1; cd ~; wget https://ginernet.com/downloads/vnc-ubuntu-12.txt -O .vnc/xstartup; mkdir -p /etc/vncserver; echo &#39;VNCSERVERS=&#34;1:root&#34;&#39; &amp;gt;&amp;gt; /etc/vncserver/vncservers.conf; echo &#39;VNCSERVERARGS[1]=&#34;-geometry 1000x700&#34;&#39; &amp;gt;&amp;gt; /etc/vncserver/vncservers.conf; cd /etc/init.d/; wget https://ginernet.com/downloads/vnc-init-ubuntu-12.txt -O vncserver; chmod 755 vncserver; update-rc.d vncserver defaults 99; reboot;&lt;/pre&gt;
+Debian 7 32&amp;amp;64位
+&lt;pre&gt;apt-get update -y;apt-get upgrade -y;apt-get install nano -y;apt-get install gnome-core flashplugin-nonfree -y;apt-get install vnc4server -y; vncserver; vncserver -kill :1; cd ~; wget https://ginernet.com/downloads/vnc-debian-7.txt -O .vnc/xstartup; mkdir -p /etc/vncserver; echo &#39;VNCSERVERS=&#34;1:root&#34;&#39; &amp;gt;&amp;gt; /etc/vncserver/vncservers.conf; echo &#39;VNCSERVERARGS[1]=&#34;-geometry 1000x700&#34;&#39; &amp;gt;&amp;gt; /etc/vncserver/vncservers.conf; cd /etc/init.d/; wget https://ginernet.com/downloads/vnc-init-ubuntu-12.txt -O vncserver; chmod 755 vncserver; update-rc.d vncserver defaults 99; reboot;&lt;/pre&gt;
+CentOS 6 64位系统（不支持32位）
+&lt;pre&gt;yum install nano -y; yum update -y; yum upgrade -y; yum install tigervnc-server -y; yum groupinstall &#34;Desktop&#34; -y; yum install firefox -y; rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm; rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux; yum install flash-plugin nspluginwrapper alsa-plugins-pulseaudio libcurl -y; echo &#39;echo &#34;nameserver 8.8.8.8&#34; &amp;gt;&amp;gt; /etc/resolv.conf; &#39; &amp;gt;&amp;gt; /etc/rc.local; echo &#39;VNCSERVERS=&#34;1:root&#34;&#39; &amp;gt;&amp;gt; /etc/sysconfig/vncservers; echo &#39;VNCSERVERARGS[1]=&#34;-geometry 1000x700&#34;&#39; &amp;gt;&amp;gt; /etc/sysconfig/vncservers; vncpasswd; chkconfig vncserver on --level 345; reboot;&lt;/pre&gt;
+&lt;p class=&#34;info_box&#34;&gt;安装完成后，请使用VNC链接软件（如VNC Viewer）连接远程，默认用户为root，端口为：1&lt;/p&gt;
+&amp;nbsp;
+&lt;p&gt;注：本文代码来源于VPS服务商GinerNet&lt;/p&gt;
+">一键安装支持VNC的桌面版Linux</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://blog.g00gle.top/post/ubuntu-1604-xia-an-zhuang-vnc-he-unity-zhuo-mian-xi-tong/"" data-c="
           &lt;blockquote&gt;感谢&lt;a href=&#34;https://www.vmvps.com/installing-vnc-and-unity-desktop-system-under-ubuntu-16-04-on-vps.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;微魔&lt;/a&gt;大佬的大力滋磁，原文链接：&lt;a href=&#34;https://www.vmvps.com/installing-vnc-and-unity-desktop-system-under-ubuntu-16-04-on-vps.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.vmvps.com/installing-vnc-and-unity-desktop-system-under-ubuntu-16-04-on-vps.html&lt;/a&gt;&lt;/blockquote&gt;
 &lt;h3&gt;Ubuntu 16.04下安装VNC和Unity桌面系统&lt;/h3&gt;
@@ -520,6 +667,30 @@ nautilus &amp;amp;&lt;/pre&gt;&lt;br&gt;
 &lt;p&gt;6.使用VNC Viewer（强烈建议去官方下载），连接地址为ip：5901&lt;/p&gt;
 &lt;p&gt;7.开启VNCServer的自启动，运行crontab -e，加入如下命令，以后重启就会自动运行vncserver了&lt;/p&gt;
 &lt;pre&gt;@reboot /usr/bin/vncserver :1&lt;/pre&gt;">Ubuntu 16.04下安装VNC和Unity桌面系统</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://blog.g00gle.top/post/ubuntu-xia-an-zhuang-realvnc-he-xfce4-zhuo-mian-tao-jian/"" data-c="
+          &lt;blockquote&gt;感谢&lt;a href=&#34;https://www.vmvps.com/install-realvnc-and-xfce4-under-ubuntu.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;微魔&lt;/a&gt;大佬的大力滋磁，原文链接：&lt;a href=&#34;https://www.vmvps.com/install-realvnc-and-xfce4-under-ubuntu.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.vmvps.com/install-realvnc-and-xfce4-under-ubuntu.html&lt;/a&gt;&lt;/blockquote&gt;
+&lt;h3&gt;Ubuntu下安装RealVNC和xfce4桌面套件&lt;/h3&gt;
+&lt;p class=&#34;info_box&#34;&gt;本文是在Ubuntu 14.04下进行测试安装&lt;/p&gt;
+1.安装xfce和firefox
+&lt;pre&gt;apt-get -y install xfce4 xfce4-goodies firefox adobe-flashplugin fonts-wqy-*&lt;/pre&gt;
+&lt;p class=&#34;notice_box&#34;&gt;如果是Debian，请把firefox对应换成iceweasel&lt;/p&gt;
+2.下载和安装RealVNC
+&lt;p&gt;到官网下载RealVNC server（www.realvnc.com/download/vnc/），里面有debian兼容的安装包，下载下来应该是个tar.gz文件，解压可以得到两个deb文件，把server的那个上传到VPS，使用如下命令安装。&lt;/p&gt;
+&lt;pre&gt;dpkg -i 具体名称.deb&lt;/pre&gt;
+&lt;p&gt;3.获取许可&lt;/p&gt;
+&lt;p class=&#34;info_box&#34;&gt;尽管RealVNC对于个人使用是免费的，但是你依然需要申请授权许可才能使用，申请的方法很简单，简单填入自己的信息即可，地址（www.realvnc.com/products/vnc/licensing）&lt;/p&gt;
+&lt;pre&gt;nclicense -add 刚才获得的授权字符串&lt;/pre&gt;
+&lt;p&gt;4.运行RealVNC&lt;/p&gt;
+&lt;p class=&#34;warning_box&#34;&gt;最好是专门开一个用户（adduser命令创建）来运行VNC，而不是直接像本文一样直接用root来运行vnc（登录密码为运行vnc的用户密码）&lt;/p&gt;
+&lt;pre&gt;vncserver-x11&lt;/pre&gt;
+&lt;p&gt;这样，RealVNC+Xfce4的运行环境就搭建好了，下一步就是自己尝试使用VNC viewer进行连接了&lt;/p&gt;
+&lt;p&gt;如何使用VNC？&lt;/p&gt;
+&lt;pre&gt;下载VNCViewer（www.realvnc.com/download/binary/1730/），连接时输入ip:5901链接即可&lt;/pre&gt;
+&lt;p&gt;如果出现10060/10061/remote host refused等错误，很可能是VNCServer没有启动或者iptables防火墙没有放行5901端口（&lt;a href=&#34;https://www.vmvps.com/linux-iptables-simple-tutorial-from-vmvps.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;iptables教程&lt;/a&gt;），启动即可&lt;/p&gt;
+">Ubuntu下安装RealVNC和xfce4桌面套件</a>
       </div>
       
       <div class="item">
