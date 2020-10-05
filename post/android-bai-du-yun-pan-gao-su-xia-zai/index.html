@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
-<title>在Linux上一键安装KMS激活服务器 | 绝地图书馆</title>
+<title>【Android】百度云盘高速下载 | 绝地图书馆</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1601897479995">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="在Linux上一键安装KMS激活服务器" />
-  <meta name="keywords" content="KMS" />
+  <meta name="description" content="【Android】百度云盘高速下载" />
+  <meta name="keywords" content="百度云盘,termux" />
 </head>
 
 <body>
@@ -298,8 +298,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://blog.g00gle.top/post/zai-linux-shang-yi-jian-an-zhuang-kms-ji-huo-fu-wu-qi/">
-      在Linux上一键安装KMS激活服务器
+    <a class="post-title-link" href="https://blog.g00gle.top/post/android-bai-du-yun-pan-gao-su-xia-zai/">
+      【Android】百度云盘高速下载
     </a>
   </h1>
   <div class="post-meta">
@@ -307,7 +307,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2018-08-11 15:21:51">2018-08-11</span>
+      <span class="publish-time" data-t="2018-08-20 18:57:28">2018-08-20</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -316,8 +316,14 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://blog.g00gle.top/tag/0G-UEaMcy/">
-        <span>KMS</span>
+      <a href="https://blog.g00gle.top/tag/qEj9A6ubc/">
+        <span>百度云盘</span>
+      </a>、
+      
+      
+      
+      <a href="https://blog.g00gle.top/tag/u_YNpfTt7y/">
+        <span>termux</span>
       </a>
       
       
@@ -326,50 +332,52 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>4<span class="language" data-lan="minute">分钟</span></span>
+      <span>2<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>746<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>342<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <blockquote>感谢<a href="https://www.vmvps.com/how-to-install-a-kms-service-on-a-linux-vps.html" target="_blank" rel="noopener noreferrer">微魔</a>大佬的大力滋磁。原文链接：<a href="https://www.vmvps.com/how-to-install-a-kms-service-on-a-linux-vps.html" target="_blank" rel="noopener noreferrer">https://www.vmvps.com/how-to-install-a-kms-service-on-a-linux-vps.html</a></blockquote>
-<p>经常使用Windows的朋友应该对KMS并不陌生，不少朋友是通过在本地安装KMS来激活自己的Windows系统的，但实际上，如果你有一台闲置的VPS，那么你可以将KMS安装在服务器上，用于远程激活你的Windows。最近，看到了来自<a href="https://teddysun.com/530.html" target="_blank" rel="external nofollow noopener noreferrer">Teddysun</a>的一键安装脚本（本文的部分内容也源于该作者的源博客），这个流程又简单了不少，拿出来分享给大家。<span id="more-6092"></span></p>
-<p class="warning_box">KMS，全称knowledgebase management system，是微软官方为大批量订购的用户提供的一种便利的激活方案，本文仅做技术讨论，请在支持正版的前提下使用本文的相关内容。</p>
-<p class="info_box">注意：本文所说的KMS只支持VOL版本的Windows或者Office的激活（也就是安装镜像名待有VL字样的版本），可以到<a href="https://msdn.itellyou.cn/" target="_blank" rel="external nofollow noopener noreferrer">itellyou</a>寻找下载链接。</p>
-<h3>在Linux上一键安装KMS激活服务器</h3>
-1. 安装KMS
-<pre>wget --no-check-certificate https://github.com/teddysun/across/raw/master/kms.sh &amp;&amp; chmod +x kms.sh &amp;&amp; ./kms.sh</pre>
-2. 验证安装
-<pre>netstat -nxtlp | grep 1688</pre>
-如果返回如下命令，则表示成功
-<pre>tcp        0      0 0.0.0.0:1688                0.0.0.0:*                   LISTEN      3200/vlmcsd         
-tcp        0      0 :::1688                     :::*                        LISTEN      3200/vlmcsd</pre>
-3. 管理KMS的命令
-<pre>/etc/init.d/kms start    #启动
-/etc/init.d/kms stop     #停止
-/etc/init.d/kms restart  #重启
-/etc/init.d/kms status   #状态</pre>
-4. 激活方法
-<p>（1）到下面的网址，去查找你要激活的产品的Key，如Win10专业版的是W269N-WFGWX-YVC9B-4J6C9-T83GX</p>
-<pre>Office 2016：https://technet.microsoft.com/zh-cn/library/dn385360(v=office.16).aspx
-Office 2013：https://technet.microsoft.com/ZH-CN/library/dn385360.aspx
-Office 2010：https://technet.microsoft.com/ZH-CN/library/ee624355(v=office.14).aspx
-Windows：https://docs.microsoft.com/zh-cn/windows-server/get-started/kmsclientkeys</pre>
-<p>（2）以激活Windows为例，在Windows上的cmd命令中依次运行如下命令</p>
-<pre>slmgr /ipk xxxxx-xxxxx-xxxxx-xxxxx-xxxxx</pre>
-<pre>slmgr /skms 你的ip或域名</pre>
-<pre>slmgr /ato</pre>
-<p>如果要找到激活Office的方法，可以出门右拐到<a href="https://03k.org/kms.html" target="_blank" rel="external nofollow noopener noreferrer">kissshot</a>的博客</p>
+              <blockquote>百度云下载限速，又不想氪金怎么办？最近有大佬说可以用BaiduPCS-Go 百度网盘客户端解决(<a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">Github链接</a>)。我试了一下，果然效果拔群。</blockquote>
+<h1>需要工具</h1>
+<ol>
+ 	<li>Android手机一台</li>
+ 	<li>安装终端termux  <a href="https://www.coolapk.com/apk/com.termux" target="_blank" rel="noopener">酷安下载</a>   <a href="https://termux.com" target="_blank" rel="noopener">官网</a></li>
+</ol>
+<h1>安装过程</h1>
+打开终端termux等待installing完成(建议在富强上网buff下完成以下，可以尝试下换国内的源，国内我用不了)<img class="alignnone size-medium wp-image-204" src="https://tva4.sinaimg.cn/large/006nES8lgy1gjenq4z93dj304608cq2r.jpg" alt="" width="150" height="300" />
+<p>然后直接输入以下命令：</p>
+<pre class="pure-highlightjs"><code class="null">apt update &amp;&amp; apt upgrade -y &amp;&amp; apt install zip wget -y &amp;&amp; termux-setup-storage &amp;&amp; wget -O 1.zip https://github.com/iikira/BaiduPCS-Go/releases/download/v3.3.3/BaiduPCS-Go-v3.3.3-android-21-arm64.zip &amp;&amp; unzip 1.zip &amp;&amp; rm 1.zip &amp;&amp; mv BaiduPCS-Go-v3.3.3-android-21-arm64 BaiduPCS-Go &amp;&amp; cd ~/BaiduPCS-Go &amp;&amp; ./BaiduPCS-Go &amp;&amp; config set -savedir /sdcard/download &amp;&amp; config set -max_paralle1 80 -cache_size 50000
+</code></pre>
+<img class="alignnone size-medium wp-image-206" src="https://tvax4.sinaimg.cn/large/006nES8lgy1gjenq7imyrj304608cwf5.jpg" alt="" width="150" height="300" />
+<p>输入:<code class="null">login<br>
+</code></p>
 <p> </p>
-<p>PS：KMS批量激活密钥广泛用于机房服务器操作系统和大型企业内部批量激活员工电脑。目前公开的KMS服务器封杀力度很大，为了节省大家的时间与精力，请低调使用，不要转载，且用且珍惜。</p>
-<p>KMS 激活有 180 天期限，此期限称为激活有效间隔。若要保持激活状态，您的系统必须通过至少每 180 天连接一次 KMS 服务器来续订激活。<br>
-默认情况下，系统每 7 天自动进行一次激活续订尝试。在续订客户端激活之后，激活有效间隔重新开始。</p>
-<p>综上所述，只要您的电脑不超过 180 天以上无法连接互联网，就无需进行任何操作，系统会自行续期保持激活状态。即永久激活。</p>
+<img class="alignnone size-medium wp-image-207" src="https://tva1.sinaimg.cn/large/006nES8lgy1gjenrc2agij304608c0tf.jpg" alt="" width="150" height="300" />
+<p>登录自己的百度账号</p>
+<img class="alignnone size-medium wp-image-208" src="https://tvax1.sinaimg.cn/large/006nES8lgy1gjenrmqosij304608c3zd.jpg" alt="" width="150" height="300" />
+<p>登录成功。</p>
+<p> </p>
+<p> </p>
+<h1>使用说明</h1>
+例如我要下载<code class="null">我的资源&gt;刺客信条：起源</code>
+<img class="alignnone size-medium wp-image-209" src="https://tvax1.sinaimg.cn/large/006nES8lgy1gjensbycymj308c04t0sq.jpg" alt="" width="300" height="173" />
+<p>就直接在termux输入<span style="background-color: #e9ebec; color: #222222; font-family: Consolas, Monaco, monospace; font-size: 12px;">d 我的资源/刺客信条：起源</span></p>
+<img class="alignnone size-medium wp-image-210" src="https://tva1.sinaimg.cn/large/006nES8lgy1gjensry6jmj304608cq3i.jpg" alt="" width="150" height="300" />
+<p>下载完可以在文件管理查看(我的是安卓p)</p>
+<img class="alignnone size-medium wp-image-211" src="https://tvax3.sinaimg.cn/large/006nES8lgy1gjent32evdj304608cwek.jpg" alt="" width="150" height="300" />
+<p>修改路径命令是<code class="null">config set -savedir 下载路径</code>。</p>
+<p> </p>
+<p>退出后想要重新打开可以用<code class="null">cd ~/BaiduPCS-Go &amp;&amp; ./BaiduPCS-Go<br>
+</code>这条命令。</p>
+<p>本文结束。</p>
+<p> </p>
+<p><del>下次写几篇termux文章</del>，算了当我没说。滑稽</p>
 
             </div>
             
@@ -382,7 +390,7 @@ Windows：https://docs.microsoft.com/zh-cn/windows-server/get-started/kmsclientk
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://blog.g00gle.top/post/zai-linux-shang-yi-jian-an-zhuang-kms-ji-huo-fu-wu-qi/" title="在Linux上一键安装KMS激活服务器">https://blog.g00gle.top/post/zai-linux-shang-yi-jian-an-zhuang-kms-ji-huo-fu-wu-qi/</a>
+      <a href="https://blog.g00gle.top/post/android-bai-du-yun-pan-gao-su-xia-zai/" title="【Android】百度云盘高速下载">https://blog.g00gle.top/post/android-bai-du-yun-pan-gao-su-xia-zai/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -391,21 +399,23 @@ Windows：https://docs.microsoft.com/zh-cn/windows-server/get-started/kmsclientk
   </ul>
   <div class="tags">
     
-      <a href="https://blog.g00gle.top/tag/0G-UEaMcy/"># KMS</a>
+      <a href="https://blog.g00gle.top/tag/qEj9A6ubc/"># 百度云盘</a>
+    
+      <a href="https://blog.g00gle.top/tag/u_YNpfTt7y/"># termux</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Linux桌面实战——GUI图形化界面安装教程" href="https://blog.g00gle.top/post/linux-zhuo-mian-shi-zhan-gui-tu-xing-hua-jie-mian-an-zhuang-jiao-cheng/">Linux桌面实战——GUI图形化界面安装教程</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Linux桌面实战——GUI图形化界面安装教程" href="https://blog.g00gle.top/post/linux-zhuo-mian-shi-zhan-gui-tu-xing-hua-jie-mian-an-zhuang-jiao-cheng/">上一篇</a>
+        <a class="nav-pc-next" title="【Linux】高速下载百度云盘" href="https://blog.g00gle.top/post/linux-gao-su-xia-zai-bai-du-yun-pan/">【Linux】高速下载百度云盘</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="【Linux】高速下载百度云盘" href="https://blog.g00gle.top/post/linux-gao-su-xia-zai-bai-du-yun-pan/">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="搭建 WordPress 博客教程" href="https://blog.g00gle.top/post/da-jian-wordpress-bo-ke-jiao-cheng/">搭建 WordPress 博客教程</a>
-        <a class="nav-mobile-next" title="搭建 WordPress 博客教程" href="https://blog.g00gle.top/post/da-jian-wordpress-bo-ke-jiao-cheng/">下一篇</a>
+        <a class="nav-pc-next" title="删除刷机包机型验证" href="https://blog.g00gle.top/post/shan-chu-shua-ji-bao-ji-xing-yan-zheng/">删除刷机包机型验证</a>
+        <a class="nav-mobile-next" title="删除刷机包机型验证" href="https://blog.g00gle.top/post/shan-chu-shua-ji-bao-ji-xing-yan-zheng/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

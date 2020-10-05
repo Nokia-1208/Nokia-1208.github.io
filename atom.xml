@@ -2,13 +2,697 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.g00gle.top</id>
     <title>绝地图书馆</title>
-    <updated>2020-10-05T10:49:55.903Z</updated>
+    <updated>2020-10-05T11:31:49.071Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.g00gle.top"/>
     <link rel="self" href="https://blog.g00gle.top/atom.xml"/>
     <logo>https://blog.g00gle.top/images/avatar.png</logo>
     <icon>https://blog.g00gle.top/favicon.ico</icon>
     <rights>All rights reserved 2020, 绝地图书馆</rights>
+    <entry>
+        <title type="html"><![CDATA[树莓派带led屏幕驱动系统]]></title>
+        <id>https://blog.g00gle.top/post/shu-mei-pai-dai-led-ping-mu-qu-dong-xi-tong/</id>
+        <link href="https://blog.g00gle.top/post/shu-mei-pai-dai-led-ping-mu-qu-dong-xi-tong/">
+        </link>
+        <updated>2018-08-21T11:29:32.000Z</updated>
+        <content type="html"><![CDATA[<p>几个月前，收了一个带3.5寸屏的树莓派，但是没有合适的系统。前不久问了个大佬拿到，在这里分享一下。</p>
+<p> </p>
+<p>链接:https://pan.baidu.com/s/1PvDR-m4ZkLXafes497gKdQ 密码:116c</p>
+<p> </p>
+<p>图片欣赏</p>
+<p><img class="alignnone size-medium wp-image-224" src="https://tva1.sinaimg.cn/large/006nES8lgy1gjeong2sm9j308c069q35.jpg" alt="" width="300" height="225" /> <img class="alignnone size-medium wp-image-225" src="https://tvax4.sinaimg.cn/large/006nES8lgy1gjeonh13noj306908cmx6.jpg" alt="" width="225" height="300" /> <img class="alignnone size-medium wp-image-226" src="https://tvax3.sinaimg.cn/large/006nES8lgy1gjeoni7z5dj306908ct8u.jpg" alt="" width="225" height="300" /></p>
+<p>接个硬盘做带离线下载功能的nas岂不美哉？</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[备份神器—钛备份（需root）]]></title>
+        <id>https://blog.g00gle.top/post/bei-fen-shen-qi-tai-bei-fen-xu-root/</id>
+        <link href="https://blog.g00gle.top/post/bei-fen-shen-qi-tai-bei-fen-xu-root/">
+        </link>
+        <updated>2018-08-21T11:19:02.000Z</updated>
+        <content type="html"><![CDATA[<p>备份神器钛备份，不仅可以备份app，还可以备份app里面的数据(在新手机可能需要重新登录)。</p>
+<h1>下载地址</h1>
+<a href="https://www.lanzous.com/i1r3czi" target="_blank" rel="noopener">钛备份专业版刷机包</a>
+<h1>使用方法</h1>
+进入第三方rec，选择刷机包刷入，或者解压，在<span style="background-color: #e9ebec; color: #222222; font-family: Consolas, Monaco, monospace; font-size: 12px;">data&gt;app</span>找到安装包直接安装。
+<p> </p>
+<p> </p>
+<h1>注意事项</h1>
+一定要root权限，像蛤为这种难拿到root权限的机自行想办法（试试Magisk能不能拿到权限）。]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【Linux】高速下载百度云盘]]></title>
+        <id>https://blog.g00gle.top/post/linux-gao-su-xia-zai-bai-du-yun-pan/</id>
+        <link href="https://blog.g00gle.top/post/linux-gao-su-xia-zai-bai-du-yun-pan/">
+        </link>
+        <updated>2018-08-20T11:03:14.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="http://www.kenshin.tk/?p=203" target="_blank" rel="noopener">前篇文章</a>写在Android上使用termux安装BaiduPCS-Go 百度网盘客户端可以在Android高速下载百度云盘的文件。我在想能不能用vps下载？vps一般是Linux系统，我上<a href="https://github.com/iikira/BaiduPCS-Go/releases" target="_blank" rel="noopener">Github</a>一看，还有Linux的客户端。所以我又打算文章数＋1。</p>
+<p> </p>
+<h1>准备工作</h1>
+<ol>
+ 	<li>一台装有Linux系统的机(这里基于Debian8)</li>
+</ol>
+&nbsp;
+<h1>安装过程</h1>
+打开终端，万年不变的起手
+<pre class="pure-highlightjs"><code class="null">apt update &amp;&amp; apt upgrade -y
+</code></pre>
+(这里就不用上图了吧？)
+<p>安装一下必要的程序</p>
+<pre class="pure-highlightjs"><code class="null">apt install zip wget screen -y
+#装screen可以实现离线下载</code></pre>
+<p> </p>
+<p>紧接一招下载并解压</p>
+<pre class="pure-highlightjs"><code class="null">wget -O 1.zip https://github.com/iikira/BaiduPCS-Go/releases/download/v3.5.4/BaiduPCS-Go-v3.5.4-linux-amd64.zip &amp;&amp; unzip 1.zip &amp;&amp; rm 1.zip
+</code></pre>
+<p>然后打开解压文件夹并打开程序</p>
+<pre class="pure-highlightjs"><code class="null">cd BaiduPCS-Go-v3.5.4-linux-amd64 &amp;&amp; ./BaiduPCS-Go
+</code></pre>
+<p>输入<code class="null">login</code>进行登录</p>
+<p>登录成功后可以按上一篇文章来使用，话说下载到vps有什么意义。</p>
+<p>PS:离线下载可以用<span style="background-color: #e9ebec; color: #222222; font-family: Consolas, Monaco, monospace; font-size: 12px;">screen -S bdy</span>新开一个窗口，然后再启动程序下载，就算关闭了ssh还能继续下载。</p>
+<p> </p>
+<p>PS:把文件夹改个名，下次就不用打这么长的命令。(我不知道有没有文件名自动填写)</p>
+<pre class="pure-highlightjs"><code class="null">#先退出cd BaiduPCS-Go-v3.5.4-linux-amd64 这个文件夹
+cd ..
+#重命名为1
+mv BaiduPCS-Go-v3.5.4-linux-amd64 1
+#打开文件夹
+cd 1
+#把BaiduPCS-Go重命名为1
+mv BaiduPCS-Go 1
+#下次打开终端输入
+cd 1&amp;&amp; ./1
+#即可使用
+</code></pre>
+<p> </p>
+<p> </p>
+<h1>最后无耻的复制一下<a href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md" target="_blank" rel="noopener">github上的README.md</a>的部分内容</h1>
+<h1>命令列表及说明</h1>
+<h2><a id="user-content-注意---" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E6%B3%A8%E6%84%8F---" aria-hidden="true"></a>注意 ! ! !</h2>
+命令的前缀 <code>BaiduPCS-Go</code> 为指向程序运行的全路径名 (ARGv 的第一个参数)
+<p>直接运行程序时, 未带任何其他参数, 则程序进入cli交互模式, 运行以下命令时, 要把命令的前缀 <code>BaiduPCS-Go</code> 去掉!</p>
+<p>cli交互模式已支持按tab键自动补全命令和路径.</p>
+<h2><a id="user-content-检测程序更新" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E6%A3%80%E6%B5%8B%E7%A8%8B%E5%BA%8F%E6%9B%B4%E6%96%B0" aria-hidden="true"></a>检测程序更新</h2>
+<pre><code>BaiduPCS-Go update
+</code></pre>
+<h2><a id="user-content-登录百度帐号" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E7%99%BB%E5%BD%95%E7%99%BE%E5%BA%A6%E5%B8%90%E5%8F%B7" aria-hidden="true"></a>登录百度帐号</h2>
+<h3><a id="user-content-常规登录百度帐号" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%B8%B8%E8%A7%84%E7%99%BB%E5%BD%95%E7%99%BE%E5%BA%A6%E5%B8%90%E5%8F%B7" aria-hidden="true"></a>常规登录百度帐号</h3>
+支持在线验证绑定的手机号或邮箱,
+<pre><code>BaiduPCS-Go login
+</code></pre>
+<h3><a id="user-content-使用百度-bduss-来登录百度帐号" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6-bduss-%E6%9D%A5%E7%99%BB%E5%BD%95%E7%99%BE%E5%BA%A6%E5%B8%90%E5%8F%B7" aria-hidden="true"></a>使用百度 BDUSS 来登录百度帐号</h3>
+<a href="https://github.com/iikira/BaiduPCS-Go/wiki/%E5%85%B3%E4%BA%8E-%E8%8E%B7%E5%8F%96%E7%99%BE%E5%BA%A6-BDUSS">关于 获取百度 BDUSS</a>
+<pre><code>BaiduPCS-Go login -bduss=&lt;BDUSS&gt;
+</code></pre>
+<h4><a id="user-content-例子" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90" aria-hidden="true"></a>例子</h4>
+<pre><code>BaiduPCS-Go login -bduss=1234567
+</code></pre>
+<pre><code>BaiduPCS-Go login
+请输入百度用户名(手机号/邮箱/用户名), 回车键提交 &gt; 1234567
+</code></pre>
+<h2><a id="user-content-列出帐号列表" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%88%97%E5%87%BA%E5%B8%90%E5%8F%B7%E5%88%97%E8%A1%A8" aria-hidden="true"></a>列出帐号列表</h2>
+<pre><code>BaiduPCS-Go loglist
+</code></pre>
+列出所有已登录的百度帐号
+<h2><a id="user-content-获取当前帐号" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%B8%90%E5%8F%B7" aria-hidden="true"></a>获取当前帐号</h2>
+<pre><code>BaiduPCS-Go who
+</code></pre>
+<h2><a id="user-content-切换百度帐号" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%88%87%E6%8D%A2%E7%99%BE%E5%BA%A6%E5%B8%90%E5%8F%B7" aria-hidden="true"></a>切换百度帐号</h2>
+切换已登录的百度帐号
+<pre><code>BaiduPCS-Go su &lt;uid&gt;
+</code></pre>
+<pre><code>BaiduPCS-Go su
+<p>请输入要切换帐号的 # 值 &gt;<br>
+</code></pre></p>
+<h2><a id="user-content-退出百度帐号" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E9%80%80%E5%87%BA%E7%99%BE%E5%BA%A6%E5%B8%90%E5%8F%B7" aria-hidden="true"></a>退出百度帐号</h2>
+退出当前登录的百度帐号
+<pre><code>BaiduPCS-Go logout
+</code></pre>
+程序会进一步确认退出帐号, 防止误操作.
+<h2><a id="user-content-获取网盘配额" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E8%8E%B7%E5%8F%96%E7%BD%91%E7%9B%98%E9%85%8D%E9%A2%9D" aria-hidden="true"></a>获取网盘配额</h2>
+<pre><code>BaiduPCS-Go quota
+</code></pre>
+获取网盘的总储存空间, 和已使用的储存空间
+<h2><a id="user-content-切换工作目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%88%87%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>切换工作目录</h2>
+<pre><code>BaiduPCS-Go cd &lt;目录&gt;
+</code></pre>
+<h3><a id="user-content-切换工作目录后自动列出工作目录下的文件和目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%88%87%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E5%90%8E%E8%87%AA%E5%8A%A8%E5%88%97%E5%87%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>切换工作目录后自动列出工作目录下的文件和目录</h3>
+<pre><code>BaiduPCS-Go cd -l &lt;目录&gt;
+</code></pre>
+<h4><a id="user-content-例子-1" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-1" aria-hidden="true"></a>例子</h4>
+<pre><code># 切换 /我的资源 工作目录
+BaiduPCS-Go cd /我的资源
+<p># 切换 上级目录<br>
+BaiduPCS-Go cd ..</p>
+<p># 切换 根目录<br>
+BaiduPCS-Go cd /</p>
+<p># 切换 /我的资源 工作目录, 并自动列出 /我的资源 下的文件和目录<br>
+BaiduPCS-Go cd -l 我的资源</p>
+<p># 使用通配符<br>
+BaiduPCS-Go cd /我的*<br>
+</code></pre></p>
+<h2><a id="user-content-输出工作目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E8%BE%93%E5%87%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>输出工作目录</h2>
+<pre><code>BaiduPCS-Go pwd
+</code></pre>
+<h2><a id="user-content-列出目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%88%97%E5%87%BA%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>列出目录</h2>
+列出当前工作目录的文件和目录或指定目录
+<pre><code>BaiduPCS-Go ls
+</code></pre>
+<pre><code>BaiduPCS-Go ls &lt;目录&gt;
+</code></pre>
+<h3><a id="user-content-可选参数" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0" aria-hidden="true"></a>可选参数</h3>
+<pre><code>-asc: 升序排序
+-desc: 降序排序
+-time: 根据时间排序
+-name: 根据文件名排序
+-size: 根据大小排序
+</code></pre>
+<h4><a id="user-content-例子-2" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-2" aria-hidden="true"></a>例子</h4>
+<pre><code># 列出 我的资源 内的文件和目录
+BaiduPCS-Go ls 我的资源
+<p># 绝对路径<br>
+BaiduPCS-Go ls /我的资源</p>
+<p># 降序排序<br>
+BaiduPCS-Go ls -desc 我的资源</p>
+<p># 按文件大小降序排序<br>
+BaiduPCS-Go ls -size -desc 我的资源</p>
+<p># 使用通配符<br>
+BaiduPCS-Go ls /我的*<br>
+</code></pre></p>
+<h2><a id="user-content-列出目录树形图" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%88%97%E5%87%BA%E7%9B%AE%E5%BD%95%E6%A0%91%E5%BD%A2%E5%9B%BE" aria-hidden="true"></a>列出目录树形图</h2>
+列出当前工作目录的文件和目录或指定目录的树形图
+<pre><code>BaiduPCS-Go tree &lt;目录&gt;
+<p># 默认获取工作目录元信息<br>
+BaiduPCS-Go tree<br>
+</code></pre></p>
+<h2><a id="user-content-获取单个文件目录的元信息" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E8%8E%B7%E5%8F%96%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%9A%84%E5%85%83%E4%BF%A1%E6%81%AF" aria-hidden="true"></a>获取单个文件/目录的元信息</h2>
+获取单个文件/目录的元信息
+<pre><code>BaiduPCS-Go meta &lt;文件/目录&gt;
+</code></pre>
+<pre><code># 默认获取工作目录元信息
+BaiduPCS-Go meta
+</code></pre>
+<h4><a id="user-content-例子-3" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-3" aria-hidden="true"></a>例子</h4>
+<pre><code>BaiduPCS-Go meta 我的资源
+BaiduPCS-Go meta /
+</code></pre>
+<h2><a id="user-content-搜索文件" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E6%90%9C%E7%B4%A2%E6%96%87%E4%BB%B6" aria-hidden="true"></a>搜索文件</h2>
+按文件名搜索文件（不支持查找目录）。
+<p>默认在当前工作目录搜索.</p>
+<pre><code>BaiduPCS-Go search [-path=&lt;需要检索的目录&gt;] [-r] &lt;关键字&gt;
+</code></pre>
+<h4><a id="user-content-例子-4" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-4" aria-hidden="true"></a>例子</h4>
+<pre><code># 搜索根目录的文件
+BaiduPCS-Go search -path=/ 关键字
+<p># 搜索当前工作目录的文件<br>
+BaiduPCS-Go search 关键字</p>
+<p># 递归搜索当前工作目录的文件<br>
+BaiduPCS-Go search -r 关键字<br>
+</code></pre></p>
+<h2><a id="user-content-下载文件目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>下载文件/目录</h2>
+<pre><code>BaiduPCS-Go download &lt;网盘文件或目录的路径1&gt; &lt;文件或目录2&gt; &lt;文件或目录3&gt; ...
+BaiduPCS-Go d &lt;网盘文件或目录的路径1&gt; &lt;文件或目录2&gt; &lt;文件或目录3&gt; ...
+</code></pre>
+<h3><a id="user-content-可选参数-1" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0-1" aria-hidden="true"></a>可选参数</h3>
+<pre><code>  --test          测试下载, 此操作不会保存文件到本地
+  --ow            overwrite, 覆盖已存在的文件
+  --status        输出所有线程的工作状态
+  --save          将下载的文件直接保存到当前工作目录
+  --saveto value  将下载的文件直接保存到指定的目录
+  -x              为文件加上执行权限, (windows系统无效)
+  --share         以分享文件的方式获取下载链接来下载
+  --locate        以获取直链的方式来下载
+  -p value        指定下载线程数
+</code></pre>
+支持多个文件或目录的下载.
+<p>下载的文件默认保存到 <strong>程序所在目录</strong> 的 download/ 目录, 支持设置指定目录, 重名的文件会自动跳过!</p>
+<p><a href="https://github.com/iikira/BaiduPCS-Go/wiki/%E5%85%B3%E4%BA%8E%E4%B8%8B%E8%BD%BD%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E">关于下载的简单说明</a></p>
+<h4><a id="user-content-例子-5" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-5" aria-hidden="true"></a>例子</h4>
+<pre><code># 设置保存目录, 保存到 D:\Downloads
+# 注意区别反斜杠 "\" 和 斜杠 "/" !!!
+BaiduPCS-Go config set -savedir D:/Downloads
+<p># 下载 /我的资源/1.mp4<br>
+BaiduPCS-Go d /我的资源/1.mp4</p>
+<p># 下载 /我的资源 整个目录!!<br>
+BaiduPCS-Go d /我的资源</p>
+<p># 下载网盘内的全部文件!!<br>
+BaiduPCS-Go d /<br>
+BaiduPCS-Go d *<br>
+</code></pre></p>
+<h2><a id="user-content-上传文件目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>上传文件/目录</h2>
+<pre><code>BaiduPCS-Go upload &lt;本地文件/目录的路径1&gt; &lt;文件/目录2&gt; &lt;文件/目录3&gt; ... &lt;目标目录&gt;
+BaiduPCS-Go u &lt;本地文件/目录的路径1&gt; &lt;文件/目录2&gt; &lt;文件/目录3&gt; ... &lt;目标目录&gt;
+</code></pre>
+<ul>
+ 	<li>上传的文件将会保存到, &lt;目标目录&gt;.</li>
+ 	<li>遇到同名文件将会自动覆盖!!</li>
+ 	<li>当上传的文件名和网盘的目录名称相同时, 不会覆盖目录, 防止丢失数据.</li>
+ 	<li>注意: 在上传完成后的修复md5, 不一定能成功, 但文件本身是没问题的, 只是服务器记录的md5错误而已.</li>
+</ul>
+<h4><a id="user-content-例子-6" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-6" aria-hidden="true"></a>例子:</h4>
+<pre><code># 将本地的 C:\Users\Administrator\Desktop\1.mp4 上传到网盘 /视频 目录
+# 注意区别反斜杠 "\" 和 斜杠 "/" !!!
+BaiduPCS-Go upload C:/Users/Administrator/Desktop/1.mp4 /视频
+<p># 将本地的 C:\Users\Administrator\Desktop\1.mp4 和 C:\Users\Administrator\Desktop\2.mp4 上传到网盘 /视频 目录<br>
+BaiduPCS-Go upload C:/Users/Administrator/Desktop/1.mp4 C:/Users/Administrator/Desktop/2.mp4 /视频</p>
+<p># 将本地的 C:\Users\Administrator\Desktop 整个目录上传到网盘 /视频 目录<br>
+BaiduPCS-Go upload C:/Users/Administrator/Desktop /视频<br>
+</code></pre></p>
+<h2><a id="user-content-获取下载直链" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E8%8E%B7%E5%8F%96%E4%B8%8B%E8%BD%BD%E7%9B%B4%E9%93%BE" aria-hidden="true"></a>获取下载直链</h2>
+<pre><code>BaiduPCS-Go locate &lt;文件1&gt; &lt;文件2&gt; ...
+</code></pre>
+<h4><a id="user-content-注意-1" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E6%B3%A8%E6%84%8F-1" aria-hidden="true"></a>注意</h4>
+若该功能无法正常使用, 提示<code>user is not authorized, hitcode:101</code>, 尝试更换 User-Agent 为 <code>netdisk</code>:
+<pre><code>BaiduPCS-Go config set -user_agent "netdisk"
+</code></pre>
+<h2><a id="user-content-手动秒传文件" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E6%89%8B%E5%8A%A8%E7%A7%92%E4%BC%A0%E6%96%87%E4%BB%B6" aria-hidden="true"></a>手动秒传文件</h2>
+<pre><code>BaiduPCS-Go rapidupload -length=&lt;文件的大小&gt; -md5=&lt;文件的md5值&gt; -slicemd5=&lt;文件前256KB切片的md5值(可选)&gt; -crc32=&lt;文件的crc32值(可选)&gt; &lt;保存的网盘路径, 需包含文件名&gt;
+BaiduPCS-Go ru -length=&lt;文件的大小&gt; -md5=&lt;文件的md5值&gt; -slicemd5=&lt;文件前256KB切片的md5值(可选)&gt; -crc32=&lt;文件的crc32值(可选)&gt; &lt;保存的网盘路径, 需包含文件名&gt;
+</code></pre>
+注意: 使用此功能秒传文件, 前提是知道文件的大小, md5, 前256KB切片的 md5 (可选), crc32 (可选), 且百度网盘中存在一模一样的文件.
+<p>上传的文件将会保存到网盘的目标目录.</p>
+<p>遇到同名文件将会自动覆盖!</p>
+<h4><a id="user-content-例子-7" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-7" aria-hidden="true"></a>例子:</h4>
+<pre><code># 如果秒传成功, 则保存到网盘路径 /test
+BaiduPCS-Go rapidupload -length=56276137 -md5=fbe082d80e90f90f0fb1f94adbbcfa7f -slicemd5=38c6a75b0ec4499271d4ea38a667ab61 -crc32=314332359 /test
+<p># 精简一下, 如果秒传成功, 则保存到网盘路径 /test<br>
+BaiduPCS-Go rapidupload -length=56276137 -md5=fbe082d80e90f90f0fb1f94adbbcfa7f /test<br>
+</code></pre></p>
+<h2><a id="user-content-获取本地文件的秒传信息" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E7%9A%84%E7%A7%92%E4%BC%A0%E4%BF%A1%E6%81%AF" aria-hidden="true"></a>获取本地文件的秒传信息</h2>
+<pre><code>BaiduPCS-Go sumfile &lt;本地文件的路径&gt;
+BaiduPCS-Go sf &lt;本地文件的路径&gt;
+</code></pre>
+获取本地文件的大小, md5, 前256KB切片的 md5, crc32, 可用于秒传文件.
+<h4><a id="user-content-例子-8" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-8" aria-hidden="true"></a>例子:</h4>
+<pre><code># 获取 C:\Users\Administrator\Desktop\1.mp4 的秒传信息
+BaiduPCS-Go sumfile C:/Users/Administrator/Desktop/1.mp4
+</code></pre>
+<h2><a id="user-content-导出文件目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%AF%BC%E5%87%BA%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>导出文件/目录</h2>
+<pre><code>BaiduPCS-Go export &lt;文件/目录1&gt; &lt;文件/目录2&gt; ...
+BaiduPCS-Go ep &lt;文件/目录1&gt; &lt;文件/目录2&gt; ...
+</code></pre>
+导出网盘内的文件或目录, 原理为秒传文件, 此操作会生成导出文件或目录的命令.
+<h4><a id="user-content-注意-2" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E6%B3%A8%E6%84%8F-2" aria-hidden="true"></a>注意</h4>
+并不是所有的文件都能导出成功, 程序会列出无法导出的文件列表
+<h4><a id="user-content-例子-9" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-9" aria-hidden="true"></a>例子:</h4>
+<pre><code># 导出当前工作目录:
+BaiduPCS-Go export
+<p># 导出所有文件和目录, 并设置新的根目录为 /root<br>
+BaiduPCS-Go export -root=/root /</p>
+<p># 导出 /我的资源<br>
+BaiduPCS-Go export /我的资源<br>
+</code></pre></p>
+<h2><a id="user-content-创建目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>创建目录</h2>
+<pre><code>BaiduPCS-Go mkdir &lt;目录&gt;
+</code></pre>
+<h4><a id="user-content-例子-10" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-10" aria-hidden="true"></a>例子</h4>
+<pre><code>BaiduPCS-Go mkdir 123
+</code></pre>
+<h2><a id="user-content-删除文件目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>删除文件/目录</h2>
+<pre><code>BaiduPCS-Go rm &lt;网盘文件或目录的路径1&gt; &lt;文件或目录2&gt; &lt;文件或目录3&gt; ...
+</code></pre>
+注意: 删除多个文件和目录时, 请确保每一个文件和目录都存在, 否则删除操作会失败.
+<p>被删除的文件或目录可在网盘文件回收站找回.</p>
+<h4><a id="user-content-例子-11" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-11" aria-hidden="true"></a>例子</h4>
+<pre><code># 删除 /我的资源/1.mp4
+BaiduPCS-Go rm /我的资源/1.mp4
+<p># 删除 /我的资源/1.mp4 和 /我的资源/2.mp4<br>
+BaiduPCS-Go rm /我的资源/1.mp4 /我的资源/2.mp4</p>
+<p># 删除 /我的资源 内的所有文件和目录, 但不删除该目录<br>
+BaiduPCS-Go rm /我的资源/*</p>
+<p># 删除 /我的资源 整个目录 !!<br>
+BaiduPCS-Go rm /我的资源<br>
+</code></pre></p>
+<h2><a id="user-content-拷贝文件目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>拷贝文件/目录</h2>
+<pre><code>BaiduPCS-Go cp &lt;文件/目录&gt; &lt;目标 文件/目录&gt;
+BaiduPCS-Go cp &lt;文件/目录1&gt; &lt;文件/目录2&gt; &lt;文件/目录3&gt; ... &lt;目标目录&gt;
+</code></pre>
+注意: 拷贝多个文件和目录时, 请确保每一个文件和目录都存在, 否则拷贝操作会失败.
+<h4><a id="user-content-例子-12" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-12" aria-hidden="true"></a>例子</h4>
+<pre><code># 将 /我的资源/1.mp4 复制到 根目录 /
+BaiduPCS-Go cp /我的资源/1.mp4 /
+<p># 将 /我的资源/1.mp4 和 /我的资源/2.mp4 复制到 根目录 /<br>
+BaiduPCS-Go cp /我的资源/1.mp4 /我的资源/2.mp4 /<br>
+</code></pre></p>
+<h2><a id="user-content-移动重命名文件目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E7%A7%BB%E5%8A%A8%E9%87%8D%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>移动/重命名文件/目录</h2>
+<pre><code># 移动:
+BaiduPCS-Go mv &lt;文件/目录1&gt; &lt;文件/目录2&gt; &lt;文件/目录3&gt; ... &lt;目标目录&gt;
+# 重命名:
+BaiduPCS-Go mv &lt;文件/目录&gt; &lt;重命名的文件/目录&gt;
+</code></pre>
+注意: 移动多个文件和目录时, 请确保每一个文件和目录都存在, 否则移动操作会失败.
+<h4><a id="user-content-例子-13" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-13" aria-hidden="true"></a>例子</h4>
+<pre><code># 将 /我的资源/1.mp4 移动到 根目录 /
+BaiduPCS-Go mv /我的资源/1.mp4 /
+<p># 将 /我的资源/1.mp4 重命名为 /我的资源/3.mp4<br>
+BaiduPCS-Go mv /我的资源/1.mp4 /我的资源/3.mp4<br>
+</code></pre></p>
+<h2><a id="user-content-分享文件目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%88%86%E4%BA%AB%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>分享文件/目录</h2>
+<pre><code>BaiduPCS-Go share
+</code></pre>
+<h3><a id="user-content-设置分享文件目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E8%AE%BE%E7%BD%AE%E5%88%86%E4%BA%AB%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>设置分享文件/目录</h3>
+<pre><code>BaiduPCS-Go share set &lt;文件/目录1&gt; &lt;文件/目录2&gt; ...
+BaiduPCS-Go share s &lt;文件/目录1&gt; &lt;文件/目录2&gt; ...
+</code></pre>
+<h3><a id="user-content-列出已分享文件目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%88%97%E5%87%BA%E5%B7%B2%E5%88%86%E4%BA%AB%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>列出已分享文件/目录</h3>
+<pre><code>BaiduPCS-Go share list
+BaiduPCS-Go share l
+</code></pre>
+<h3><a id="user-content-取消分享文件目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%8F%96%E6%B6%88%E5%88%86%E4%BA%AB%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>取消分享文件/目录</h3>
+<pre><code>BaiduPCS-Go share cancel &lt;shareid_1&gt; &lt;shareid_2&gt; ...
+BaiduPCS-Go share c &lt;shareid_1&gt; &lt;shareid_2&gt; ...
+</code></pre>
+目前只支持通过分享id (shareid) 来取消分享.
+<h2><a id="user-content-离线下载" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD" aria-hidden="true"></a>离线下载</h2>
+<pre><code>BaiduPCS-Go offlinedl
+BaiduPCS-Go clouddl
+BaiduPCS-Go od
+</code></pre>
+离线下载支持http/https/ftp/电驴/磁力链协议
+<h3><a id="user-content-添加离线下载任务" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E6%B7%BB%E5%8A%A0%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%BB%BB%E5%8A%A1" aria-hidden="true"></a>添加离线下载任务</h3>
+<pre><code>BaiduPCS-Go offlinedl add -path=&lt;离线下载文件保存的路径&gt; 资源地址1 地址2 ...
+</code></pre>
+添加任务成功之后, 返回离线下载的任务ID.
+<h3><a id="user-content-精确查询离线下载任务" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E7%B2%BE%E7%A1%AE%E6%9F%A5%E8%AF%A2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%BB%BB%E5%8A%A1" aria-hidden="true"></a>精确查询离线下载任务</h3>
+<pre><code>BaiduPCS-Go offlinedl query 任务ID1 任务ID2 ...
+</code></pre>
+<h3><a id="user-content-查询离线下载任务列表" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E6%9F%A5%E8%AF%A2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8" aria-hidden="true"></a>查询离线下载任务列表</h3>
+<pre><code>BaiduPCS-Go offlinedl list
+</code></pre>
+<h3><a id="user-content-取消离线下载任务" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%8F%96%E6%B6%88%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%BB%BB%E5%8A%A1" aria-hidden="true"></a>取消离线下载任务</h3>
+<pre><code>BaiduPCS-Go offlinedl cancel 任务ID1 任务ID2 ...
+</code></pre>
+<h3><a id="user-content-删除离线下载任务" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%88%A0%E9%99%A4%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD%E4%BB%BB%E5%8A%A1" aria-hidden="true"></a>删除离线下载任务</h3>
+<pre><code>BaiduPCS-Go offlinedl delete 任务ID1 任务ID2 ...
+</code></pre>
+<h4><a id="user-content-例子-14" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-14" aria-hidden="true"></a>例子</h4>
+<pre><code># 将百度和腾讯主页, 离线下载到根目录 /
+BaiduPCS-Go offlinedl add -path=/ http://baidu.com http://qq.com
+<p># 添加磁力链接任务<br>
+BaiduPCS-Go offlinedl add magnet:?xt=urn:btih:xxx</p>
+<p># 查询任务ID为 12345 的离线下载任务状态<br>
+BaiduPCS-Go offlinedl query 12345</p>
+<h1 id="取消任务id为-12345-的离线下载任务">取消任务ID为 12345 的离线下载任务</h1>
+<p>BaiduPCS-Go offlinedl cancel 12345<br>
+</code></pre></p>
+<h2><a id="user-content-显示程序环境变量" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E6%98%BE%E7%A4%BA%E7%A8%8B%E5%BA%8F%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F" aria-hidden="true"></a>显示程序环境变量</h2>
+<pre><code>BaiduPCS-Go env
+</code></pre>
+BAIDUPCS_GO_CONFIG_DIR: 为具体的存储目录,
+<p>BAIDUPCS_GO_VERBOSE: 是否启用调试.</p>
+<h2><a id="user-content-显示和修改程序配置项" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E6%98%BE%E7%A4%BA%E5%92%8C%E4%BF%AE%E6%94%B9%E7%A8%8B%E5%BA%8F%E9%85%8D%E7%BD%AE%E9%A1%B9" aria-hidden="true"></a>显示和修改程序配置项</h2>
+<pre><code># 显示配置
+BaiduPCS-Go config
+<p># 设置配置<br>
+BaiduPCS-Go config set<br>
+</code></pre><br>
+注意: v3.5 以后, 程序对配置文件储存路径的寻找做了调整, 配置文件所在的目录可以是程序本身所在目录, 也可以是家目录.</p>
+<p>配置文件所在的目录为家目录的情况:</p>
+<p>Windows: <code>%APPDATA%\BaiduPCS-Go</code></p>
+<p>其他操作系统: <code>$HOME/.config/BaiduPCS-Go</code></p>
+<p>可通过设置环境变量 <code>BAIDUPCS_GO_CONFIG_DIR</code>, 指定配置文件存放的目录.</p>
+<h4><a id="user-content-例子-15" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E4%BE%8B%E5%AD%90-15" aria-hidden="true"></a>例子</h4>
+<pre><code># 显示所有可以设置的值
+BaiduPCS-Go config -h
+BaiduPCS-Go config set -h
+<p># 设置下载文件的储存目录<br>
+BaiduPCS-Go config set -savedir D:/Downloads</p>
+<p># 设置下载最大并发量为 150<br>
+BaiduPCS-Go config set -max_parallel 150</p>
+<p># 组合设置<br>
+BaiduPCS-Go config set -max_parallel 150 -savedir D:/Downloads<br>
+</code></pre></p>
+<h2><a id="user-content-工具箱" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%B7%A5%E5%85%B7%E7%AE%B1" aria-hidden="true"></a>工具箱</h2>
+<pre><code>BaiduPCS-Go tool
+</code></pre>
+目前工具箱支持加解密文件等.
+<h1><a id="user-content-初级使用教程" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#%E5%88%9D%E7%BA%A7%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B" aria-hidden="true"></a>初级使用教程</h1>
+新手建议: <strong>双击运行程序</strong>, 进入仿 Linux shell 的 cli 交互模式;
+<p>cli交互模式下, 光标所在行的前缀应为 <code>BaiduPCS-Go &gt;</code>, 如果登录了百度帐号则格式为 <code>BaiduPCS-Go:&lt;工作目录&gt; &lt;百度ID&gt;$</code></p>
+<p>以下例子的命令, 均为 cli交互模式下的命令</p>
+<p>运行命令的正确操作: <strong>输入命令, 按一下回车键 (键盘上的 Enter 键)</strong>, 程序会接收到命令并输出结果</p>
+<h2><a id="user-content-1-查看程序使用说明" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#1-%E6%9F%A5%E7%9C%8B%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" aria-hidden="true"></a>1. 查看程序使用说明</h2>
+cli交互模式下, 运行命令 <code>help</code>
+<h2><a id="user-content-2-登录百度帐号-必做" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#2-%E7%99%BB%E5%BD%95%E7%99%BE%E5%BA%A6%E5%B8%90%E5%8F%B7-%E5%BF%85%E5%81%9A" aria-hidden="true"></a>2. 登录百度帐号 (必做)</h2>
+cli交互模式下, 运行命令 <code>login -h</code> (注意空格) 查看帮助
+<p>cli交互模式下, 运行命令 <code>login</code> 程序将会提示你输入百度用户名(手机号/邮箱/用户名)和密码, 必要时还可以在线验证绑定的手机号或邮箱</p>
+<h2><a id="user-content-3-切换网盘工作目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#3-%E5%88%87%E6%8D%A2%E7%BD%91%E7%9B%98%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>3. 切换网盘工作目录</h2>
+cli交互模式下, 运行命令 <code>cd /我的资源</code> 将工作目录切换为 <code>/我的资源</code> (前提: 该目录存在于网盘)
+<p>目录支持通配符匹配, 所以你也可以这样: 运行命令 <code>cd /我的*</code> 或 <code>cd /我的??</code> 将工作目录切换为 <code>/我的资源</code>, 简化输入.</p>
+<p>将工作目录切换为 <code>/我的资源</code> 成功后, 运行命令 <code>cd ..</code> 切换上级目录, 即将工作目录切换为 <code>/</code></p>
+<p>为什么要这样设计呢, 举个例子,</p>
+<p>假设 你要下载 <code>/我的资源</code> 内名为 <code>1.mp4</code> 和 <code>2.mp4</code> 两个文件, 而未切换工作目录, 你需要依次运行以下命令:</p>
+<pre><code>d /我的资源/1.mp4
+d /我的资源/2.mp4
+</code></pre>
+<p>而切换网盘工作目录之后, 依次运行以下命令:</p>
+<pre><code>cd /我的资源
+d 1.mp4
+d 2.mp4
+</code></pre>
+<p>这样就达到了简化输入的目的</p>
+<h2><a id="user-content-4-网盘内列出文件和目录" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#4-%E7%BD%91%E7%9B%98%E5%86%85%E5%88%97%E5%87%BA%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95" aria-hidden="true"></a>4. 网盘内列出文件和目录</h2>
+cli交互模式下, 运行命令 <code>ls -h</code> (注意空格) 查看帮助
+<p>cli交互模式下, 运行命令 <code>ls</code> 来列出当前所在目录的文件和目录</p>
+<p>cli交互模式下, 运行命令 <code>ls /我的资源</code> 来列出 <code>/我的资源</code> 内的文件和目录</p>
+<p>cli交互模式下, 运行命令 <code>ls ..</code> 来列出当前所在目录的上级目录的文件和目录</p>
+<h2><a id="user-content-5-下载文件" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#5-%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6" aria-hidden="true"></a>5. 下载文件</h2>
+说明: 下载的文件默认保存到 download/ 目录 (文件夹)
+<p>cli交互模式下, 运行命令 <code>d -h</code> (注意空格) 查看帮助</p>
+<p>cli交互模式下, 运行命令 <code>d /我的资源/1.mp4</code> 来下载位于 <code>/我的资源/1.mp4</code> 的文件 <code>1.mp4</code> , 该操作等效于运行以下命令:</p>
+<pre><code>cd /我的资源
+d 1.mp4
+</code></pre>
+<p>现在已经支持目录 (文件夹) 下载, 所以, 运行以下命令, 会下载 <code>/我的资源</code> 内的所有文件 (违规文件除外):</p>
+<pre><code>d /我的资源
+</code></pre>
+<p>参见 例6 设置下载最大并发量</p>
+<h2><a id="user-content-6-设置下载最大并发量" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#6-%E8%AE%BE%E7%BD%AE%E4%B8%8B%E8%BD%BD%E6%9C%80%E5%A4%A7%E5%B9%B6%E5%8F%91%E9%87%8F" aria-hidden="true"></a>6. 设置下载最大并发量</h2>
+cli交互模式下, 运行命令 <code>config set -h</code> (注意空格) 查看设置帮助以及可供设置的值
+<p>cli交互模式下, 运行命令 <code>config set -max_parallel 250</code> 将下载最大并发量设置为 250</p>
+<p>下载最大并发量建议值: 50~500, 太低下载速度提升不明显甚至速度会变为0, 太高可能会导致程序出错被操作系统结束掉.</p>
+<h2><a id="user-content-7-退出程序" class="anchor" href="https://github.com/iikira/BaiduPCS-Go/blob/master/README.md#7-%E9%80%80%E5%87%BA%E7%A8%8B%E5%BA%8F" aria-hidden="true"></a>7. 退出程序</h2>
+运行命令 <code>quit</code> 或 <code>exit</code> 或 组合键 <code>Ctrl+C</code> 或 组合键 <code>Ctrl+D</code>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【Android】百度云盘高速下载]]></title>
+        <id>https://blog.g00gle.top/post/android-bai-du-yun-pan-gao-su-xia-zai/</id>
+        <link href="https://blog.g00gle.top/post/android-bai-du-yun-pan-gao-su-xia-zai/">
+        </link>
+        <updated>2018-08-20T10:57:28.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>百度云下载限速，又不想氪金怎么办？最近有大佬说可以用BaiduPCS-Go 百度网盘客户端解决(<a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">Github链接</a>)。我试了一下，果然效果拔群。</blockquote>
+<h1>需要工具</h1>
+<ol>
+ 	<li>Android手机一台</li>
+ 	<li>安装终端termux  <a href="https://www.coolapk.com/apk/com.termux" target="_blank" rel="noopener">酷安下载</a>   <a href="https://termux.com" target="_blank" rel="noopener">官网</a></li>
+</ol>
+<h1>安装过程</h1>
+打开终端termux等待installing完成(建议在富强上网buff下完成以下，可以尝试下换国内的源，国内我用不了)<img class="alignnone size-medium wp-image-204" src="https://tva4.sinaimg.cn/large/006nES8lgy1gjenq4z93dj304608cq2r.jpg" alt="" width="150" height="300" />
+<p>然后直接输入以下命令：</p>
+<pre class="pure-highlightjs"><code class="null">apt update &amp;&amp; apt upgrade -y &amp;&amp; apt install zip wget -y &amp;&amp; termux-setup-storage &amp;&amp; wget -O 1.zip https://github.com/iikira/BaiduPCS-Go/releases/download/v3.3.3/BaiduPCS-Go-v3.3.3-android-21-arm64.zip &amp;&amp; unzip 1.zip &amp;&amp; rm 1.zip &amp;&amp; mv BaiduPCS-Go-v3.3.3-android-21-arm64 BaiduPCS-Go &amp;&amp; cd ~/BaiduPCS-Go &amp;&amp; ./BaiduPCS-Go &amp;&amp; config set -savedir /sdcard/download &amp;&amp; config set -max_paralle1 80 -cache_size 50000
+</code></pre>
+<img class="alignnone size-medium wp-image-206" src="https://tvax4.sinaimg.cn/large/006nES8lgy1gjenq7imyrj304608cwf5.jpg" alt="" width="150" height="300" />
+<p>输入:<code class="null">login<br>
+</code></p>
+<p> </p>
+<img class="alignnone size-medium wp-image-207" src="https://tva1.sinaimg.cn/large/006nES8lgy1gjenrc2agij304608c0tf.jpg" alt="" width="150" height="300" />
+<p>登录自己的百度账号</p>
+<img class="alignnone size-medium wp-image-208" src="https://tvax1.sinaimg.cn/large/006nES8lgy1gjenrmqosij304608c3zd.jpg" alt="" width="150" height="300" />
+<p>登录成功。</p>
+<p> </p>
+<p> </p>
+<h1>使用说明</h1>
+例如我要下载<code class="null">我的资源&gt;刺客信条：起源</code>
+<img class="alignnone size-medium wp-image-209" src="https://tvax1.sinaimg.cn/large/006nES8lgy1gjensbycymj308c04t0sq.jpg" alt="" width="300" height="173" />
+<p>就直接在termux输入<span style="background-color: #e9ebec; color: #222222; font-family: Consolas, Monaco, monospace; font-size: 12px;">d 我的资源/刺客信条：起源</span></p>
+<img class="alignnone size-medium wp-image-210" src="https://tva1.sinaimg.cn/large/006nES8lgy1gjensry6jmj304608cq3i.jpg" alt="" width="150" height="300" />
+<p>下载完可以在文件管理查看(我的是安卓p)</p>
+<img class="alignnone size-medium wp-image-211" src="https://tvax3.sinaimg.cn/large/006nES8lgy1gjent32evdj304608cwek.jpg" alt="" width="150" height="300" />
+<p>修改路径命令是<code class="null">config set -savedir 下载路径</code>。</p>
+<p> </p>
+<p>退出后想要重新打开可以用<code class="null">cd ~/BaiduPCS-Go &amp;&amp; ./BaiduPCS-Go<br>
+</code>这条命令。</p>
+<p>本文结束。</p>
+<p> </p>
+<p><del>下次写几篇termux文章</del>，算了当我没说。滑稽</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[删除刷机包机型验证]]></title>
+        <id>https://blog.g00gle.top/post/shan-chu-shua-ji-bao-ji-xing-yan-zheng/</id>
+        <link href="https://blog.g00gle.top/post/shan-chu-shua-ji-bao-ji-xing-yan-zheng/">
+        </link>
+        <updated>2018-08-18T10:56:15.000Z</updated>
+        <content type="html"><![CDATA[<p>最近在刷安卓P，XDA上的V10刷机包加了机型验证，我奇兔的REC刷机会出现错误7.还好有大佬教我删除机型验证，所以在此做个笔记。</p>
+<p>打开刷机包，再依次打开<code class="null">META-INF/com/google/android/updater-script</code>选择这个文件复制出来，再用记事本打开，把<code class="null">ui_print</code>这行前面的删除，保存并退出替换刷机包文件即可。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Aria2+Rclone+DirectoryLister+AriaNg一键安装脚本 for Debian 8]]></title>
+        <id>https://blog.g00gle.top/post/aria2rclonedirectorylisterariang-yi-jian-an-zhuang-jiao-ben-for-debian-8/</id>
+        <link href="https://blog.g00gle.top/post/aria2rclonedirectorylisterariang-yi-jian-an-zhuang-jiao-ben-for-debian-8/">
+        </link>
+        <updated>2018-08-15T14:50:12.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>感谢<a href="https://www.94ish.me/1697.html" target="_blank" rel="noopener noreferrer">千影</a>大佬的大力滋磁，原文链接：<a href="https://www.94ish.me/1697.html" target="_blank" rel="noopener noreferrer">https://www.94ish.me/1697.html</a></blockquote>
+<h2>安装需求</h2>
+<blockquote>
+<ol>
+ 	<li>两个域名，一个作为<code>DirectoryLister</code>的域名，另外一个作为<code>AriaNg</code>的域名。</li>
+ 	<li><em>Debian</em>&nbsp;<strong>8</strong>系统，本脚本只支持Debian 8 64位系统。</li>
+ 	<li>本脚本不支持OpenVZ虚拟化技术。</li>
+ 	<li>本脚本需要Google Drive一个。</li>
+</ol>
+</blockquote>
+本脚本在<code>Debian</code>&nbsp;<strong>8</strong>&nbsp;x64上测试成功。且需要提前使用2个域名解析到VPS服务器。
+如果运行失败，可以通过DD安装纯净版系统
+<pre class="pure-highlightjs"><code class="null">apt-get install -y gawk sed grep
+wget --no-check-certificate -qO DebianNET.sh 'https://moeclub.org/attachment/LinuxShell/DebianNET.sh' &amp;&amp; chmod -x DebianNET.sh &amp;&amp; bash DebianNET.sh -d 8 -v 64 -a --mirror 'http://ftp.riken.jp/Linux/debian/debian/'
+重装后root默认密码为：Vicer
+</code></pre>
+<h3>使用命令：</h3>
+<pre class="pure-highlightjs"><code class="null">wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Aria2-Rclone-DirectoryLister-Aria2Ng/chiakge-patch-1/Aria2.sh"
+chmod +x Aria2.sh
+./Aria2.sh
+</code></pre>
+运行脚本后，会依次要你输入以下信息：
+<pre class="pure-highlightjs"><code class="null">#输入网盘域名及Aria2NG面板域名
+请输入你的DirectoryLister域名信息(eg:pan.94ish.me):
+请输入你的Aria2NG域名信息(eg:dl.94ish.me):
+<p>#设置Aria2密钥<br>
+请输入你的Aria2密钥:</p>
+<p>#配置Rclone，大致如下<br>
+n) New remote<br>
+s) Set configuration password<br>
+q) Quit config<br>
+n/s/q&gt; n<br>
+name&gt; aria2down  #随便填，后面要用到<br>
+Type of storage to configure.<br>
+Choose a number from below, or type in your own value<br>
+1 / Alias for a existing remote<br>
+\ &quot;alias&quot;<br>
+2 / Amazon Drive<br>
+\ &quot;amazon cloud drive&quot;<br>
+3 / Amazon S3 (also Dreamhost, Ceph, Minio, IBM COS)<br>
+\ &quot;s3&quot;<br>
+4 / Backblaze B2<br>
+\ &quot;b2&quot;<br>
+5 / Box<br>
+\ &quot;box&quot;<br>
+6 / Cache a remote<br>
+\ &quot;cache&quot;<br>
+7 / Dropbox<br>
+\ &quot;dropbox&quot;<br>
+8 / Encrypt/Decrypt a remote<br>
+\ &quot;crypt&quot;<br>
+9 / FTP Connection<br>
+\ &quot;ftp&quot;<br>
+10 / Google Cloud Storage (this is not Google Drive)<br>
+\ &quot;google cloud storage&quot;<br>
+11 / Google Drive<br>
+\ &quot;drive&quot;<br>
+12 / Hubic<br>
+\ &quot;hubic&quot;<br>
+13 / Local Disk<br>
+\ &quot;local&quot;<br>
+14 / Microsoft Azure Blob Storage<br>
+\ &quot;azureblob&quot;<br>
+15 / Microsoft OneDrive<br>
+\ &quot;onedrive&quot;<br>
+16 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)<br>
+\ &quot;swift&quot;<br>
+17 / Pcloud<br>
+\ &quot;pcloud&quot;<br>
+18 / QingCloud Object Storage<br>
+\ &quot;qingstor&quot;<br>
+19 / SSH/SFTP Connection<br>
+\ &quot;sftp&quot;<br>
+20 / Webdav<br>
+\ &quot;webdav&quot;<br>
+21 / Yandex Disk<br>
+\ &quot;yandex&quot;<br>
+22 / http Connection<br>
+\ &quot;http&quot;<br>
+Storage&gt; 11 #选择11<br>
+Google Application Client Id - leave blank normally.<br>
+client_id&gt; #留空<br>
+Google Application Client Secret - leave blank normally.<br>
+client_secret&gt; #留空<br>
+Scope that rclone should use when requesting access from drive.<br>
+Choose a number from below, or type in your own value<br>
+1 / Full access all files, excluding Application Data Folder.<br>
+\ &quot;drive&quot;<br>
+2 / Read-only access to file metadata and file contents.<br>
+\ &quot;drive.readonly&quot;<br>
+/ Access to files created by rclone only.<br>
+3 | These are visible in the drive website.<br>
+| File authorization is revoked when the user deauthorizes the app.<br>
+\ &quot;drive.file&quot;<br>
+/ Allows read and write access to the Application Data folder.<br>
+4 | This is not visible in the drive website.<br>
+\ &quot;drive.appfolder&quot;<br>
+/ Allows read-only access to file metadata but<br>
+5 | does not allow any access to read or download file content.<br>
+\ &quot;drive.metadata.readonly&quot;<br>
+scope&gt; 1 #选择1<br>
+ID of the root folder - leave blank normally.  Fill in to access &quot;Computers&quot; folders. (see docs).<br>
+root_folder_id&gt; #留空<br>
+Service Account Credentials JSON file path  - leave blank normally.<br>
+Needed only if you want use SA instead of interactive login.<br>
+service_account_file&gt; #留空<br>
+Remote config<br>
+Use auto config?</p>
+<ul>
+<li>Say Y if not sure</li>
+<li>Say N if you are working on a remote or headless machine or Y didn't work<br>
+y) Yes<br>
+n) No<br>
+y/n&gt; n  #选择n<br>
+If your browser doesn't open automatically go to the following link: https://accounts.google.com/o/oauth2/auth....  #复制到浏览器打开，获取验证码<br>
+Log in and authorize rclone for access<br>
+Enter verification code&gt;  #填入上面获取到的验证码<br>
+Configure this as a team drive?<br>
+y) Yes<br>
+n) No<br>
+y/n&gt; y  #选择y<br>
+Fetching team drive list...<br>
+No team drives found in your account--------------------<br>
+[Rats]<br>
+client_id =<br>
+client_secret =<br>
+service_account_file =<br>
+token = {&quot;access_token&quot;:&quot;ya29.GltFBd7UJN2qrxdG8FnG_rMuB18ogb8QlujdL7glvXtfV&quot;}<br>
+team_drive =</li>
+</ul>
+<hr>
+<p>y) Yes this is OK<br>
+e) Edit this remote<br>
+d) Delete this remote<br>
+y/e/d&gt; y  #选择y<br>
+Current remotes:</p>
+<p>Name                 Type<br>
+====                 ====<br>
+aria2down            drive</p>
+<p>e) Edit existing remote<br>
+n) New remote<br>
+d) Delete remote<br>
+r) Rename remote<br>
+c) Copy remote<br>
+s) Set configuration password<br>
+q) Quit config<br>
+e/n/d/r/c/s/q&gt; q  #选择q退出</p>
+<p>#最后输入Name<br>
+请输入你刚刚输入的Name:<br>
+请输入你云盘中需要挂载的文件夹:<br>
+</code></pre><br>
+然后脚本安装完成后，就可以直接通过Aria2Ng面板连接Aria2下载文件，并通过网盘观看了。</p>
+<div data-unique="相关目录"></div>
+<h2>相关目录</h2>
+Aria2下载目录：/root/Download
+DirectoryLister目录：/home/wwwroot/a.xx.com
+Aria2Ng目录：/home/wwwroot/b.xx.com
+挂载目录：/home/wwwroot/a.xx.com/Cloud]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[CentOS搭建xfce桌面+VNC教程]]></title>
         <id>https://blog.g00gle.top/post/centos-da-jian-xfce-zhuo-mian-vnc-jiao-cheng/</id>
@@ -205,495 +889,5 @@ nautilus &amp;</pre><br>
 <p>6.使用VNC Viewer（强烈建议去官方下载），连接地址为ip：5901</p>
 <p>7.开启VNCServer的自启动，运行crontab -e，加入如下命令，以后重启就会自动运行vncserver了</p>
 <pre>@reboot /usr/bin/vncserver :1</pre>]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Ubuntu下安装RealVNC和xfce4桌面套件]]></title>
-        <id>https://blog.g00gle.top/post/ubuntu-xia-an-zhuang-realvnc-he-xfce4-zhuo-mian-tao-jian/</id>
-        <link href="https://blog.g00gle.top/post/ubuntu-xia-an-zhuang-realvnc-he-xfce4-zhuo-mian-tao-jian/">
-        </link>
-        <updated>2018-08-14T11:45:47.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>感谢<a href="https://www.vmvps.com/install-realvnc-and-xfce4-under-ubuntu.html" target="_blank" rel="noopener">微魔</a>大佬的大力滋磁，原文链接：<a href="https://www.vmvps.com/install-realvnc-and-xfce4-under-ubuntu.html" target="_blank" rel="noopener">https://www.vmvps.com/install-realvnc-and-xfce4-under-ubuntu.html</a></blockquote>
-<h3>Ubuntu下安装RealVNC和xfce4桌面套件</h3>
-<p class="info_box">本文是在Ubuntu 14.04下进行测试安装</p>
-1.安装xfce和firefox
-<pre>apt-get -y install xfce4 xfce4-goodies firefox adobe-flashplugin fonts-wqy-*</pre>
-<p class="notice_box">如果是Debian，请把firefox对应换成iceweasel</p>
-2.下载和安装RealVNC
-<p>到官网下载RealVNC server（www.realvnc.com/download/vnc/），里面有debian兼容的安装包，下载下来应该是个tar.gz文件，解压可以得到两个deb文件，把server的那个上传到VPS，使用如下命令安装。</p>
-<pre>dpkg -i 具体名称.deb</pre>
-<p>3.获取许可</p>
-<p class="info_box">尽管RealVNC对于个人使用是免费的，但是你依然需要申请授权许可才能使用，申请的方法很简单，简单填入自己的信息即可，地址（www.realvnc.com/products/vnc/licensing）</p>
-<pre>nclicense -add 刚才获得的授权字符串</pre>
-<p>4.运行RealVNC</p>
-<p class="warning_box">最好是专门开一个用户（adduser命令创建）来运行VNC，而不是直接像本文一样直接用root来运行vnc（登录密码为运行vnc的用户密码）</p>
-<pre>vncserver-x11</pre>
-<p>这样，RealVNC+Xfce4的运行环境就搭建好了，下一步就是自己尝试使用VNC viewer进行连接了</p>
-<p>如何使用VNC？</p>
-<pre>下载VNCViewer（www.realvnc.com/download/binary/1730/），连接时输入ip:5901链接即可</pre>
-<p>如果出现10060/10061/remote host refused等错误，很可能是VNCServer没有启动或者iptables防火墙没有放行5901端口（<a href="https://www.vmvps.com/linux-iptables-simple-tutorial-from-vmvps.html" target="_blank" rel="noopener">iptables教程</a>），启动即可</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[老司机坐骑——BT/PT盒子安装简明教程]]></title>
-        <id>https://blog.g00gle.top/post/lao-si-ji-zuo-qi-btpt-he-zi-an-zhuang-jian-ming-jiao-cheng/</id>
-        <link href="https://blog.g00gle.top/post/lao-si-ji-zuo-qi-btpt-he-zi-an-zhuang-jian-ming-jiao-cheng/">
-        </link>
-        <updated>2018-08-14T07:05:44.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>感谢<a href="https://www.mengclaw.com/2018/05/29/77/" target="_blank" rel="noopener">WolfSkylake</a>大佬的大力滋磁，原文链接：<a href="https://www.mengclaw.com/2018/05/29/77/" target="_blank" rel="noopener">https://www.mengclaw.com/2018/05/29/77/</a></blockquote>
-说到云端下载器，就不得不提大名鼎鼎的Aria2了，他支持磁力，BT，以及直链的下载。但是有利就有弊，Aria2不是标准的PT/BT客户端，在很多PT站无法正常下载和上传，更有甚者，会判定是在作弊，严重者封号处理的下场。为了解决这个尴尬的局面，我们就要请上我们今天的主角——rTorrent。
-<p>rTorrent 是一个非常简洁、优秀、非常轻量的BT客户端. 它使用了 ncurses 库以 C++ 编写, 因此它完全基于文本并在终端中运行. 将 rTorrent 用在安装有 GNU Screen 和 Secure Shell 的低端系统上作为远程的 BT 客户端是非常理想的。</p>
-<p>本教程为了简化步骤，将采用<a href="https://github.com/arakasi72/rtinst">rtinst脚本</a>① 进行安装。为了防止不必要的意外，请以root账户登陆服务器。</p>
-<p>前提条件：<br>
-1、服务器系统：全新安装的 Ubuntu14+ / Debian8+（不兼容CentOS）<br>
-2、服务器内存：≥512MB<br>
-3、服务器磁盘：≥20GB（太小将会带来糟糕的体验）<br>
-4、虚拟化架构：KVM、Hyper-V、OpenVZ</p>
-<p>1、防止系统过于精简，先更新系统软件源 ：</p>
-<pre class="pure-highlightjs"><code class="null">apt-get update -y
-</code></pre>
-<p>2、安装常规依赖组件，防止出现 xxxx: command not found 的错误</p>
-<pre class="pure-highlightjs"><code class="null">apt-get install -y wget curl git vim unzip unrar-free
-</code></pre>
-<p>3、下载一键安装程序</p>
-<pre class="pure-highlightjs"><code class="null">bash -c "$(wget --no-check-certificate -qO - https://raw.githubusercontent.com/arakasi72/rtinst/master/rtsetup)"
- 
-# 下载安装包并且初始化软件环境
-</code></pre>
-<p>4、运行主脚本</p>
-<pre class="pure-highlightjs"><code class="null">rtinst -t
-</code></pre>
-<p>安装一开始，会提示：</p>
-<pre class="pure-highlightjs"><code class="null">Your Server IP is *.*.*.*
-Is this correct y/n? 
- 
-# 这个时候，你需要输入“y”，并按回车键继续
-</code></pre>
-<p>然后他会要求你新建一个账户，用于搭建rTorrent，搭建后请<strong>使用新用户</strong>登陆SSH：</p>
-<pre class="pure-highlightjs"><code class="null">Enter user name: mengclaw
-# 请键入新的用户名 比如 mengclaw
- 
-Confirm that user name is mengclaw y/n? y
-# 确认你的用户名 输入y后，按回车键继续
- 
-Adding user `mengclaw' ...
-Adding new group `mengclaw' (1000) ...
-Adding new user `mengclaw' (1000) with group `mengclaw' ...
-Creating home directory `/home/mengclaw' ...
-Copying files from `/etc/skel' ...
- 
-Enter new UNIX password: mengclaw.com
-# 请输入新账户密码 比如 mengclaw.com（建议自定义一个）
- 
-Retype new UNIX password: mengclaw.com
-# 再次输入新账户密码 比如 mengclaw.com（建议自定义一个）
- 
-passwd: password updated successfully
-Set Password for RuTorrent web client
-Enter a password (6+ chars)
-or leave blank to generate a random one
- 
-Please enter the new password: mengclaw.com
-# 请输入新账户密码 （为了防止忘记密码，建议使用和上面一样的密码）
- 
-Enter the new password again: mengclaw.com
-# 再次输入新账户密码 （为了防止忘记密码，建议使用和上面一样的密码）
-</code></pre>
-<p>最后出现这样的提示就说明安装并启动成功：</p>
-<pre class="pure-highlightjs"><code class="null">Thank You for choosing rtinst
- 
-# 感谢您选择rtinst
-</code></pre>
-<p>5、更新NGINX配置</p>
-<pre class="pure-highlightjs"><code class="null"># 以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！
- 
-echo "server {
-        listen 80;
-        root /var/www;
-        index index.html index.php index.htm;
-        client_max_body_size 40m;
-        location / {
-               try_files $uri $uri/ =404;
-        }
-        location /rutorrent {
-               client_max_body_size 40m;
-               auth_basic "Restricted";
-               auth_basic_user_file /etc/nginx/.htpasswd;
-               include /etc/nginx/conf.d/php;
-               include /etc/nginx/conf.d/cache;
-        }
-        location ~ /\.ht {
-                deny all;
-        }
-        location /rtdown {
-               auth_basic "Restricted";      #密码提示字段，可任意设置
-               auth_basic_user_file /etc/nginx/.htpasswd;  #如果不需要访问密码，删掉此行和上一行即可
-               alias /home/mengclaw/rtorrent/download;    #这是rt默认存储位置，当然你也可以换成别的的
-               autoindex on;  #启用文件管理
-               charset utf-8,gbk;  # 避免中文乱码
-        }
-}" &gt; /etc/nginx/sites-enabled/default
-</code></pre>
-<p> </p>
-<p>6、重启NGINX</p>
-<pre class="pure-highlightjs"><code class="null">service nginx restart
-</code></pre>
-<p>7、rTorrent 使用说明<br>
-访问WEB-UI进行下载：http://盒子IP/rutorrent<br>
-服务器文件拖回本地：http://盒子IP/rtdown</p>
-<p>如果提示身份验证，账号为前面设置的用户名和密码</p>
-<p>①Rtinst脚本，由arakasi72创建并且维护，详见：<a href="https://github.com/arakasi72/rtinst">GitHub-Rtinst</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Linux桌面实战——GUI图形化界面安装教程]]></title>
-        <id>https://blog.g00gle.top/post/linux-zhuo-mian-shi-zhan-gui-tu-xing-hua-jie-mian-an-zhuang-jiao-cheng/</id>
-        <link href="https://blog.g00gle.top/post/linux-zhuo-mian-shi-zhan-gui-tu-xing-hua-jie-mian-an-zhuang-jiao-cheng/">
-        </link>
-        <updated>2018-08-14T06:48:03.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>感谢<a href="https://www.mengclaw.com/2018/06/04/183/" target="_blank" rel="noopener">WolfSkylake</a>大佬的大力滋磁，原文链接：<a href="https://www.mengclaw.com/2018/06/04/183/" target="_blank" rel="noopener">https://www.mengclaw.com/2018/06/04/183/</a></blockquote>
-&nbsp;
-<p>操作系统，是管理计算机硬件与软件资源的计算机程序。按应用领域来划分，有桌面操作系统、服务器操作系统和嵌入式操作系统3种。我们常接触的Windows操作系统就是桌面操作系统的一种。</p>
-<p>可是无奈，基于<strong>Linux服务器</strong>系统下的桌面环境，真是少之又少，外加上IDC对系统的精简，以至于Linux桌面对初涉服务器/VPS的用户，确实是一道门槛。</p>
-<p>本篇文章，以Ubuntu下一个华丽的桌面系统——Kubuntu-Desktop为例，讲解如何在服务器系统下，部署桌面环境。</p>
-<p>前提条件：<br>
-1、服务器系统：Ubuntu12.04+<br>
-2、服务器内存：≥512MB<br>
-3、磁盘可用：    ≥1GB<br>
-4、虚拟化架构：KVM、Hyper-V、VMware</p>
-<p>1、以root账户登陆，防止系统过于精简，先更新系统软件源 ：</p>
-<pre class="pure-highlightjs"><code class="null">sudo apt-get update -y
- 
-# 更新软件源
-</code></pre>
-<p>2、安装KDE桌面程序</p>
-<pre class="pure-highlightjs"><code class="null">apt-get install kubuntu-desktop -y
- 
-# 安装KDE桌面环境
-</code></pre>
-<p>3、添加GUI桌面下的新用户</p>
-<pre class="pure-highlightjs"><code class="null">useradd -m -g users -s /bin/bash mengclaw
- 
-# 添加用户，隶属于users用户组，用户名：mengclaw
- 
-执行结果：
-root@localhost:~# useradd -m -g users -s /bin/bash mengclaw
-</code></pre>
-<p>4、为新添加的用户设置一个密码</p>
-<pre class="pure-highlightjs"><code class="null">passwd mengclaw
-
-# passwd 用户名
-
-执行结果：
-root@localhost:~# passwd mengclaw
-
-Enter new UNIX password: mengclaw.com
-Retype new UNIX password: mengclaw.com
-
-passwd: password updated successfully
-</code></pre>
-<p>注：在输入密码过程中，SHELL中不会显示输入的内容</p>
-<p>5、为新用户增加管理员权限：</p>
-<pre class="pure-highlightjs"><code class="null">echo "mengclaw ALL=(ALL) ALL" &gt;&gt; /etc/sudoers
-
-# echo "用户名 ALL=(ALL) ALL" &gt;&gt; /etc/sudoers
-</code></pre>
-<p>6、重启服务器，即可在VNC端登陆，看到带有图形界面的Ubuntu系统了。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[在Linux上一键安装KMS激活服务器]]></title>
-        <id>https://blog.g00gle.top/post/zai-linux-shang-yi-jian-an-zhuang-kms-ji-huo-fu-wu-qi/</id>
-        <link href="https://blog.g00gle.top/post/zai-linux-shang-yi-jian-an-zhuang-kms-ji-huo-fu-wu-qi/">
-        </link>
-        <updated>2018-08-11T07:21:51.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>感谢<a href="https://www.vmvps.com/how-to-install-a-kms-service-on-a-linux-vps.html" target="_blank" rel="noopener noreferrer">微魔</a>大佬的大力滋磁。原文链接：<a href="https://www.vmvps.com/how-to-install-a-kms-service-on-a-linux-vps.html" target="_blank" rel="noopener noreferrer">https://www.vmvps.com/how-to-install-a-kms-service-on-a-linux-vps.html</a></blockquote>
-<p>经常使用Windows的朋友应该对KMS并不陌生，不少朋友是通过在本地安装KMS来激活自己的Windows系统的，但实际上，如果你有一台闲置的VPS，那么你可以将KMS安装在服务器上，用于远程激活你的Windows。最近，看到了来自<a href="https://teddysun.com/530.html" target="_blank" rel="external nofollow noopener noreferrer">Teddysun</a>的一键安装脚本（本文的部分内容也源于该作者的源博客），这个流程又简单了不少，拿出来分享给大家。<span id="more-6092"></span></p>
-<p class="warning_box">KMS，全称knowledgebase management system，是微软官方为大批量订购的用户提供的一种便利的激活方案，本文仅做技术讨论，请在支持正版的前提下使用本文的相关内容。</p>
-<p class="info_box">注意：本文所说的KMS只支持VOL版本的Windows或者Office的激活（也就是安装镜像名待有VL字样的版本），可以到<a href="https://msdn.itellyou.cn/" target="_blank" rel="external nofollow noopener noreferrer">itellyou</a>寻找下载链接。</p>
-<h3>在Linux上一键安装KMS激活服务器</h3>
-1. 安装KMS
-<pre>wget --no-check-certificate https://github.com/teddysun/across/raw/master/kms.sh &amp;&amp; chmod +x kms.sh &amp;&amp; ./kms.sh</pre>
-2. 验证安装
-<pre>netstat -nxtlp | grep 1688</pre>
-如果返回如下命令，则表示成功
-<pre>tcp        0      0 0.0.0.0:1688                0.0.0.0:*                   LISTEN      3200/vlmcsd         
-tcp        0      0 :::1688                     :::*                        LISTEN      3200/vlmcsd</pre>
-3. 管理KMS的命令
-<pre>/etc/init.d/kms start    #启动
-/etc/init.d/kms stop     #停止
-/etc/init.d/kms restart  #重启
-/etc/init.d/kms status   #状态</pre>
-4. 激活方法
-<p>（1）到下面的网址，去查找你要激活的产品的Key，如Win10专业版的是W269N-WFGWX-YVC9B-4J6C9-T83GX</p>
-<pre>Office 2016：https://technet.microsoft.com/zh-cn/library/dn385360(v=office.16).aspx
-Office 2013：https://technet.microsoft.com/ZH-CN/library/dn385360.aspx
-Office 2010：https://technet.microsoft.com/ZH-CN/library/ee624355(v=office.14).aspx
-Windows：https://docs.microsoft.com/zh-cn/windows-server/get-started/kmsclientkeys</pre>
-<p>（2）以激活Windows为例，在Windows上的cmd命令中依次运行如下命令</p>
-<pre>slmgr /ipk xxxxx-xxxxx-xxxxx-xxxxx-xxxxx</pre>
-<pre>slmgr /skms 你的ip或域名</pre>
-<pre>slmgr /ato</pre>
-<p>如果要找到激活Office的方法，可以出门右拐到<a href="https://03k.org/kms.html" target="_blank" rel="external nofollow noopener noreferrer">kissshot</a>的博客</p>
-<p> </p>
-<p>PS：KMS批量激活密钥广泛用于机房服务器操作系统和大型企业内部批量激活员工电脑。目前公开的KMS服务器封杀力度很大，为了节省大家的时间与精力，请低调使用，不要转载，且用且珍惜。</p>
-<p>KMS 激活有 180 天期限，此期限称为激活有效间隔。若要保持激活状态，您的系统必须通过至少每 180 天连接一次 KMS 服务器来续订激活。<br>
-默认情况下，系统每 7 天自动进行一次激活续订尝试。在续订客户端激活之后，激活有效间隔重新开始。</p>
-<p>综上所述，只要您的电脑不超过 180 天以上无法连接互联网，就无需进行任何操作，系统会自行续期保持激活状态。即永久激活。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[搭建 WordPress 博客教程]]></title>
-        <id>https://blog.g00gle.top/post/da-jian-wordpress-bo-ke-jiao-cheng/</id>
-        <link href="https://blog.g00gle.top/post/da-jian-wordpress-bo-ke-jiao-cheng/">
-        </link>
-        <updated>2018-08-09T17:00:36.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>感谢大佬<a href="https://www.jianshu.com/p/56750622cac9" target="_blank" rel="noopener">静候那一米阳光</a>的大力滋磁。原文链接：<a href="https://www.jianshu.com/p/56750622cac9" target="_blank" rel="noopener">https://www.jianshu.com/p/56750622cac9</a></blockquote>
-<p>一句话评价WordPress：美观，简单，主题插件丰富，是小白建站的不二选择。</p>
-<h2>需要</h2>
-<ul>
- 	<li>一台服务器</li>
- 	<li>一个域名，直接通过ip访问好傻好傻的样子，哈哈。</li>
- 	<li>linux知识</li>
- 	<li>肯折腾</li>
-</ul>
-<h2>具体步骤</h2>
-<h3>购买服务器选择Cent OS7 x64系统(本文基于Cent OS7 x64)并用ssh连接工具进行连接</h3>
-<h3>安装nginx，mysql，php</h3>
-建议使用lnmp一键安装包安装，方便快捷。如果不用一键安装包，我估计得研究这一块的东西大概一周吧。下面以一键安装包为例。
-<h4>获取lnmp一键安装包链接</h4>
-<a href="https://lnmp.org/download.html" target="_blank" rel="noopener">lnmp官网下载</a>
-<p>找到下载页面选择最新的复制其链接。</p>
-<p>写此文时最新版本信息如下：</p>
-<pre class="pure-highlightjs"><code class="null">最新稳定版本:
-
-LNMP 1.5
-
-下载版：(不含源码安装包文件，仅有安装脚本及配置文件)
-http://soft.vpser.net/lnmp/lnmp1.5.tar.gz
-文件大小：147KB
- MD5：78ef49a36150da64f2fac2aea41f9444
-</code></pre>
-<p>其中的<code>http://soft.vpser.net/lnmp/lnmp1.5.tar.gz</code>就是我们需要的链接，复制到剪贴板。如有更新，自行替换版本。</p>
-<h4>安装(以下也需要注意版本)</h4>
-<pre class="pure-highlightjs"><code class="null"># 下载，后边的路径直接粘贴就好。XShell上面复制快捷键是ctrl+insert，粘贴快捷键是Shift+insert，mac上面是我们熟悉的 command+c，command+v
-wget http://soft.vpser.net/lnmp/lnmp1.5.tar.gz
-# 解压
-tar -zxvf lnmp1.5.tar.gz
-# 进入lnmp目录
-cd lnmp1.5
-# 执行install.sh进行安装
-./install.sh
-</code></pre>
-出现如下页面：
-<img class="alignnone size-medium wp-image-58" src="https://tvax3.sinaimg.cn/large/006nES8lgy1gjdsqcnwbej308c05w759.jpg" alt="" width="300" height="212" />
-<p>依次输入你要安装的选项前的数字并回车即可下一步。</p>
-<h5>MySql 选项</h5>
-<pre class="pure-highlightjs"><code class="null">You have 5 options for your DataBase install.
-1: Install MySQL 5.1.73
-2: Install MySQL 5.5.53 (Default)
-3: Install MySQL 5.6.34
-4: Install MySQL 5.7.16
-5: Install MariaDB 5.5.53
-6: Install MariaDB 10.0.28
-7: Install MariaDB 10.1.19
-0: DO NOT Install MySQL/MariaDB
-Enter your choice (1, 2, 3, 4, 5, 6, 7 or 0):
-</code></pre>
-<div>
-<p>此处根据所需选择，如果使用的上述服务器，请选择2或者直接回车。我选择默认。</p>
-<p>注意：安装MySql时，如果选择太高的版本安装会被拒绝，提示信息如下 <code>Memory less than 1GB, can't install MySQL 5.6, 5.7 or MairaDB 10!</code>。根据大佬手动安装MySql5.7的经验来看，此768MB内存的服务器在运行一个nginx，mysql，php时还好，倘若再运行一个tomcat，mysql将会不定期down掉。所以此处选择一个低版本的5.5MySql即可。</p>
-<pre class="pure-highlightjs"><code class="null">You will install MySQL 5.5.53
-
-Please setup root password of MySQL.(Default password: root)
-Please enter: 
-</code></pre>
-<p>输入密码回车或直接回车，直接回车默认密码为root。此处做实验我选择默认，个人实际使用请修改。</p>
-<pre class="pure-highlightjs"><code class="null">MySQL root password: root
-
-Do you want to enable or disable the InnoDB Storage Engine?
-Default enable,Enter your choice [Y/n]:
-</code></pre>
-<p>输入Y或者n然后回车或直接回车，直接回车默认启用InnoDB存储引擎。我选择默认。</p>
-<pre class="pure-highlightjs"><code class="null">No input,The InnoDB Storage Engine will enable.
-
-You have 6 options for your PHP install.
-1: Install PHP 5.2.17
-2: Install PHP 5.3.29
-3: Install PHP 5.4.45
-4: Install PHP 5.5.38 (Default)
-5: Install PHP 5.6.30
-6: Install PHP 7.0.15
-7: Install PHP 7.1.1
-Enter your choice (1, 2, 3, 4, 5, 6 or 7):
-</code></pre>
-<p>输入选项然后回车或者直接回车，直接回车默认安装PHP5.5.38版本。我选择默认。</p>
-<pre class="pure-highlightjs"><code class="null">You will install PHP 7.1.1
-
-You have 3 options for your Memory Allocator install.
-1: Don't install Memory Allocator. (Default)
-2: Install Jemalloc
-3: Install TCMalloc
-</code></pre>
-<p>输入选项然后回车或者直接回车，直接回车默认不安装内存分配器。我选择默认。</p>
-<p>此时出现</p>
-<pre class="pure-highlightjs"><code class="null">Press any key to install...or Press Ctrl+c to cancel
-</code></pre>
-<p>当然是摁任意键啦，一般都是回车咯。</p>
-<p>然后出现一大堆信息。前几行如下：</p>
-<pre class="pure-highlightjs"><code class="null">You will install lnmp stack.
-nginx-1.10.3
-mysql-5.5.53
-php-5.5.38
-Enable InnoDB: y
-Print lnmp.conf infomation...
-Download Mirror: http://soft.vpser.net
-Nginx Additional Modules: 
-PHP Additional Modules: 
-Database Directory: /usr/local/mysql/var
-Default Website Directory: /home/wwwroot/default
-CentOS release 6.8 (Final)
-</code></pre>
-<p>这一堆东西你就不用管啦。过程挺久的，期间你去洗个澡看个电视剧都不是问题。然后我们看到屏幕上最后输出的信息如下。</p>
-<pre class="pure-highlightjs"><code class="null">The service command supports only basic LSB actions (start, stop, restart, try-restart, reload, force-reload, status). For other actions, please try to use systemctl.
-Removed symlink /etc/systemd/system/basic.target.wants/firewalld.service.
-Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
-Add Startup and Starting LNMP...
-Add nginx service at system startup...
-Starting nginx...  done
-Add mysql service at system startup...
-Starting MySQL... SUCCESS! 
-Add php-fpm service at system startup...
-Starting php-fpm  done
-============================== Check install ==============================
-Checking ...
-Nginx: OK
-MySQL: OK
-PHP: OK
-PHP-FPM: OK
-Clean src directory...
-+------------------------------------------------------------------------+
-|          LNMP V1.4 for CentOS Linux Server, Written by Licess          |
-+------------------------------------------------------------------------+
-|           For more information please visit https://lnmp.org           |
-+------------------------------------------------------------------------+
-|    lnmp status manage: lnmp {start|stop|reload|restart|kill|status}    |
-+------------------------------------------------------------------------+
-|  phpMyAdmin: http://IP/phpmyadmin/                                     |
-|  phpinfo: http://IP/phpinfo.php                                        |
-|  Prober:  http://IP/p.php                                              |
-+------------------------------------------------------------------------+
-|  Add VirtualHost: lnmp vhost add                                       |
-+------------------------------------------------------------------------+
-|  Default directory: /home/wwwroot/default                              |
-+------------------------------------------------------------------------+
-|  MySQL/MariaDB root password: root                          |
-+------------------------------------------------------------------------+
-+-------------------------------------------+
-|    Manager for LNMP, Written by Licess    |
-+-------------------------------------------+
-|              https://lnmp.org             |
-+-------------------------------------------+
-nginx (pid 715 713) is running...
-php-fpm is runing!
- SUCCESS! MySQL running (1247)
-Active Internet connections (only servers)
-Proto Recv-Q Send-Q Local Address           Foreign Address         State      
-tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN     
-tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN     
-tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     
-tcp6       0      0 :::22                   :::*                    LISTEN     
-Install lnmp V1.4 completed! enjoy it.
-</code></pre>
-<p>简单说明一下，此安装过程安装完成便也启动了nginx，mysql，php-fpm并加入了开机启动项。如果重启服务器，不需要再单独手动开启相关的服务了。总的来说相当方便的。</p>
-<p>这时候你在浏览器输入<code>http://IP</code> 便可以访问了。看到的内容如下：</p>
-<img class="alignnone size-medium wp-image-59" src="https://tva4.sinaimg.cn/large/006nES8lgy1gjdsrj5yvcj308c030gm1.jpg" alt="" width="300" height="108" />
-<div>
-<p>网站根目录路径<code>/home/wwwroot/default</code>,如果只用来放一些静态页面，那么，现在就足够了，直接将你的html，js，css等文件丢进去即可。这不是本文重点，在此不赘述了。</p>
-<p>退出使用<code>ctrl+c</code></p>
-<h3>安装WordPress</h3>
-<h4>下载WordPress包</h4>
-<a href="https://cn.wordpress.org" target="_blank" rel="nofollow noopener">中文官方站点</a> <a href="https://wordpress.org" target="_blank" rel="nofollow noopener">英文官方站点</a>具体的根据自己的需求选择。下面以中文版为例。当前最新版本是4.9.4(如果更新注意替换版本)
-<p>为了方便，我们还是在用站点默认的路径，但是我们投机取巧一下。</p>
-<pre class="pure-highlightjs"><code class="null"># 进入根目录上一级目录
-cd /home/wwwroot/
-# 将default重命名为old
-mv default old
-# 下载WordPress包中文版
-wget https://cn.wordpress.org/wordpress-4.9.4-zh_CN.tar.gz
-# 解压WordPress包
-tar -zxvf wordpress-4.9.4-zh_CN.tar.gz 
-# 查看解压后的文件夹名，此处是wordpress，估计应该都是吧，看看保险啊
-[root@vultr wwwroot]# ls
-old  wordpress  wordpress-4.9.4-zh_CN.tar.gz
-# 将wordpress重命名为default
-mv wordpress default
-# 再次查看检验
-[root@vultr wwwroot]# ls
-default  old  wordpress-4.9.4-zh_CN.tar.gz
-</code></pre>
-<h4>给相应目录授权</h4>
-<pre class="pure-highlightjs"><code class="null"># 目录以及目录下的文件授权
-[root@vultr wwwroot]# chown -R 755 /home/wwwroot
-chown: changing ownership of ‘/home/wwwroot/old/.user.ini’: Operation not permitted
-# 将目录的所有者分给www组下的www用户。
-[root@vultr wwwroot]# chown -R www:www /home/wwwroot/
-chown: changing ownership of ‘/home/wwwroot/old/.user.ini’: Operation not permitted
-</code></pre>
-出现的提示大概是说有一个文件无法更改用户分组和权限。不会影响你的wordpress，忽略就好。
-<h4>创建一个数据库wordpress</h4>
-<pre class="pure-highlightjs"><code class="null"># 登录数据库
-mysql -u root -p
-# 输入密码
-默认的话就是root，否则就是你自己之前设置的那个
-# 登录进来之后，看到这样一些东西
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 3
-Server version: 5.5.53-log Source distribution
-Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-mysql&gt; 
-# 不用理会上面的，创建我们的数据库，比如名字为wordpress。记得加分号。
-mysql&gt; create database wordpress;
-# 看一下，有没有我们创建的数据库
-mysql&gt; show databases;
-# 大概看到如下内容。意味着这一步也没问题。
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| mysql              |
-| performance_schema |
-| wordpress          |
-+--------------------+
-4 rows in set (0.01 sec)
-# 退出mysql
-exit
-</code></pre>
-<div>
-<h4>配置WordPress</h4>
-这时候在此通过浏览器访问 <code>http://IP</code> ，浏览器将自动跳转到<code>http://IP/wp-admin/setup-config.php</code>，这就是wordpress的配置页面了，看到的内容如下：
-<img class="alignnone size-medium wp-image-60" src="https://tvax2.sinaimg.cn/large/006nES8lgy1gjdss5d5e1j308c064q3l.jpg" alt="" width="300" height="220" />
-<p>点击现在就开始。这时候我们看到如下页面:<img class="alignnone size-medium wp-image-61" src="https://tva4.sinaimg.cn/large/006nES8lgy1gjdssjzk3vj308c05wt94.jpg" alt="" width="300" height="212" /></p>
-<p>按照之前设置的，输入如下信息。</p>
-<pre class="pure-highlightjs"><code class="null">数据库名：wordpress
-用户名：root
-密码：root
-数据库主机：localhost
-表前缀：wp_
-</code></pre>
-<p>点击提交。</p>
-<img class="alignnone size-medium wp-image-62" src="https://tva1.sinaimg.cn/large/006nES8lgy1gjdsveu4afj308c02wwei.jpg" alt="" width="300" height="104" />
-<p>到这一步，基本上就意味着大功告成了，因为后边基本不会出错啦。</p>
-<p>点击进行安装按钮。出现下图：</p>
-<img class="alignnone size-medium wp-image-63" src="https://tvax3.sinaimg.cn/large/006nES8lgy1gjdsurbupaj307o08c75b.jpg" alt="" width="276" height="300" />
-<p>按照自己的需求填写。</p>
-<p>点击安装WordPress按钮，然后登录设置啥的纯页面操作就不在这里过多介绍咯。</p>
-<p><strong>安装完成，本文结束</strong></p>
-</div>
-</div>
-</div>]]></content>
     </entry>
 </feed>
