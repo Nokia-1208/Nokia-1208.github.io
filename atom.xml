@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://blog.g00gle.top</id>
+    <id>https://blog.jedilib.top</id>
     <title>绝地图书馆</title>
-    <updated>2020-10-05T14:07:44.080Z</updated>
+    <updated>2020-10-06T12:09:30.043Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://blog.g00gle.top"/>
-    <link rel="self" href="https://blog.g00gle.top/atom.xml"/>
-    <logo>https://blog.g00gle.top/images/avatar.png</logo>
-    <icon>https://blog.g00gle.top/favicon.ico</icon>
+    <link rel="alternate" href="https://blog.jedilib.top"/>
+    <link rel="self" href="https://blog.jedilib.top/atom.xml"/>
+    <logo>https://blog.jedilib.top/images/avatar.png</logo>
+    <icon>https://blog.jedilib.top/favicon.ico</icon>
     <rights>All rights reserved 2020, 绝地图书馆</rights>
     <entry>
         <title type="html"><![CDATA[Heroku部署离线网盘]]></title>
-        <id>https://blog.g00gle.top/post/heroku-bu-shu-chi-xian-wang-pan/</id>
-        <link href="https://blog.g00gle.top/post/heroku-bu-shu-chi-xian-wang-pan/">
+        <id>https://blog.jedilib.top/post/heroku-bu-shu-chi-xian-wang-pan/</id>
+        <link href="https://blog.jedilib.top/post/heroku-bu-shu-chi-xian-wang-pan/">
         </link>
         <updated>2020-09-05T14:05:16.000Z</updated>
         <content type="html"><![CDATA[<blockquote>Heroku能灵活性极高且支持多种编程语言,借助此可以将小程序部署再上面。xinxin8816大佬 开发了aria2 下载然后上传到网盘中。理论上Rclone支持的网盘都支持，不过推荐使用Google Drive 或者OneDrive
@@ -69,8 +69,8 @@ windows 可以参考这篇文章<a href="https://www.lifeee.top/posts/14654.html
     </entry>
     <entry>
         <title type="html"><![CDATA[N1 刷 CoreELEC 方法记录]]></title>
-        <id>https://blog.g00gle.top/post/n1-shua-coreelec-fang-fa-ji-lu/</id>
-        <link href="https://blog.g00gle.top/post/n1-shua-coreelec-fang-fa-ji-lu/">
+        <id>https://blog.jedilib.top/post/n1-shua-coreelec-fang-fa-ji-lu/</id>
+        <link href="https://blog.jedilib.top/post/n1-shua-coreelec-fang-fa-ji-lu/">
         </link>
         <updated>2020-08-31T14:04:18.000Z</updated>
         <content type="html"><![CDATA[<!-- wp:quote -->
@@ -117,8 +117,8 @@ windows 可以参考这篇文章<a href="https://www.lifeee.top/posts/14654.html
     </entry>
     <entry>
         <title type="html"><![CDATA[用树莓派做一个魔镜]]></title>
-        <id>https://blog.g00gle.top/post/yong-shu-mei-pai-zuo-yi-ge-mo-jing/</id>
-        <link href="https://blog.g00gle.top/post/yong-shu-mei-pai-zuo-yi-ge-mo-jing/">
+        <id>https://blog.jedilib.top/post/yong-shu-mei-pai-zuo-yi-ge-mo-jing/</id>
+        <link href="https://blog.jedilib.top/post/yong-shu-mei-pai-zuo-yi-ge-mo-jing/">
         </link>
         <updated>2020-08-23T14:00:52.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -306,8 +306,8 @@ showNextDayAfter: undefined
     </entry>
     <entry>
         <title type="html"><![CDATA[qBittorrent + Rclone 自动上传脚本]]></title>
-        <id>https://blog.g00gle.top/post/qbittorrent-rclone-zi-dong-shang-chuan-jiao-ben/</id>
-        <link href="https://blog.g00gle.top/post/qbittorrent-rclone-zi-dong-shang-chuan-jiao-ben/">
+        <id>https://blog.jedilib.top/post/qbittorrent-rclone-zi-dong-shang-chuan-jiao-ben/</id>
+        <link href="https://blog.jedilib.top/post/qbittorrent-rclone-zi-dong-shang-chuan-jiao-ben/">
         </link>
         <updated>2020-08-13T13:53:52.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -704,8 +704,8 @@ fi
     </entry>
     <entry>
         <title type="html"><![CDATA[Docker 里安装 TinyMediaManager 并开启中文支持]]></title>
-        <id>https://blog.g00gle.top/post/docker-li-an-zhuang-tinymediamanager-bing-kai-qi-zhong-wen-zhi-chi/</id>
-        <link href="https://blog.g00gle.top/post/docker-li-an-zhuang-tinymediamanager-bing-kai-qi-zhong-wen-zhi-chi/">
+        <id>https://blog.jedilib.top/post/docker-li-an-zhuang-tinymediamanager-bing-kai-qi-zhong-wen-zhi-chi/</id>
+        <link href="https://blog.jedilib.top/post/docker-li-an-zhuang-tinymediamanager-bing-kai-qi-zhong-wen-zhi-chi/">
         </link>
         <updated>2020-05-10T13:51:45.000Z</updated>
         <content type="html"><![CDATA[<blockquote><a href="https://www.tinymediamanager.org/">tinyMediaManager</a> 是一款 Windows、macOS、Linux 下的本地电影、电视剧管理工具，支持自动下载影片信息、海报、剧照、剧情（中文）、标记已观看、同步 Trakt.tv 等功能。
@@ -773,8 +773,8 @@ docker restart bb3211bae503
     </entry>
     <entry>
         <title type="html"><![CDATA[星际蜗牛安装黑群晖]]></title>
-        <id>https://blog.g00gle.top/post/xing-ji-gua-niu-an-zhuang-hei-qun-hui/</id>
-        <link href="https://blog.g00gle.top/post/xing-ji-gua-niu-an-zhuang-hei-qun-hui/">
+        <id>https://blog.jedilib.top/post/xing-ji-gua-niu-an-zhuang-hei-qun-hui/</id>
+        <link href="https://blog.jedilib.top/post/xing-ji-gua-niu-an-zhuang-hei-qun-hui/">
         </link>
         <updated>2020-05-08T13:50:23.000Z</updated>
         <content type="html"><![CDATA[<blockquote>蜗牛 B 款双网口 4 盘位机箱 + J1900 处理器 + 4G RAM + 16G MSATA SSD + 150W 电源</blockquote>
@@ -811,8 +811,8 @@ docker restart bb3211bae503
     </entry>
     <entry>
         <title type="html"><![CDATA[使用VSCode编写51单片机代码并生成hex]]></title>
-        <id>https://blog.g00gle.top/post/shi-yong-vscode-bian-xie-51-dan-pian-ji-dai-ma-bing-sheng-cheng-hex/</id>
-        <link href="https://blog.g00gle.top/post/shi-yong-vscode-bian-xie-51-dan-pian-ji-dai-ma-bing-sheng-cheng-hex/">
+        <id>https://blog.jedilib.top/post/shi-yong-vscode-bian-xie-51-dan-pian-ji-dai-ma-bing-sheng-cheng-hex/</id>
+        <link href="https://blog.jedilib.top/post/shi-yong-vscode-bian-xie-51-dan-pian-ji-dai-ma-bing-sheng-cheng-hex/">
         </link>
         <updated>2020-04-12T13:49:14.000Z</updated>
         <content type="html"><![CDATA[<blockquote>作为一个颜狗，我觉得VScode绝对比Keil5漂亮，于是乎在网上寻找代替方案，终于给我找到了。
@@ -835,8 +835,8 @@ docker restart bb3211bae503
     </entry>
     <entry>
         <title type="html"><![CDATA[更换Visual Studio Code背景图]]></title>
-        <id>https://blog.g00gle.top/post/geng-huan-visual-studio-code-bei-jing-tu/</id>
-        <link href="https://blog.g00gle.top/post/geng-huan-visual-studio-code-bei-jing-tu/">
+        <id>https://blog.jedilib.top/post/geng-huan-visual-studio-code-bei-jing-tu/</id>
+        <link href="https://blog.jedilib.top/post/geng-huan-visual-studio-code-bei-jing-tu/">
         </link>
         <updated>2020-04-11T13:47:08.000Z</updated>
         <content type="html"><![CDATA[<blockquote>你是否有过这样的经历：当你兴致勃勃的打开Visual Studio Code，正准备键来，但是VScode的黑色背景看得又不是很喜欢，看着黑色的背景不禁陷入沉思。这黑乎乎的到底是什么。</blockquote>
@@ -913,8 +913,8 @@ Is the picture still there after uninstalling the extension? Please turn off man
     </entry>
     <entry>
         <title type="html"><![CDATA[Fiddler实现手机抓包]]></title>
-        <id>https://blog.g00gle.top/post/fiddler-shi-xian-shou-ji-zhua-bao/</id>
-        <link href="https://blog.g00gle.top/post/fiddler-shi-xian-shou-ji-zhua-bao/">
+        <id>https://blog.jedilib.top/post/fiddler-shi-xian-shou-ji-zhua-bao/</id>
+        <link href="https://blog.jedilib.top/post/fiddler-shi-xian-shou-ji-zhua-bao/">
         </link>
         <updated>2020-04-11T13:45:54.000Z</updated>
         <content type="html"><![CDATA[<blockquote>我这里使用模拟器代替手机
@@ -950,8 +950,8 @@ Is the picture still there after uninstalling the extension? Please turn off man
     </entry>
     <entry>
         <title type="html"><![CDATA[Keil uVision5 C51和DEV C++编译器分享]]></title>
-        <id>https://blog.g00gle.top/post/keil-uvision5-c51-he-dev-cbian-yi-qi-fen-xiang/</id>
-        <link href="https://blog.g00gle.top/post/keil-uvision5-c51-he-dev-cbian-yi-qi-fen-xiang/">
+        <id>https://blog.jedilib.top/post/keil-uvision5-c51-he-dev-cbian-yi-qi-fen-xiang/</id>
+        <link href="https://blog.jedilib.top/post/keil-uvision5-c51-he-dev-cbian-yi-qi-fen-xiang/">
         </link>
         <updated>2020-04-11T13:44:27.000Z</updated>
         <content type="html"><![CDATA[<blockquote>最近在学51单片机，分享一下用的Keil uVision5</blockquote>
