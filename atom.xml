@@ -2,13 +2,81 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.jedilib.top</id>
     <title>绝地图书馆</title>
-    <updated>2021-01-23T08:44:01.670Z</updated>
+    <updated>2021-01-23T10:44:27.995Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.jedilib.top"/>
     <link rel="self" href="https://blog.jedilib.top/atom.xml"/>
     <logo>https://blog.jedilib.top/images/avatar.png</logo>
     <icon>https://blog.jedilib.top/favicon.ico</icon>
     <rights>All rights reserved 2021, 绝地图书馆</rights>
+    <entry>
+        <title type="html"><![CDATA[用电脑控制Nintendo Switch]]></title>
+        <id>https://blog.jedilib.top/post/yong-dian-nao-kong-zhi-nintendo-switch/</id>
+        <link href="https://blog.jedilib.top/post/yong-dian-nao-kong-zhi-nintendo-switch/">
+        </link>
+        <updated>2021-01-23T08:47:05.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>本文将介绍运用 Arduino 模拟手柄操作，在电脑端使用 Python 发送指令模拟手柄操作，大大减少人工机械式操作，达到释放双手的效果。</strong></p>
+<h1 id="材料">材料</h1>
+<ul>
+<li>单片机 （Arduino UNO R3 注意 USB 口旁边一定要有六根注脚）</li>
+<li>USB线Type-A转Type-B（选 UNO R3 带线版就会送了）</li>
+<li>USB 转 TTL 模块（CH340g）</li>
+<li>Type C OTG 线</li>
+<li>公转母口杜邦线若干</li>
+</ul>
+<h1 id="软件包">软件包</h1>
+<p>下载并全部解压<br>
+<a href="https://kenshin.lanzous.com/b0algmgqh">https://kenshin.lanzous.com/b0algmgqh</a><br>
+密码:auah</p>
+<h1 id="过程">过程</h1>
+<p><strong>1.</strong> 将软件包中的 Python 和 Flip 安装在电脑上，注意 Flip 需要 Java 1.8，可以在<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">官网</a>下载，如果电脑有 Java 1.7 可能需要先卸载才不会报错（我就是没卸载报错了）。</p>
+<p><strong>2.</strong> 然后单片机用 USB 线连接电脑，如果电脑识别出设备为 ATmega16u2 直接到第四步，如果识别不错继续玩下看<br>
+<strong>3</strong>. 短接 USB 口旁边的两个触点<br>
+<img src="https://blog.jedilib.top/post-images/1611395214707.jpg" alt="" loading="lazy"><br>
+打开电脑设备管理器（Win 键+X 或者右键计算机-设备管理器）将未知设备右键，点击更新驱动，选择手动，文件夹设置为 Flip 目录下的 USB 目录，勾选“包括子文件夹”。<br>
+<strong>4.</strong> 安装驱动后识别出设备为 ATmega16u2 后打开 Flip，点击第一个图标，选择 ATmega16u2 确定<br>
+<img src="https://blog.jedilib.top/post-images/1611395472448.jpg" alt="" loading="lazy"><br>
+然后按第二个图标（或者 Ctrl+U）点击 “Open”，再选择手柄固件“Joystick.hex”，注意路径不能有中文按下 ”RUN“ 运行完，断开单片机与电脑的连接。<br>
+<strong>5.</strong> 配置 Python 环境，<br>
+方式一：<br>
+在cmd下输入： <code>path=%path%;“script 目录”</code>  接着按&quot;Enter&quot;回车键。注意不用打引号。<br>
+方式二：<br>
+复制你 Python 安装目录下的 script 目录。<br>
+<img src="https://blog.jedilib.top/post-images/1611395911892.jpg" alt="" loading="lazy"><br>
+然后点击“此电脑（右键）-高级系统设置-环境变量-系统变量-Path（双击）”添加 script 目录。</p>
+<p>配置好之后就可以运行“安装库文件.bat“，确保五个库都成功安装<br>
+<strong>6.</strong> 使用 CH340g 连接 Arduino ，接线如图<br>
+<img src="https://blog.jedilib.top/post-images/1611397385483.jpg" alt="" loading="lazy"><br>
+刚刚刷固件的 USB 线用来插入 switch 模拟手柄用线，Arduino 用 CH340g 连接电脑。<br>
+<strong>7.</strong> 运行示例 simple_example.py ，保证 NSController.py 在同一文件夹内。这段代码作用是连按 A 键十下。</p>
+<h1 id="键位对应表来源wwwwwwzxbilibili">键位对应表（来源<a href="https://www.bilibili.com/read/cv4516194">wwwwwwzx@bilibili</a>）</h1>
+<p>X Y A B L R ZL ZR 直接原名调用即可， 如ctr.A() 就是按下A键<br>
+主页键（h），截图键（c），加号键（p），减号键（m）<br>
+按下左摇杆（LS），按下右摇杆（RS）<br>
+十字键上（u）下（d）左（l）右（r）<br>
+左摇杆上（ls_u）下（ls_d）左（ls_l）右（ls_r）<br>
+右摇杆上（rs_u）下（rs_d）左（rs_l）右（rs_r）<br>
+然后函数内的数字可以控制按键的时间长短，以秒为单位，非正则保持不松开，如：<br>
+ctr.A() ：按下A键后马上松开（默认按下0.1秒）<br>
+ctr.B(22) ：按下B键22秒后松开<br>
+ctr.ls_r(-1) 或 ctr.ls_r(0) ：将左摇杆向右推并保持，不松开<br>
+其他操作<br>
+ctr = Controller() 创建一个名为ctr的实例，并自动连接<br>
+ctr.release() 松开所有按键和摇杆<br>
+ctr.close() 断开控制<br>
+ctr.pause(33) 等待33秒<br>
+还有一些简单示范如<br>
+ctr.quit_app() 退出当前游戏<br>
+ctr.AccessBackupSave() 同时按下上+X+B来调用剑盾备用存档 等</p>
+<h1 id="后记">后记</h1>
+<p><strong>脱离电脑控制可以把脚本编译成固件，直接通电就能用。这个方法相对简单，我这种不会编程的也能写脚本，比安卓手机用 joy-con droid 加上脚本精灵好多了，用手机连接还容易断联</strong></p>
+<p>Thanks To：<br>
+<a href="https://github.com/progmem/Switch-Fightstick">https://github.com/progmem/Switch-Fightstick</a><br>
+<a href="https://space.bilibili.com/2315502">劳资是阿翔@bilibili</a> （脚本来源）<br>
+<a href="https://space.bilibili.com/9442126">無鸣晓竹@bilibili</a>  （可以看看他的手机控制）<br>
+<a href="https://space.bilibili.com/7717095">wwwwwwzx@bilibili</a> （固件来源）</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://blog.jedilib.top/post/hello-gridea/</id>
@@ -941,42 +1009,5 @@ docker restart bb3211bae503
 Is the picture still there after uninstalling the extension? Please turn off manually and open vscode again, which will automatically perform the final cleaning operation and restart.
 </code></pre>
 &nbsp;]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Fiddler实现手机抓包]]></title>
-        <id>https://blog.jedilib.top/post/fiddler-shi-xian-shou-ji-zhua-bao/</id>
-        <link href="https://blog.jedilib.top/post/fiddler-shi-xian-shou-ji-zhua-bao/">
-        </link>
-        <updated>2020-04-11T13:45:54.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>我这里使用模拟器代替手机
-<p><a target="_blank"><span id="filename20587856" class="f_name_title">Telerik Fiddler Web Debugger 5.0 中文版下载</span></a></blockquote><br>
- </p>
-<h1><strong>fiddler设置</strong></h1>
-1.打开<code class="null">工具-选项
-</code>配置fiddler允许监听到https
-<img class="alignnone size-medium" src="https://tva1.sinaimg.cn/large/006nES8lgy1gdptaqavffj30fi0aggm4.jpg" width="558" height="376" />
-<p> </p>
-<p>2.配置fiddler允许远程连接，配置好后要重新启动fiddler</p>
-<img class="alignnone size-medium" src="https://tvax2.sinaimg.cn/large/006nES8lgy1gdptbtmsx0j30fi0agaap.jpg" width="558" height="376" />
-<p> </p>
-<h1>手机设置</h1>
-手机的话就要和fiddler同一局域网，然后打开手机浏览器，输入<code class="null">http://ip:端口号
-</code>，IP是电脑的IP，端口号默认是8888
-<img class="alignnone size-medium" src="https://tvax1.sinaimg.cn/large/006nES8lgy1gdptgiukeuj30ge0sc75a.jpg" width="590" height="1020" />
-<p> </p>
-<p>下载安装，随便写个名字就行，点击确定。模拟器没有密码，设置一个就行了</p>
-<p> </p>
-<img class="alignnone size-medium" src="https://tvax1.sinaimg.cn/large/006nES8lgy1gdpthw4jwaj30ge0scmxx.jpg" width="590" height="1020" />
-<p> </p>
-<img class="alignnone size-medium" src="https://tva2.sinaimg.cn/large/006nES8lgy1gdptl9gw2lj30ge0scdh0.jpg" width="590" height="1020" />
-<p> </p>
-<p>然后就操作就可以抓包了。</p>
-<p> </p>
-<h1>其他</h1>
-1.停止电脑对手机的网络监控：<code class="null">系统设置-wifi</code>，找到代理，去掉即可；
-<p>2.删除手机中证书：<code class="null">设置—安全—受信任的凭证—用户</code>，点击证书删除即可；</p>
-<p> </p>
-<p> </p>
-]]></content>
     </entry>
 </feed>
