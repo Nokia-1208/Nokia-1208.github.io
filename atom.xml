@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.jedilib.top</id>
     <title>绝地图书馆</title>
-    <updated>2021-01-23T11:17:34.645Z</updated>
+    <updated>2021-01-23T11:24:58.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.jedilib.top"/>
     <link rel="self" href="https://blog.jedilib.top/atom.xml"/>
@@ -36,7 +36,7 @@
 打开电脑设备管理器（Win 键+X 或者右键计算机-设备管理器）将未知设备右键，点击更新驱动，选择手动，文件夹设置为 Flip 目录下的 USB 目录，勾选“包括子文件夹”。<br>
 <strong>4.</strong> 安装驱动后识别出设备为 ATmega16u2 后打开 Flip，点击第一个图标，选择 ATmega16u2 确定<br>
 <img src="https://blog.jedilib.top/post-images/1611395472448.jpg" alt="" loading="lazy"><br>
-然后按第二个图标（或者 Ctrl+U）点击 “Open”，再选择手柄固件“Joystick.hex”，注意路径不能有中文按下”RUN“运行完，断开单片机与电脑的连接。<br>
+然后按第二个图标（或者 Ctrl+U）点击 “Open”，再选择手柄固件“Joystick.hex”，注意路径不能有中文按下“RUN”运行完，断开单片机与电脑的连接。<br>
 <strong>5.</strong> 配置 Python 环境，<br>
 方式一：<br>
 在cmd下输入： <code>path=%path%;“script 目录”</code>  接着按&quot;Enter&quot;回车键。注意不用打引号。<br>
