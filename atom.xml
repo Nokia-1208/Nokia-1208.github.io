@@ -2,13 +2,39 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.jedilib.top</id>
     <title>绝地图书馆</title>
-    <updated>2021-01-24T02:30:50.826Z</updated>
+    <updated>2021-02-13T13:15:44.987Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.jedilib.top"/>
     <link rel="self" href="https://blog.jedilib.top/atom.xml"/>
     <logo>https://blog.jedilib.top/images/avatar.png</logo>
     <icon>https://blog.jedilib.top/favicon.ico</icon>
     <rights>All rights reserved 2021, 绝地图书馆</rights>
+    <entry>
+        <title type="html"><![CDATA[用手机做电脑副屏]]></title>
+        <id>https://blog.jedilib.top/post/yong-shou-ji-zuo-dian-nao-fu-ping/</id>
+        <link href="https://blog.jedilib.top/post/yong-shou-ji-zuo-dian-nao-fu-ping/">
+        </link>
+        <updated>2021-02-13T07:01:03.000Z</updated>
+        <content type="html"><![CDATA[<p>我个人经常会一边看视频一边挂机，偶尔还会开一下别的窗口，对我来说有两块屏幕一块有用来看视频，一块用来监控挂机项目就显得重要了。但是目前手头不是很充裕，刚好家里有旧手机我就考虑手机能不能做电脑副屏。后来找了一款软件，还挺有用的。</p>
+<h1 id="spacedesk">Spacedesk</h1>
+<ul>
+<li>服务端：仅支持 Windows | <a href="https://spacedesk.net/">官网</a></li>
+<li>接收端：支持 iOS 和 <a href="https://play.google.com/store/apps/details?id=ph.spacedesk.beta">Android</a>、<a href="https://kenshin.lanzous.com/isPW7ln0qbg">安卓汉化版</a></li>
+<li>连接方式：局域网连接</li>
+<li>收费：免费</li>
+<li>是否适配移动设备原生分辨率：是</li>
+</ul>
+<p>在官网下载 PC 服务端并启动，然后让手机和电脑处于同一局域网下；手机端下载安装好 Spacedesk 并打开就能看到作为服务器端的电脑。在 app 通过右上角的设置，我们可以手动设置传输的画面质量和分辨率。在Windows里也能设置。<br>
+<img src="https://blog.jedilib.top/post-images/1613218413681.jpg" alt="" loading="lazy"><br>
+<img src="https://blog.jedilib.top/post-images/1613218497542.png" alt="" loading="lazy"><br>
+画质拉满还是占用有点高，不过我局域网比较差，画面比较卡顿，但是默认设置还能看的过去。最主要等于拓展了一块触摸屏。<br>
+<img src="https://blog.jedilib.top/post-images/1613219358769.png" alt="" loading="lazy"><br>
+颜色断层明显<br>
+<img src="https://blog.jedilib.top/post-images/1613219090752.jpg" alt="" loading="lazy"><br>
+效果图<br>
+<img src="https://blog.jedilib.top/post-images/1613222080942.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[用电脑控制Nintendo Switch]]></title>
         <id>https://blog.jedilib.top/post/yong-dian-nao-kong-zhi-nintendo-switch/</id>
@@ -931,83 +957,5 @@ docker restart bb3211bae503
 <p> </p>
 <p> </p>
 ]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[更换Visual Studio Code背景图]]></title>
-        <id>https://blog.jedilib.top/post/geng-huan-visual-studio-code-bei-jing-tu/</id>
-        <link href="https://blog.jedilib.top/post/geng-huan-visual-studio-code-bei-jing-tu/">
-        </link>
-        <updated>2020-04-11T13:47:08.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>你是否有过这样的经历：当你兴致勃勃的打开Visual Studio Code，正准备键来，但是VScode的黑色背景看得又不是很喜欢，看着黑色的背景不禁陷入沉思。这黑乎乎的到底是什么。</blockquote>
-这个问题的解决方法很简单，打开VScode<code class="null">文件-首选项-颜色主题</code>换一个不是黑色的就行了，本文结束。
-<p> </p>
-<p> </p>
-<h1>安装background插件</h1>
-首先<code class="null">Ctrl+Shift+X</code>呼出拓展，搜索框中输入 <span style="color: #ff0000;">background <span style="color: #000000;">搜索，安装这个。<a href="https://marketplace.visualstudio.com/items?itemName=shalldie.background">商店网址</a></span></span>
-<img class="alignnone size-medium" src="https://tva3.sinaimg.cn/large/006nES8lgy1gdpr6te1nkj30sg0s5acy.jpg" width="1024" height="1013" />
-<p>[caption id=&quot;&quot; align=&quot;alignnone&quot; width=&quot;661&quot;]<img class="size-medium" src="https://tvax2.sinaimg.cn/large/006nES8lgy1gdpr8fj778j30id03cwed.jpg" width="661" height="120" /> 本插件是通过修改 vscode 的 css 文件的方式运行 所以会在初次安装，或者 vscode 升级的时候，出现以下提示，请选择 【不再提示】[/caption]</p>
-<p> </p>
-<p>安装完成后，关闭vscode，使用<span style="color: #ff0000;">管理员权限</span>运行</p>
-<p> </p>
-<h1>插件设置</h1>
-打开<code class="null">文件-首选项-设置
-</code>修改
-<img class="alignnone size-medium" src="https://tva1.sinaimg.cn/large/006nES8lgy1gdpz0xdg69j30sg0lcmy6.jpg" width="1024" height="768" />
-<p>输入，代码来源：<a href="https://cloud.tencent.com/developer/article/1335806">【VSCode插件】background添加编辑器背景</a></p>
-<pre class="pure-highlightjs"><code class="null">// 是否开启背景图显示
-"background.enabled": true,
-// true-显示默认的图片  false-显示用户自定义的图片
-"background.useDefault": false,
-// 自定义显示的图片，【路径要用双引号】
-"background.customImages": [
-    // 最多设置三张图片，默认显示最上方的图片，当打开多个侧边栏时再依次显示后面的背景图片
-    "D:/UserData/My Documents/My Pictures/man.jpg",
-    "D:/UserData/My Documents/My Pictures/geek2.jpg",
-    "D:/UserData/My Documents/My Pictures/jizhi.jpg",
-],
-"background.useFront": false,
-// 默认透明度是100%，看起来生硬，不够炫酷
-"background.style":{
-    // 编辑器显示文字，默认在左上角
-    "content":"'HELLO WORLD'",
-    "pointer-events":"none",
-    // 以下都是CSS显示样式设置
-    "position":"absolute",
-    "top":"0",
-    "right":"0",
-    "width":"100%",
-    "height":"100%",
-    "z-index":"99999",
-    "background.repeat":"no-repeat",
-    "background-size":"contain",
-    // 设置透明度
-    "opacity":0.1
-}</code></pre>
-<p>保存并重新启动，效果如图：</p>
-<img class="alignnone size-medium" src="https://tvax4.sinaimg.cn/large/006nES8lgy1gdq04sovjlj30sg0lc40f.jpg" width="1024" height="768" />
-<p> </p>
-<h1>卸载方法</h1>
-根据描述
-<pre><code>插件在删除的时候，会自动删除添加的样式（依赖node环境）。
-如果没有node环境，需要在 settings.json 中设置 {"background.enabled": false} ，然后再删除插件。如果直接删除插件会有遗留，就需要重装vscode了。
-</code></pre>
-&nbsp;
-<p> </p>
-<h1>第二种方法：background-cover</h1>
-<a href="https://marketplace.visualstudio.com/items?itemName=manasxx.background-cover">商店地址</a>
-<p>1：右键<span style="color: #ff0000;">管理员身份运行</span>vscode<br>
-2：商店搜索下载 <span style="color: #ff0000;">background-cover </span>插件</p>
-<img class="alignnone size-medium" src="https://tva1.sinaimg.cn/large/006nES8lgy1gdq0lhmf99j30sg0lcmzi.jpg" width="1024" height="768" />
-3：<code class="null">ctrl+shift+p</code>，输入<code class="null">backgroundCover - start</code>命令
-<img class="alignnone size-medium" src="https://tva4.sinaimg.cn/large/006nES8lgy1gdq0kqmrw0j30sg0lcwgk.jpg" width="1024" height="768" />
-4：然后可以选择背景图片和设置透明度
-<p>效果如图</p>
-<p> </p>
-<h1 id="uninstall">卸载</h1>
-根据描述
-<pre><code>如果卸载扩展后图片背景还在？这个不是bug,请手动关闭再打开一次vscode会自动执行最后的清理操作，然后重启即可。
-Is the picture still there after uninstalling the extension? Please turn off manually and open vscode again, which will automatically perform the final cleaning operation and restart.
-</code></pre>
-&nbsp;]]></content>
     </entry>
 </feed>
