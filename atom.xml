@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.ba7lcy.com</id>
+    <title>BA7LCY的记事本</title>
+    <updated>2022-11-26T18:46:24.570Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://blog.ba7lcy.com"/>
+    <link rel="self" href="https://blog.ba7lcy.com/atom.xml"/>
+    <subtitle>纸上得来终觉浅，绝知此事要躬行</subtitle>
+    <logo>https://blog.ba7lcy.com/images/avatar.png</logo>
+    <icon>https://blog.ba7lcy.com/favicon.ico</icon>
+    <rights>All rights reserved 2022, BA7LCY的记事本</rights>
+    <entry>
+        <title type="html"><![CDATA[小米 MIX2S 安装 Android 和 Windows 双系统]]></title>
+        <id>https://blog.ba7lcy.com/xiao-mi-mix2s-an-zhuang-android-he-windows-shuang-xi-tong/</id>
+        <link href="https://blog.ba7lcy.com/xiao-mi-mix2s-an-zhuang-android-he-windows-shuang-xi-tong/">
+        </link>
+        <updated>2022-11-26T18:42:42.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[PVE 引导损坏修复记录]]></title>
+        <id>https://blog.ba7lcy.com/pve-yin-dao-sun-pi-xiu-fu-ji-lu/</id>
+        <link href="https://blog.ba7lcy.com/pve-yin-dao-sun-pi-xiu-fu-ji-lu/">
+        </link>
+        <updated>2022-11-02T11:52:18.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Windows 下部署 Komga]]></title>
+        <id>https://blog.ba7lcy.com/windows-xia-bu-shu-komga/</id>
+        <link href="https://blog.ba7lcy.com/windows-xia-bu-shu-komga/">
+        </link>
+        <updated>2022-09-24T19:16:55.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Windows 下配置 CloudFlare 动态域名解析]]></title>
+        <id>https://blog.ba7lcy.com/windows-xia-pei-zhi-cloudflare-dong-tai-yu-ming-jie-xi/</id>
+        <link href="https://blog.ba7lcy.com/windows-xia-pei-zhi-cloudflare-dong-tai-yu-ming-jie-xi/">
+        </link>
+        <updated>2022-04-10T10:38:03.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[OpenWrt 软路由开启 IPV6]]></title>
+        <id>https://blog.ba7lcy.com/openwrt-ruan-lu-you-kai-qi-ipv6/</id>
+        <link href="https://blog.ba7lcy.com/openwrt-ruan-lu-you-kai-qi-ipv6/">
+        </link>
+        <updated>2022-04-09T18:01:54.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Proxmox VE 安装 OpenWrt]]></title>
+        <id>https://blog.ba7lcy.com/proxmox-ve-an-zhuang-ruan-lu-you/</id>
+        <link href="https://blog.ba7lcy.com/proxmox-ve-an-zhuang-ruan-lu-you/">
+        </link>
+        <updated>2022-03-16T18:26:04.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Proxmox VE 无法关闭虚拟机的解决方法]]></title>
+        <id>https://blog.ba7lcy.com/proxmox-ve-wu-fa-guan-bi-xu-ni-ji-de-jie-jue-fang-fa/</id>
+        <link href="https://blog.ba7lcy.com/proxmox-ve-wu-fa-guan-bi-xu-ni-ji-de-jie-jue-fang-fa/">
+        </link>
+        <updated>2022-03-15T11:19:01.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Windows 下使用 .sh 脚本,以qBittorrent + Rclone 自动上传脚本为例]]></title>
+        <id>https://blog.ba7lcy.com/windows-xia-shi-yong-sh-jiao-ben-yi-qbittorrent-rclone-zi-dong-shang-chuan-jiao-ben-wei-li/</id>
+        <link href="https://blog.ba7lcy.com/windows-xia-shi-yong-sh-jiao-ben-yi-qbittorrent-rclone-zi-dong-shang-chuan-jiao-ben-wei-li/">
+        </link>
+        <updated>2022-03-11T11:36:48.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[PVE LXC 开启 Emby 视频硬件加速]]></title>
+        <id>https://blog.ba7lcy.com/pve-lxc-rong-qi-an-zhuang-docker-bing-kai-qi-emby-shi-pin-ying-jian-jia-su/</id>
+        <link href="https://blog.ba7lcy.com/pve-lxc-rong-qi-an-zhuang-docker-bing-kai-qi-emby-shi-pin-ying-jian-jia-su/">
+        </link>
+        <updated>2022-03-08T12:40:19.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[白嫖游戏之 Steam 篇]]></title>
+        <id>https://blog.ba7lcy.com/bai-piao-you-xi-zhi-steam-pian/</id>
+        <link href="https://blog.ba7lcy.com/bai-piao-you-xi-zhi-steam-pian/">
+        </link>
+        <updated>2022-01-05T14:47:19.000Z</updated>
+    </entry>
+</feed>
